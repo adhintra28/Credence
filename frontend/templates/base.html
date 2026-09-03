@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Pre-Delinquency{% endblock %}</title>
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f6fa;color:#1c2333;margin:0}
+.top{background:#0f2a44;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.top a{color:#bcd2ff;text-decoration:none;margin-left:14px}
+.wrap{max-width:1100px;margin:22px auto;padding:0 16px}
+.card{background:#fff;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.btn{background:#1d5fd6;color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
+.btn.ghost{background:#e7edf7;color:#1d5fd6}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border-bottom:1px solid #e5e9f0;padding:8px;text-align:left}
+th{background:#eef2f9}
+.tier-Red{background:#fde2e2;color:#a31212;font-weight:bold;padding:2px 8px;border-radius:10px}
+.tier-Amber{background:#fff1cf;color:#8a5a00;font-weight:bold;padding:2px 8px;border-radius:10px}
+.tier-Green{background:#dff5e1;color:#14622e;font-weight:bold;padding:2px 8px;border-radius:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{background:#0f2a44;color:#fff;border-radius:10px;padding:14px;text-align:center}
+.kpi b{font-size:24px;display:block}
+.nav a{margin-right:12px}
+input,select{padding:8px;border:1px solid #c6cfdd;border-radius:6px}
+.msg{background:#e8f7e9;border:1px solid #9ed6a3;padding:10px;border-radius:6px;margin-bottom:12px}
+.err{background:#fde2e2;border:1px solid #f0a3a3;padding:10px;border-radius:6px;margin-bottom:12px}
+small{color:#5b6b85}
+</style></head>
+<body><div class="top"><div><b>Pre-Delinquency Engine</b> <small style="color:#bcd2ff">production</small></div>
+<div>{% if session.get('email') %}{{session.email}} ({{session.role}}) <a href="/logout">logout</a>{% endif %}</div></div>
+<div class="wrap">{% block body %}{% endblock %}</div></body></html>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% block title %}Alerts queue{% endblock %}{% block body %}
+<div class="nav card"><a href="/bank">Portfolio</a><a href="/bank/queue"><b>Alerts queue</b></a><a href="/bank/interventions">Interventions</a><a href="/bank/model">Model health</a></div>
+<div class="card"><h2>Alerts queue — {{scoring_date}}</h2>
+{% if msg %}<div class="msg">{{msg}}</div>{% endif %}
+<form method="get">Search <input name="q" value="{{q}}" placeholder="customer or reason">
+Tier <select name="tier"><option value="">all</option><option {{'selected' if tier=='Red'}}>Red</option><option {{'selected' if tier=='Amber'}}>Amber</option></select>
+View <select name="view"><option value="open" {{'selected' if view=='open'}}>open</option><option value="all" {{'selected' if view=='all'}}>all</option><option value="approved" {{'selected' if view=='approved'}}>approved</option><option value="snoozed" {{'selected' if view=='snoozed'}}>snoozed</option></select>
+<button class="btn">Filter</button></form><br>
+<table><tr><th>customer</th><th>tier</th><th>score</th><th>reason</th><th>emi</th><th>exp loss</th><th>analyst</th><th>action</th></tr>
+{% for r in alerts %}<tr><td><a href="/bank/customer/{{r.customer_id}}">{{r.customer_id}}</a></td>
+<td><span class="tier-{{r.tier}}">{{r.tier}}</span></td><td>{{r.score}}</td><td>{{r.top_reason}}</td><td>{{r.emi_amount}}</td><td>{{r.expected_loss}}</td>
+<td>{{r.analyst_action or '-'}} / {{r.intervention_status or '-'}}</td>
+<td><form method="post" style="display:inline"><input type="hidden" name="customer_id" value="{{r.customer_id}}">
+<button class="btn" name="action" value="approved">Approve</button>
+<button class="btn ghost" name="action" value="snoozed">Snooze</button></form></td></tr>{% endfor %}
+</table><p><small>{{alerts|length}} shown · Red capped top-K/day by expected loss · suppressed rows in data/outputs/suppressed_*.csv</small></p></div>
+{% endblock %}

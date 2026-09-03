@@ -1,9 +1,10 @@
-<!doctype html><html><body style="font-family:Arial;max-width:420px;margin:60px auto">
-<h2>Pre-Delinquency Login (basic)</h2>
-{% if err %}<p style="color:red">{{err}}</p>{% endif %}
-<form method="post">
-<input name="email" placeholder="email" style="width:100%;padding:8px" value="bank@bank.com"><br><br>
-<input name="password" type="password" placeholder="password" style="width:100%;padding:8px" value="bank123"><br><br>
-<button>Login</button></form>
-<p>Bank: bank@bank.com / bank123<br>Customer: customer@customer.com / cust123</p>
-</body></html>
+{% extends "base.html" %}{% block title %}Login{% endblock %}{% block body %}
+<div class="card" style="max-width:440px;margin:40px auto"><h2>Sign in</h2>
+{% if err %}<div class="err">{{err}}</div>{% endif %}
+<form method="post"><input name="email" placeholder="email" style="width:100%" value="bank@bank.com"><br><br>
+<input name="password" type="password" placeholder="password" style="width:100%" value="bank123"><br><br>
+<input name="customer_id" placeholder="customer ID (customer login only, e.g. C000000)" style="width:100%"><br><br>
+<button class="btn">Login</button></form>
+<p><small>Bank analyst: bank@bank.com / bank123<br>Risk manager: risk@bank.com / risk123<br>Customer: customer@customer.com / cust123</small></p>
+<p><small>REST API: run <code>uvicorn src.serving.api:app --port 8000</code> then open <code>/docs</code> · Analytics: <code>python -m src.dashboard.risk_dashboard</code></small></p></div>
+{% endblock %}

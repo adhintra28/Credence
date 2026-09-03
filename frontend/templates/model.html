@@ -1,0 +1,20 @@
+{% extends "base.html" %}{% block title %}Model health{% endblock %}{% block body %}
+<div class="nav card"><a href="/bank">Portfolio</a><a href="/bank/queue">Alerts queue</a><a href="/bank/interventions">Interventions</a><a href="/bank/model"><b>Model health</b></a></div>
+<div class="card"><h2>Model health — {{health.scoring_date}}</h2>
+<p>Thresholds: Amber ≥ {{thresholds.amber_min}} · Red ≥ {{thresholds.red_min}} · tuned red {{thresholds.get('tuned_red','-')}} · champion {{thresholds.get('champion','-')}}</p>
+<div class="grid">
+<div class="kpi"><b>{{health.get('pr_auc_proxy','-')}}</b>PR-AUC proxy</div>
+<div class="kpi"><b>{{health.get('roc_auc_proxy','-')}}</b>ROC-AUC proxy</div>
+<div class="kpi"><b>{{health.get('recall_at_15','-')}}</b>Recall@15%</div>
+<div class="kpi"><b>{{health.get('precision_at_red','-')}}</b>Precision@Red</div>
+<div class="kpi"><b>{{health.get('flagged_rate','-')}}</b>flagged</div>
+<div class="kpi"><b>{{health.get('score_psi_halves','-')}}</b>PSI halves</div>
+</div>
+<p><small>mean {{health.get('score_mean')}} · std {{health.get('score_std')}} · base rate {{health.get('base_rate')}} · brier {{health.get('brier')}} · shift {{health.get('score_mean_shift')}} · retrain signal: {{health.get('retrain_signal')}} · null violations: {{health.get('null_violations')}}</small></p>
+{% if health.get('global_shap') %}<h3>Global SHAP (top)</h3><table><tr><th>feature</th><th>importance</th></tr>
+{% for r in health.global_shap %}<tr><td>{{r}}</td></tr>{% endfor %}</table>{% endif %}</div>
+<div class="card"><h2>Fairness audit (80% rule)</h2>
+{% for dim in ['geography','archetype','product_type'] %}{% if fairness.get(dim) %}
+<h3>{{dim}} — ratio {{fairness[dim].min_max_ratio}} · {{'PASS' if fairness[dim].passes_80pct_rule else 'INVESTIGATE'}}</h3>
+<table><tr><th>cohort</th><th>flagged rate</th></tr>{% for k,v in fairness[dim].flagged_rate.items() %}<tr><td>{{k}}</td><td>{{v}}</td></tr>{% endfor %}</table>{% endif %}{% endfor %}</div>
+{% endblock %}
