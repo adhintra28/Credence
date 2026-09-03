@@ -58,9 +58,9 @@ def load_banks():
 BANKS = load_banks()
 
 USERS = {
-    "bank@bank.com": {"pw": generate_password_hash("bank123"), "role": "bank", "name": "Collections Analyst"},
-    "risk@bank.com": {"pw": generate_password_hash("risk123"), "role": "risk", "name": "Risk Manager"},
-    "customer@customer.com": {"pw": generate_password_hash("cust123"), "role": "customer",
+    "bank@bank.com": {"pw": generate_password_hash("bank123", method="pbkdf2:sha256"), "role": "bank", "name": "Collections Analyst"},
+    "risk@bank.com": {"pw": generate_password_hash("risk123", method="pbkdf2:sha256"), "role": "risk", "name": "Risk Manager"},
+    "customer@customer.com": {"pw": generate_password_hash("cust123", method="pbkdf2:sha256"), "role": "customer",
                               "name": "Demo Customer", "customer_id": "C000000"},
 }
 
