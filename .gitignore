@@ -8,3 +8,4 @@ models/mlruns/
 *.parquet
 .env
 venv/
+.venv/

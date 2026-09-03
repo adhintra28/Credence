@@ -1,0 +1,24 @@
+{% extends "base.html" %}{% block title %}Connect Bank Account{% endblock %}{% block body %}
+<div class="card" style="max-width:440px;margin:40px auto">
+  <h2>👤 Customer Portal</h2>
+  <p>Select the bank account you want to connect, then sign in with Google.</p>
+
+  <form method="post" action="/login/customer">
+    <select name="bank_id" required style="width:100%;padding:10px;margin:12px 0;font-size:15px;border-radius:5px;border:1px solid #ccc">
+      <option value="" disabled selected>Select your Bank...</option>
+      {% for bank_id, info in banks.items() %}
+        <option value="{{ bank_id }}">{{ info.name }}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <button class="btn" style="width:100%;padding:12px;background:#34A853;color:white;border:none;border-radius:5px;font-size:16px;cursor:pointer">
+      Connect with Google
+    </button>
+  </form>
+
+  <p style="margin-top:16px;text-align:center">
+    <small>Any Google account accepted. Your bank account will be linked for self-service.</small>
+  </p>
+  <p style="text-align:center"><a href="/">← Back</a></p>
+</div>
+{% endblock %}
