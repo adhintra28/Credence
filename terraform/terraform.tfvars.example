@@ -1,0 +1,10 @@
+# Copy to terraform.tfvars. Do not commit real account-specific values.
+aws_region   = "ap-south-1"
+project_name = "predelinquency"
+
+# Leave empty for the first apply. Terraform will create the ECR repository.
+# After pushing an image, set this to the immutable image URI and apply again.
+app_image = ""
+
+# Restrict this to your office/VPN CIDR before a non-demo deployment.
+allowed_cidr = "0.0.0.0/0"
