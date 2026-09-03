@@ -32,3 +32,7 @@ python-dateutil>=2.8
 # AWS stack (all commented code until you configure backend)
 # boto3>=1.34
 # sagemaker>=2.200
+
+# Google SSO
+authlib>=1.3
+requests>=2.31

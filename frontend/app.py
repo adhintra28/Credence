@@ -13,17 +13,49 @@ JSON API for integrations: FastAPI at src/serving/api.py (:8000).
 import functools
 import os
 import sys
+import yaml
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
+from authlib.integrations.flask_client import OAuth
 
 from src.services import store, risk_service, intervention_service, model_service
 
 app = Flask(__name__, template_folder="templates")
 app.secret_key = os.environ.get("PREDELINQ_SECRET", "predelinq-prod-change-me")
 app.config["SESSION_PERMANENT"] = False
+
+# --- Google SSO ---
+oauth = OAuth(app)
+google = oauth.register(
+    name='google',
+    client_id=os.environ.get("GOOGLE_CLIENT_ID"),
+    client_secret=os.environ.get("GOOGLE_CLIENT_SECRET"),
+    server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
+    client_kwargs={'scope': 'openid email profile'}
+)
+
+
+def load_banks():
+    """Load bank name -> domain mapping from banks.yaml."""
+    bank_list = {}
+    banks_yaml = os.path.join(os.path.dirname(__file__), "banks.yaml")
+    try:
+        with open(banks_yaml, "r") as f:
+            data = yaml.safe_load(f)
+            for region, banks in data.items():
+                if banks:
+                    for bank_id, domain in banks.items():
+                        name = bank_id.replace("_", " ").title()
+                        bank_list[bank_id] = {"name": name, "domain": domain}
+    except Exception as e:
+        print(f"Warning: could not load banks.yaml: {e}")
+    return bank_list
+
+
+BANKS = load_banks()
 
 USERS = {
     "bank@bank.com": {"pw": generate_password_hash("bank123"), "role": "bank", "name": "Collections Analyst"},
@@ -72,6 +104,75 @@ def login():
 @app.route("/logout")
 def logout():
     session.clear()
+    return redirect(url_for("login"))
+
+
+# ---------------- Google SSO ----------------
+@app.route("/login/bank", methods=["GET", "POST"])
+def login_bank():
+    """Bank employee selects their institution, then goes to Google SSO."""
+    if request.method == "POST":
+        session["sso_role"] = "bank"
+        session["selected_bank"] = request.form.get("bank_id")
+        return redirect(url_for("google_auth"))
+    return render_template("bank_login.html", banks=BANKS)
+
+
+@app.route("/login/customer", methods=["GET", "POST"])
+def login_customer():
+    """Customer selects their bank to link (Paytm/UPI style), then Google SSO."""
+    if request.method == "POST":
+        session["sso_role"] = "customer"
+        session["selected_bank"] = request.form.get("bank_id")
+        return redirect(url_for("google_auth"))
+    return render_template("customer_login.html", banks=BANKS)
+
+
+@app.route("/auth/google")
+def google_auth():
+    if not google.client_id:
+        return render_template("error.html",
+            msg="GOOGLE_CLIENT_ID not set. Please export it before starting the server.")
+    redirect_uri = url_for("auth_callback", _external=True)
+    return google.authorize_redirect(redirect_uri)
+
+
+@app.route("/auth/callback")
+def auth_callback():
+    token = google.authorize_access_token()
+    user_info = token.get('userinfo')
+    if not user_info:
+        return redirect(url_for("login"))
+
+    email = user_info.get("email", "").lower()
+    name = user_info.get("name", email)
+    sso_role = session.get("sso_role")
+    bank_id = session.get("selected_bank")
+
+    if not sso_role or not bank_id or bank_id not in BANKS:
+        return render_template("error.html",
+            msg="Invalid session state. Please try logging in again.")
+
+    bank_info = BANKS[bank_id]
+
+    if sso_role == "bank":
+        # Strict domain validation for bank employees
+        if not email.endswith(bank_info["domain"]):
+            return render_template("error.html",
+                msg=f"Unauthorized: Your email ({email}) must end with "
+                    f"'{bank_info['domain']}' to access {bank_info['name']} portal.")
+        session.clear()
+        session.update({"role": "bank", "email": email, "name": name,
+                        "bank": bank_info["name"]})
+        return redirect(url_for("bank"))
+
+    elif sso_role == "customer":
+        # Any Google email is accepted for customers
+        session.clear()
+        session.update({"role": "customer", "email": email, "name": name,
+                        "cid": "C000000", "bank": bank_info["name"]})
+        return redirect(url_for("customer"))
+
     return redirect(url_for("login"))
 
 
