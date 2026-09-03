@@ -5,109 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Pre-Delinquency Engine{% endblock %}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #0b1120;
-      --surface:  #111827;
-      --surface2: #1a2235;
-      --border:   #1e2d45;
-      --accent:   #3b82f6;
-      --accent2:  #6366f1;
-      --green:    #10b981;
-      --amber:    #f59e0b;
-      --red:      #ef4444;
-      --text:     #e2e8f0;
-      --muted:    #64748b;
-      --card-shadow: 0 4px 24px rgba(0,0,0,.4);
+      --bg-base: #0d0f14;
+      --bg-card: #13161e;
+      --bg-card-hover: #1a1e2a;
+      --bg-row-hover: #1c2030;
+      --border: #ffffff12;
+      --border-light: #ffffff0a;
+      --accent: #00aeef;
+      --accent-dim: #00aeef1f;
+      --text-primary: #e8eaf0;
+      --text-secondary: #8b90a0;
+      --text-muted: #545870;
+      
+      --green: #00c97a;
+      --green-dim: #00c97a1a;
+      --green-border: #00c97a33;
+      
+      --red: #ff6b6b;
+      --red-dim: #ff4d4d1a;
+      --red-border: #ff4d4d33;
+      
+      --amber: #fbbf24;
+      --amber-dim: #f59e0b1a;
+      --amber-border: #f59e0b33;
+
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow: 0 4px 24px #0006;
+      
+      --font-body: 'DM Sans', sans-serif;
+      --font-display: 'Syne', sans-serif;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: var(--font-body);
+      background: var(--bg-base);
+      color: var(--text-primary);
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ── Top nav ── */
     .top {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(8px);
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--border);
     }
     .top-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 16px;
-      letter-spacing: -.3px;
+      font-size: 20px;
+      letter-spacing: -0.5px;
     }
     .top-brand .badge {
-      font-size: 10px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      padding: 2px 8px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 3px 10px;
       border-radius: 20px;
       font-weight: 600;
       letter-spacing: .5px;
     }
     .top-brand .logo-icon {
-      width: 30px; height: 30px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      width: 32px; height: 32px;
+      background: var(--accent);
       border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 16px;
+      font-size: 18px;
     }
     .top-right {
       display: flex;
       align-items: center;
       gap: 16px;
       font-size: 13px;
-      color: var(--muted);
+      color: var(--text-secondary);
     }
     .top-right a {
-      color: var(--accent);
+      color: var(--text-primary);
       text-decoration: none;
-      padding: 5px 12px;
+      padding: 7px 14px;
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       transition: all .2s;
+      background: transparent;
     }
-    .top-right a:hover { background: var(--surface2); color: var(--text); }
+    .top-right a:hover { 
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
 
     /* ── Layout ── */
-    .wrap { max-width: 1140px; margin: 28px auto; padding: 0 20px; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 36px 40px; }
 
     /* ── Cards ── */
     .card {
-      background: var(--surface);
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 20px;
-      box-shadow: var(--card-shadow);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
     }
 
     /* ── Buttons ── */
     .btn {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      background: var(--accent);
       color: #fff;
       border: 0;
-      border-radius: 8px;
-      padding: 10px 20px;
-      font-size: 14px;
+      border-radius: var(--radius-sm);
+      padding: 9px 18px;
+      font-size: 13px;
       font-weight: 600;
       cursor: pointer;
-      font-family: inherit;
+      font-family: var(--font-body);
       transition: opacity .2s, transform .15s;
       display: inline-block;
       text-decoration: none;
@@ -116,89 +138,150 @@
     .btn.ghost {
       background: transparent;
       border: 1px solid var(--border);
-      color: var(--text);
+      color: var(--text-secondary);
     }
-    .btn.ghost:hover { background: var(--surface2); }
-    .btn.green { background: linear-gradient(135deg, var(--green), #059669); }
-    .btn.red   { background: linear-gradient(135deg, var(--red), #dc2626); }
+    .btn.ghost:hover { 
+      background: var(--accent-dim); 
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn.green { background: var(--green); color: #0d0f14; }
+    .btn.red   { background: var(--red); color: #0d0f14; }
 
     /* ── Tables ── */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
     table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    th, td { border-bottom: 1px solid var(--border); padding: 10px 12px; text-align: left; }
-    th { background: var(--surface2); color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
-    tr:hover td { background: rgba(59,130,246,.04); }
+    th { 
+      background: rgba(0,0,0,0.2); 
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted); 
+      font-size: 11px; 
+      font-weight: 600; 
+      letter-spacing: .7px; 
+      padding: 12px 16px; 
+      text-align: left; 
+      text-transform: uppercase; 
+      white-space: nowrap;
+    }
+    td {
+      border-bottom: 1px solid var(--border-light);
+      padding: 13px 16px;
+      vertical-align: middle;
+      font-size: 13px;
+    }
+    tr { transition: background .15s; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg-row-hover); }
 
     /* ── Tier badges ── */
-    .tier-Red   { background: rgba(239,68,68,.15); color: #fca5a5; font-weight: 600; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
-    .tier-Amber { background: rgba(245,158,11,.15); color: #fcd34d; font-weight: 600; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
-    .tier-Green { background: rgba(16,185,129,.15); color: #6ee7b7; font-weight: 600; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
+    .tier-Red   { background: var(--red-dim); border: 1px solid var(--red-border); color: var(--red); font-weight: 600; padding: 4px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; display: inline-block; }
+    .tier-Amber { background: var(--amber-dim); border: 1px solid var(--amber-border); color: var(--amber); font-weight: 600; padding: 4px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; display: inline-block; }
+    .tier-Green { background: var(--green-dim); border: 1px solid var(--green-border); color: var(--green); font-weight: 600; padding: 4px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.3px; display: inline-block; }
 
     /* ── KPIs ── */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 28px; }
     .kpi {
-      background: var(--surface2);
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px;
-      text-align: center;
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
     }
-    .kpi b { font-size: 26px; display: block; font-weight: 700;
-              background: linear-gradient(135deg, var(--accent), var(--accent2));
-              -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .kpi small { color: var(--muted); font-size: 12px; }
+    .kpi:hover {
+      border-color: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
+    }
+    .kpi b { 
+      font-family: var(--font-display); 
+      font-size: 32px; 
+      font-weight: 700;
+      line-height: 1;
+      color: var(--text-primary);
+    }
+    .kpi small { 
+      color: var(--text-secondary); 
+      font-size: 12px; 
+      letter-spacing: .6px; 
+      text-transform: uppercase;
+    }
 
     /* ── Nav strip ── */
-    .nav { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .nav { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 28px; }
     .nav a {
-      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 12px;
+      padding: 7px 14px;
+      transition: all .18s;
       text-decoration: none;
-      padding: 6px 14px;
-      border-radius: 7px;
-      font-size: 13px;
-      font-weight: 500;
-      transition: all .2s;
-      border: 1px solid transparent;
     }
-    .nav a:hover, .nav a.active { background: var(--surface2); color: var(--text); border-color: var(--border); }
+    .nav a:hover { border-color: rgba(255,255,255,0.2); color: var(--text-primary); }
+    .nav a.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
 
+    /* ── Typography headers ── */
+    h2 { 
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      margin-bottom: 6px; 
+    }
+    h3 { font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.2px; }
+    .subtitle { color: var(--text-secondary); font-size: 13px; margin: 0; }
+    
     /* ── Form elements ── */
     input, select, textarea {
-      background: var(--surface2);
+      background: var(--bg-base);
       border: 1px solid var(--border);
-      color: var(--text);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-family: inherit;
-      font-size: 14px;
+      color: var(--text-primary);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      font-family: var(--font-body);
+      font-size: 13px;
       width: 100%;
       transition: border-color .2s;
+      outline: none;
     }
-    input:focus, select:focus { outline: none; border-color: var(--accent); }
-    select option { background: var(--surface); }
-    label { display: block; margin-bottom: 6px; font-size: 13px; color: var(--muted); font-weight: 500; }
+    input:focus, select:focus { border-color: var(--accent); }
+    select option { background: var(--bg-card); }
+    label { display: block; margin-bottom: 6px; font-size: 12px; color: var(--text-secondary); font-weight: 500; }
 
     /* ── Alerts ── */
-    .msg { background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.3); color: #6ee7b7; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
-    .err { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #fca5a5; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
+    .msg { background: var(--green-dim); border: 1px solid var(--green-border); color: var(--green); padding: 12px 16px; border-radius: var(--radius-sm); margin-bottom: 16px; font-size: 13px; }
+    .err { background: var(--red-dim); border: 1px solid var(--red-border); color: var(--red); padding: 12px 16px; border-radius: var(--radius-sm); margin-bottom: 16px; font-size: 13px; }
 
-    small { color: var(--muted); font-size: 12px; }
-    h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
-    h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
     hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
-    code { background: var(--surface2); padding: 2px 7px; border-radius: 5px; font-size: 12px; color: #93c5fd; }
+    code { font-family: Courier New, monospace; font-size: 11px; letter-spacing: 0.5px; color: var(--text-muted); }
   </style>
   {% block head %}{% endblock %}
 </head>
 <body>
 <div class="top">
   <div class="top-brand">
-    <div class="logo-icon">🛡️</div>
+    <div class="logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d0f14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    </div>
     Pre-Delinquency Engine
     <span class="badge">PROD</span>
   </div>
   <div class="top-right">
     {% if session.get('email') %}
-      <span>{{ session.email }} · <strong style="color:var(--text)">{{ session.role }}</strong>{% if session.get('bank') %} @ {{ session.bank }}{% endif %}</span>
+      <span>{{ session.email }} · <strong style="color:var(--text-primary)">{{ session.role }}</strong>{% if session.get('bank') %} @ {{ session.bank }}{% endif %}</span>
       <a href="/logout">Logout</a>
     {% endif %}
   </div>

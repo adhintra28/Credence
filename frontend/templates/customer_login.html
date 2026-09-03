@@ -1,48 +1,45 @@
 {% extends "base.html" %}{% block title %}Customer Login{% endblock %}
 {% block head %}
 <style>
-  body { background: radial-gradient(ellipse at 70% 0%, #0f2a1e 0%, #0b1120 60%); }
-  .sso-wrap { min-height: calc(100vh - 60px); display: flex; align-items: center; justify-content: center; padding: 40px 16px; }
+  body { background: radial-gradient(ellipse at 70% 0%, #081a13 0%, var(--bg-base) 60%); }
+  .sso-wrap { min-height: calc(100vh - 80px); display: flex; align-items: center; justify-content: center; padding: 40px 16px; }
   .sso-card {
-    background: rgba(17,24,39,.9);
-    border: 1px solid rgba(16,185,129,.2);
-    border-radius: 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     padding: 40px 44px;
     width: 100%; max-width: 480px;
-    box-shadow: 0 0 80px rgba(16,185,129,.08), 0 24px 48px rgba(0,0,0,.5);
-    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow);
     animation: fadeUp .4s ease;
   }
   @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
   .sso-header { margin-bottom: 28px; }
-  .sso-header .back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; text-decoration: none; margin-bottom: 18px; transition: color .2s; }
-  .sso-header .back:hover { color: var(--text); }
-  .sso-header h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-  .sso-header p { color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .sso-header .back { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 13px; text-decoration: none; margin-bottom: 18px; transition: color .2s; }
+  .sso-header .back:hover { color: var(--text-primary); }
+  .sso-header h2 { margin-bottom: 6px; }
+  .sso-header p { color: var(--text-secondary); font-size: 13px; line-height: 1.5; }
   .bank-select-wrap { position: relative; margin-bottom: 20px; }
   .bank-select-wrap select {
     appearance: none;
-    background: rgba(255,255,255,.04);
-    border: 1px solid rgba(255,255,255,.1);
     padding: 14px 40px 14px 16px;
-    font-size: 14px; border-radius: 10px;
-    cursor: pointer; transition: border-color .2s;
+    font-size: 14px;
+    cursor: pointer;
   }
-  .bank-select-wrap select:focus { border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,.15); }
-  .bank-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+  .bank-select-wrap select:focus { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-dim); }
+  .bank-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
   .google-btn {
     width: 100%; padding: 14px;
-    background: linear-gradient(135deg, #10b981, #059669);
-    border: 0; border-radius: 10px; color: #fff;
-    font-size: 15px; font-weight: 600; font-family: inherit;
+    background: var(--green);
+    border: 0; border-radius: var(--radius-sm); color: #0d0f14;
+    font-size: 14px; font-weight: 600; font-family: var(--font-body);
     cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
     transition: opacity .2s, transform .15s;
   }
   .google-btn:hover { opacity: .88; transform: translateY(-1px); }
-  .google-btn .google-icon { width: 20px; height: 20px; background: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
-  .steps { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
-  .step { display: flex; gap: 12px; align-items: flex-start; font-size: 12px; color: var(--muted); line-height: 1.5; }
-  .step .num { width: 20px; height: 20px; background: rgba(16,185,129,.15); color: #6ee7b7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .google-btn .google-icon { width: 20px; height: 20px; background: #0d0f14; color: var(--green); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
+  .steps { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .step { display: flex; gap: 12px; align-items: flex-start; font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .step .num { width: 20px; height: 20px; background: var(--green-dim); color: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: -1px; }
 </style>
 {% endblock %}
 {% block body %}

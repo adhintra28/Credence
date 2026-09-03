@@ -1,77 +1,91 @@
 {% extends "base.html" %}{% block title %}Bank Portfolio — {{ scoring_date }}{% endblock %}{% block body %}
 
-<div class="card nav" style="padding:14px 22px">
-  <a href="/bank" class="active">📊 Portfolio</a>
-  <a href="/bank/queue">🔔 Alert Queue</a>
-  <a href="/bank/interventions">🤝 Interventions</a>
-  <a href="/bank/model">🧠 Model Health</a>
+<div class="nav">
+  <a href="/bank" class="active">Portfolio</a>
+  <a href="/bank/queue">Alert Queue</a>
+  <a href="/bank/interventions">Interventions</a>
+  <a href="/bank/model">Model Health</a>
 </div>
 
-<div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px">
+<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px">
   <div>
-    <h2 style="margin-bottom:4px">Portfolio Overview</h2>
-  <small>Scoring date: <strong style="color:var(--text)">{{ scoring_date or '—' }}</strong> · {{ summary.get('n', 0) }} customers scored</small>
-</div>
-<div style="text-align:right; margin-top:-10px; margin-bottom:18px">
-  <small style="color:var(--muted)">Expected loss: <strong style="color:#fcd34d">Rs. {{ summary.get('expected_loss_total', '—') }}</strong></small>
+    <h2>Portfolio Overview</h2>
+    <p class="subtitle">Real-time risk monitor &amp; intervention system</p>
+  </div>
+  <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text-muted); font-size:12px; padding:7px 14px; white-space:nowrap">
+    Scoring date: <strong>{{ scoring_date or '—' }}</strong>
+  </div>
 </div>
 
-<div class="grid" style="margin-bottom:20px">
+<div class="grid">
   <div class="kpi">
     <b>{{ summary.get('n', 0) }}</b>
-    <small>Total Scored</small>
+    <small>Customers Scored</small>
   </div>
-  <div class="kpi" style="border-color:rgba(16,185,129,.3)">
-    <b style="background:linear-gradient(135deg,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ mix.get('Green',0) }}</b>
-    <small>🟢 Green</small>
+  <div class="kpi" style="border-color:var(--green-border)">
+    <b style="color:var(--green)">{{ mix.get('Green',0) }}</b>
+    <small>Low Risk (Green)</small>
   </div>
-  <div class="kpi" style="border-color:rgba(245,158,11,.3)">
-    <b style="background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ mix.get('Amber',0) }}</b>
-    <small>🟡 Amber</small>
+  <div class="kpi" style="border-color:var(--amber-border)">
+    <b style="color:var(--amber)">{{ mix.get('Amber',0) }}</b>
+    <small>Medium Risk (Amber)</small>
   </div>
-  <div class="kpi" style="border-color:rgba(239,68,68,.3)">
-    <b style="background:linear-gradient(135deg,#ef4444,#f87171);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ mix.get('Red',0) }}</b>
-    <small>🔴 Red</small>
+  <div class="kpi" style="border-color:var(--red-border)">
+    <b style="color:var(--red)">{{ mix.get('Red',0) }}</b>
+    <small>High Risk (Red)</small>
   </div>
+</div>
+
+<div class="grid">
   <div class="kpi">
     <b>{{ summary.get('alerts', 0) }}</b>
     <small>Active Alerts</small>
   </div>
   <div class="kpi">
-    <b style="font-size:18px">{{ ((summary.get('flagged_rate', 0) or 0)*100)|round(1) }}%</b>
+    <b style="font-size:26px; color:var(--text-primary)">{{ ((summary.get('flagged_rate', 0) or 0)*100)|round(1) }}%</b>
     <small>Flagged Rate</small>
+  </div>
+  <div class="kpi" style="grid-column: span 2;">
+    <b style="font-size:26px; color:var(--text-primary)">Rs. {{ summary.get('expected_loss_total', '—') }}</b>
+    <small>Total Expected Loss Exposure</small>
   </div>
 </div>
 
-<div class="card">
-  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px">
-    <h3 style="margin:0">🔴 Priority Alerts — Top 10</h3>
-    <a href="/bank/queue" class="btn ghost" style="font-size:13px; padding:7px 14px">View full queue →</a>
+<div class="table-container">
+  <div style="align-items:center; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; padding:18px 20px">
+    <h3 style="margin:0; font-size:15px; color:var(--text-primary)">Priority Alerts</h3>
+    <a href="/bank/queue" class="btn ghost" style="padding:6px 12px; font-size:12px">View all →</a>
   </div>
   <div style="overflow-x:auto">
     <table>
-      <tr>
-        <th>Customer</th>
-        <th>Tier</th>
-        <th>Score</th>
-        <th>Top Reason</th>
-        <th>EMI Amt</th>
-        <th>Exp. Loss</th>
-        <th></th>
-      </tr>
+      <thead>
+        <tr>
+          <th style="padding-left:20px">ID</th>
+          <th>Risk Tier</th>
+          <th>Score</th>
+          <th>Top Reason</th>
+          <th>EMI Amt</th>
+          <th>Exp. Loss</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
       {% for r in top_alerts %}
       <tr>
-        <td><strong>{{ r.customer_id }}</strong></td>
+        <td style="padding-left:20px; font-family:Courier New,monospace; font-size:11px; color:var(--text-muted)">{{ r.customer_id }}</td>
         <td><span class="tier-{{ r.tier }}">{{ r.tier }}</span></td>
-        <td>{{ r.score }}</td>
-        <td style="color:var(--muted); font-size:12px; max-width:220px">{{ r.top_reason }}</td>
-        <td>{{ r.emi_amount }}</td>
-        <td>{{ r.expected_loss }}</td>
-        <td><a href="/bank/customer/{{ r.customer_id }}" class="btn ghost" style="font-size:12px;padding:5px 12px">Open →</a></td>
+        <td style="color:var(--text-primary); font-weight:500">{{ r.score }}</td>
+        <td style="color:var(--text-secondary); font-size:12px; max-width:240px">{{ r.top_reason }}</td>
+        <td style="color:var(--text-primary)">{{ r.emi_amount }}</td>
+        <td style="color:var(--text-primary)">{{ r.expected_loss }}</td>
+        <td>
+          <a href="/bank/customer/{{ r.customer_id }}" class="btn ghost" style="font-size:11px; font-weight:500; padding:5px 11px">Inspect</a>
+        </td>
       </tr>
       {% else %}
-      <tr><td colspan="7" style="text-align:center;color:var(--muted);padding:30px">No alerts — run the pipeline first.</td></tr>
+      <tr><td colspan="7" style="text-align:center;color:var(--text-muted);padding:60px 20px">No alerts — run the pipeline first.</td></tr>
       {% endfor %}
+      </tbody>
     </table>
   </div>
 </div>
