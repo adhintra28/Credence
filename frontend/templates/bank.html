@@ -10,14 +10,15 @@
 <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px">
   <div>
     <h2 style="margin-bottom:4px">Portfolio Overview</h2>
-    <small>Scoring date: <strong style="color:var(--text)">{{ scoring_date }}</strong> · {{ summary.n }} customers scored</small>
-  </div>
+  <small>Scoring date: <strong style="color:var(--text)">{{ scoring_date or '—' }}</strong> · {{ summary.get('n', 0) }} customers scored</small>
+</div>
+<div style="text-align:right; margin-top:-10px; margin-bottom:18px">
   <small style="color:var(--muted)">Expected loss: <strong style="color:#fcd34d">Rs. {{ summary.get('expected_loss_total', '—') }}</strong></small>
 </div>
 
 <div class="grid" style="margin-bottom:20px">
   <div class="kpi">
-    <b>{{ summary.n }}</b>
+    <b>{{ summary.get('n', 0) }}</b>
     <small>Total Scored</small>
   </div>
   <div class="kpi" style="border-color:rgba(16,185,129,.3)">
@@ -33,11 +34,11 @@
     <small>🔴 Red</small>
   </div>
   <div class="kpi">
-    <b>{{ summary.get('alerts',0) }}</b>
+    <b>{{ summary.get('alerts', 0) }}</b>
     <small>Active Alerts</small>
   </div>
   <div class="kpi">
-    <b style="font-size:18px">{{ (summary.flagged_rate*100)|round(1) }}%</b>
+    <b style="font-size:18px">{{ ((summary.get('flagged_rate', 0) or 0)*100)|round(1) }}%</b>
     <small>Flagged Rate</small>
   </div>
 </div>
