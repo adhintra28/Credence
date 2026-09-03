@@ -29,7 +29,6 @@ python-dateutil>=2.8
 # Deep learning (sequence models)
 # torch>=2.1
 # tensorflow>=2.15
-boto3>=1.34
 
 # Google SSO
 authlib>=1.3
