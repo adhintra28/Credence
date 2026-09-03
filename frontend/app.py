@@ -18,6 +18,8 @@ import yaml
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 try:
+    import logging as _logging
+    _logging.getLogger("dotenv.main").setLevel(_logging.CRITICAL)  # don't spam parse warnings
     from dotenv import load_dotenv
     load_dotenv()  # local dev: read .env if present (never required in production)
 except Exception:
