@@ -13,4 +13,11 @@ services:
         generateValue: true
       - key: PYTHON_VERSION
         value: 3.11.9
+      # Google SSO — set in the Render dashboard (see docs/SSO_SETUP.md)
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: OAUTH_REDIRECT_URI
+        sync: false
     healthCheckPath: /healthz

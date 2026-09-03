@@ -15,3 +15,7 @@ C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24""
 C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,accepted,sklearn_hgb,pytest,customer accepted
 C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",,console,snoozed,sklearn_hgb,pytest,test
 C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,offered,sklearn_hgb,analyst,
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,offered,sklearn_hgb,pytest,
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,accepted,sklearn_hgb,pytest,customer accepted
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",,console,snoozed,sklearn_hgb,pytest,test
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,offered,sklearn_hgb,analyst,

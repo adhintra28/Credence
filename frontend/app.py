@@ -17,8 +17,15 @@ import yaml
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()  # local dev: read .env if present (never required in production)
+except Exception:
+    pass
+
 from flask import Flask, flash, redirect, render_template, request, session, url_for
 from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.middleware.proxy_fix import ProxyFix
 from authlib.integrations.flask_client import OAuth
 
 from src.services import store, risk_service, intervention_service, model_service
@@ -28,7 +35,20 @@ app.secret_key = os.environ.get("PREDELINQ_SECRET", "predelinq-prod-change-me")
 app.config["SESSION_PERMANENT"] = False
 app.config["TEMPLATES_AUTO_RELOAD"] = True  # live template edits without restart
 
+# Behind Render/Railway proxies the app sees http; trust X-Forwarded-Proto so
+# url_for(_external=True) yields https for the OAuth redirect.
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
+
 # --- Google SSO ---
+def google_redirect_uri():
+    """Exact callback URL Google redirects to. OAUTH_REDIRECT_URI wins because
+    the console registration must match byte-for-byte; otherwise derive the
+    host from the request (ProxyFix keeps https behind Render/Railway)."""
+    uri = os.environ.get("OAUTH_REDIRECT_URI")
+    if uri:
+        return uri
+    return url_for("auth_callback", _external=True)
+
 oauth = OAuth(app)
 google = oauth.register(
     name='google',
@@ -142,19 +162,35 @@ def login_customer():
 
 @app.route("/auth/google")
 def google_auth():
-    if not google.client_id:
+    if not (google.client_id and google.client_secret):
         return render_template("error.html",
-            msg="GOOGLE_CLIENT_ID not set. Please export it before starting the server.")
-    redirect_uri = url_for("auth_callback", _external=True)
-    return google.authorize_redirect(redirect_uri)
+            msg="Google SSO is not configured. Set GOOGLE_CLIENT_ID and "
+                "GOOGLE_CLIENT_SECRET (see docs/SSO_SETUP.md). The password "
+                "logins keep working without them.")
+    return google.authorize_redirect(google_redirect_uri())
 
 
 @app.route("/auth/callback")
 def auth_callback():
-    token = google.authorize_access_token()
-    user_info = token.get('userinfo')
-    if not user_info:
-        return redirect(url_for("login"))
+    try:
+        token = google.authorize_access_token()
+    except Exception as e:
+        # consent denied, expired state, or token exchange failure
+        return render_template("error.html",
+            msg="Sign-in did not complete (cancelled or timed out). Please try again.")
+    # Google only stamps token["userinfo"] when a nonce was sent; fetch it
+    # explicitly from the userinfo endpoint with the access token instead.
+    try:
+        import requests as _req
+        resp = _req.get("https://openidconnect.googleapis.com/v1/userinfo",
+                        headers={"Authorization": f"Bearer {token.get('access_token', '')}"},
+                        timeout=10)
+        user_info = resp.json()
+    except Exception:
+        user_info = token.get("userinfo") or {}
+    if not user_info or not user_info.get("email"):
+        return render_template("error.html",
+            msg="Could not read your Google profile. Please try logging in again.")
 
     email = user_info.get("email", "").lower()
     name = user_info.get("name", email)
