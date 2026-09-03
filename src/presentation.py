@@ -1,4 +1,5 @@
 """Stable, UI-independent representation of one customer risk decision."""
+from __future__ import annotations  # PEP 604 hints (dict | None) on Python 3.9+
 
 
 def stress_velocity(features: dict | None) -> float:
