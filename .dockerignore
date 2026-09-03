@@ -1,0 +1,10 @@
+# keep the image lean and free of local-only artifacts
+.venv/
+.git/
+__pycache__/
+*.pyc
+.pytest_cache/
+.pw-browsers/
+shots/
+models/mlruns/
+data/raw/*.parquet.tmp
