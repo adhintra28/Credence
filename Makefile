@@ -1,10 +1,15 @@
-.PHONY: install lint test data train score serve all clean
+.PHONY: install venv lint test data train score serve portal all clean
 
-PYTHON ?= python
+# Repo interpreter: `python` may not exist on macOS — default to the venv.
+# Override anytime: make portal PYTHON=python3
+PYTHON ?= .venv/bin/python
 CONFIG ?= config.yaml
 
+venv:
+	python3 -m venv .venv && .venv/bin/pip install --upgrade pip && .venv/bin/pip install -r requirements.txt
+
 install:
-	pip install -e ".[dev]"
+	$(PYTHON) -m pip install -r requirements.txt
 
 lint:
 	$(PYTHON) -m ruff check src/ tests/
