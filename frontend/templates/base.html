@@ -1,28 +1,208 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{% block title %}Pre-Delinquency{% endblock %}</title>
-<style>
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f6fa;color:#1c2333;margin:0}
-.top{background:#0f2a44;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
-.top a{color:#bcd2ff;text-decoration:none;margin-left:14px}
-.wrap{max-width:1100px;margin:22px auto;padding:0 16px}
-.card{background:#fff;border-radius:10px;padding:18px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.btn{background:#1d5fd6;color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer}
-.btn.ghost{background:#e7edf7;color:#1d5fd6}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th,td{border-bottom:1px solid #e5e9f0;padding:8px;text-align:left}
-th{background:#eef2f9}
-.tier-Red{background:#fde2e2;color:#a31212;font-weight:bold;padding:2px 8px;border-radius:10px}
-.tier-Amber{background:#fff1cf;color:#8a5a00;font-weight:bold;padding:2px 8px;border-radius:10px}
-.tier-Green{background:#dff5e1;color:#14622e;font-weight:bold;padding:2px 8px;border-radius:10px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.kpi{background:#0f2a44;color:#fff;border-radius:10px;padding:14px;text-align:center}
-.kpi b{font-size:24px;display:block}
-.nav a{margin-right:12px}
-input,select{padding:8px;border:1px solid #c6cfdd;border-radius:6px}
-.msg{background:#e8f7e9;border:1px solid #9ed6a3;padding:10px;border-radius:6px;margin-bottom:12px}
-.err{background:#fde2e2;border:1px solid #f0a3a3;padding:10px;border-radius:6px;margin-bottom:12px}
-small{color:#5b6b85}
-</style></head>
-<body><div class="top"><div><b>Pre-Delinquency Engine</b> <small style="color:#bcd2ff">production</small></div>
-<div>{% if session.get('email') %}{{session.email}} ({{session.role}}) <a href="/logout">logout</a>{% endif %}</div></div>
-<div class="wrap">{% block body %}{% endblock %}</div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Pre-Delinquency Engine{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0b1120;
+      --surface:  #111827;
+      --surface2: #1a2235;
+      --border:   #1e2d45;
+      --accent:   #3b82f6;
+      --accent2:  #6366f1;
+      --green:    #10b981;
+      --amber:    #f59e0b;
+      --red:      #ef4444;
+      --text:     #e2e8f0;
+      --muted:    #64748b;
+      --card-shadow: 0 4px 24px rgba(0,0,0,.4);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Top nav ── */
+    .top {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+    .top-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -.3px;
+    }
+    .top-brand .badge {
+      font-size: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
+    .top-brand .logo-icon {
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+    }
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .top-right a {
+      color: var(--accent);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all .2s;
+    }
+    .top-right a:hover { background: var(--surface2); color: var(--text); }
+
+    /* ── Layout ── */
+    .wrap { max-width: 1140px; margin: 28px auto; padding: 0 20px; }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: var(--card-shadow);
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity .2s, transform .15s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn:hover { opacity: .88; transform: translateY(-1px); }
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn.ghost:hover { background: var(--surface2); }
+    .btn.green { background: linear-gradient(135deg, var(--green), #059669); }
+    .btn.red   { background: linear-gradient(135deg, var(--red), #dc2626); }
+
+    /* ── Tables ── */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border-bottom: 1px solid var(--border); padding: 10px 12px; text-align: left; }
+    th { background: var(--surface2); color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+    tr:hover td { background: rgba(59,130,246,.04); }
+
+    /* ── Tier badges ── */
+    .tier-Red   { background: rgba(239,68,68,.15); color: #fca5a5; font-weight: 600; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
+    .tier-Amber { background: rgba(245,158,11,.15); color: #fcd34d; font-weight: 600; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
+    .tier-Green { background: rgba(16,185,129,.15); color: #6ee7b7; font-weight: 600; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
+
+    /* ── KPIs ── */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; }
+    .kpi {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+    .kpi b { font-size: 26px; display: block; font-weight: 700;
+              background: linear-gradient(135deg, var(--accent), var(--accent2));
+              -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .kpi small { color: var(--muted); font-size: 12px; }
+
+    /* ── Nav strip ── */
+    .nav { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all .2s;
+      border: 1px solid transparent;
+    }
+    .nav a:hover, .nav a.active { background: var(--surface2); color: var(--text); border-color: var(--border); }
+
+    /* ── Form elements ── */
+    input, select, textarea {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: inherit;
+      font-size: 14px;
+      width: 100%;
+      transition: border-color .2s;
+    }
+    input:focus, select:focus { outline: none; border-color: var(--accent); }
+    select option { background: var(--surface); }
+    label { display: block; margin-bottom: 6px; font-size: 13px; color: var(--muted); font-weight: 500; }
+
+    /* ── Alerts ── */
+    .msg { background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.3); color: #6ee7b7; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
+    .err { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #fca5a5; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 14px; }
+
+    small { color: var(--muted); font-size: 12px; }
+    h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+    code { background: var(--surface2); padding: 2px 7px; border-radius: 5px; font-size: 12px; color: #93c5fd; }
+  </style>
+  {% block head %}{% endblock %}
+</head>
+<body>
+<div class="top">
+  <div class="top-brand">
+    <div class="logo-icon">🛡️</div>
+    Pre-Delinquency Engine
+    <span class="badge">PROD</span>
+  </div>
+  <div class="top-right">
+    {% if session.get('email') %}
+      <span>{{ session.email }} · <strong style="color:var(--text)">{{ session.role }}</strong>{% if session.get('bank') %} @ {{ session.bank }}{% endif %}</span>
+      <a href="/logout">Logout</a>
+    {% endif %}
+  </div>
+</div>
+<div class="wrap">{% block body %}{% endblock %}</div>
+</body>
+</html>

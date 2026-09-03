@@ -1,17 +1,77 @@
-{% extends "base.html" %}{% block title %}Bank portfolio{% endblock %}{% block body %}
-<div class="nav card"><a href="/bank"><b>Portfolio</b></a><a href="/bank/queue">Alerts queue</a><a href="/bank/interventions">Interventions</a><a href="/bank/model">Model health</a></div>
-<div class="card"><h2>Portfolio — {{scoring_date}}</h2>
-<p><small>{{summary.n}} customers scored · flagged {{(summary.flagged_rate*100)|round(1)}}% · expected loss Rs.{{summary.get('expected_loss_total','-')}}</small></p>
-<div class="grid">
-<div class="kpi"><b>{{summary.n}}</b>scored</div>
-<div class="kpi"><b>{{mix.get('Green',0)}}</b>Green</div>
-<div class="kpi"><b>{{mix.get('Amber',0)}}</b>Amber</div>
-<div class="kpi"><b>{{mix.get('Red',0)}}</b>Red</div>
-<div class="kpi"><b>{{summary.get('alerts',0)}}</b>alerts</div>
-</div></div>
-<div class="card"><h3>Priority alerts (top 10)</h3>
-<table><tr><th>customer</th><th>tier</th><th>score</th><th>reason</th><th>emi</th><th>exp loss</th><th></th></tr>
-{% for r in top_alerts %}<tr><td>{{r.customer_id}}</td><td><span class="tier-{{r.tier}}">{{r.tier}}</span></td><td>{{r.score}}</td><td>{{r.top_reason}}</td><td>{{r.emi_amount}}</td><td>{{r.expected_loss}}</td><td><a href="/bank/customer/{{r.customer_id}}">open</a></td></tr>{% endfor %}
-</table>
-<p><a class="btn ghost" href="/bank/queue">Open full queue</a></p></div>
+{% extends "base.html" %}{% block title %}Bank Portfolio — {{ scoring_date }}{% endblock %}{% block body %}
+
+<div class="card nav" style="padding:14px 22px">
+  <a href="/bank" class="active">📊 Portfolio</a>
+  <a href="/bank/queue">🔔 Alert Queue</a>
+  <a href="/bank/interventions">🤝 Interventions</a>
+  <a href="/bank/model">🧠 Model Health</a>
+</div>
+
+<div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px">
+  <div>
+    <h2 style="margin-bottom:4px">Portfolio Overview</h2>
+    <small>Scoring date: <strong style="color:var(--text)">{{ scoring_date }}</strong> · {{ summary.n }} customers scored</small>
+  </div>
+  <small style="color:var(--muted)">Expected loss: <strong style="color:#fcd34d">Rs. {{ summary.get('expected_loss_total', '—') }}</strong></small>
+</div>
+
+<div class="grid" style="margin-bottom:20px">
+  <div class="kpi">
+    <b>{{ summary.n }}</b>
+    <small>Total Scored</small>
+  </div>
+  <div class="kpi" style="border-color:rgba(16,185,129,.3)">
+    <b style="background:linear-gradient(135deg,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ mix.get('Green',0) }}</b>
+    <small>🟢 Green</small>
+  </div>
+  <div class="kpi" style="border-color:rgba(245,158,11,.3)">
+    <b style="background:linear-gradient(135deg,#f59e0b,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ mix.get('Amber',0) }}</b>
+    <small>🟡 Amber</small>
+  </div>
+  <div class="kpi" style="border-color:rgba(239,68,68,.3)">
+    <b style="background:linear-gradient(135deg,#ef4444,#f87171);-webkit-background-clip:text;-webkit-text-fill-color:transparent">{{ mix.get('Red',0) }}</b>
+    <small>🔴 Red</small>
+  </div>
+  <div class="kpi">
+    <b>{{ summary.get('alerts',0) }}</b>
+    <small>Active Alerts</small>
+  </div>
+  <div class="kpi">
+    <b style="font-size:18px">{{ (summary.flagged_rate*100)|round(1) }}%</b>
+    <small>Flagged Rate</small>
+  </div>
+</div>
+
+<div class="card">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px">
+    <h3 style="margin:0">🔴 Priority Alerts — Top 10</h3>
+    <a href="/bank/queue" class="btn ghost" style="font-size:13px; padding:7px 14px">View full queue →</a>
+  </div>
+  <div style="overflow-x:auto">
+    <table>
+      <tr>
+        <th>Customer</th>
+        <th>Tier</th>
+        <th>Score</th>
+        <th>Top Reason</th>
+        <th>EMI Amt</th>
+        <th>Exp. Loss</th>
+        <th></th>
+      </tr>
+      {% for r in top_alerts %}
+      <tr>
+        <td><strong>{{ r.customer_id }}</strong></td>
+        <td><span class="tier-{{ r.tier }}">{{ r.tier }}</span></td>
+        <td>{{ r.score }}</td>
+        <td style="color:var(--muted); font-size:12px; max-width:220px">{{ r.top_reason }}</td>
+        <td>{{ r.emi_amount }}</td>
+        <td>{{ r.expected_loss }}</td>
+        <td><a href="/bank/customer/{{ r.customer_id }}" class="btn ghost" style="font-size:12px;padding:5px 12px">Open →</a></td>
+      </tr>
+      {% else %}
+      <tr><td colspan="7" style="text-align:center;color:var(--muted);padding:30px">No alerts — run the pipeline first.</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
 {% endblock %}

@@ -1,24 +1,81 @@
-{% extends "base.html" %}{% block title %}Connect Bank Account{% endblock %}{% block body %}
-<div class="card" style="max-width:440px;margin:40px auto">
-  <h2>👤 Customer Portal</h2>
-  <p>Select the bank account you want to connect, then sign in with Google.</p>
+{% extends "base.html" %}{% block title %}Customer Login{% endblock %}
+{% block head %}
+<style>
+  body { background: radial-gradient(ellipse at 70% 0%, #0f2a1e 0%, #0b1120 60%); }
+  .sso-wrap { min-height: calc(100vh - 60px); display: flex; align-items: center; justify-content: center; padding: 40px 16px; }
+  .sso-card {
+    background: rgba(17,24,39,.9);
+    border: 1px solid rgba(16,185,129,.2);
+    border-radius: 20px;
+    padding: 40px 44px;
+    width: 100%; max-width: 480px;
+    box-shadow: 0 0 80px rgba(16,185,129,.08), 0 24px 48px rgba(0,0,0,.5);
+    backdrop-filter: blur(20px);
+    animation: fadeUp .4s ease;
+  }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
+  .sso-header { margin-bottom: 28px; }
+  .sso-header .back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 13px; text-decoration: none; margin-bottom: 18px; transition: color .2s; }
+  .sso-header .back:hover { color: var(--text); }
+  .sso-header h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .sso-header p { color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .bank-select-wrap { position: relative; margin-bottom: 20px; }
+  .bank-select-wrap select {
+    appearance: none;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 14px 40px 14px 16px;
+    font-size: 14px; border-radius: 10px;
+    cursor: pointer; transition: border-color .2s;
+  }
+  .bank-select-wrap select:focus { border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,.15); }
+  .bank-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+  .google-btn {
+    width: 100%; padding: 14px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: 0; border-radius: 10px; color: #fff;
+    font-size: 15px; font-weight: 600; font-family: inherit;
+    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
+    transition: opacity .2s, transform .15s;
+  }
+  .google-btn:hover { opacity: .88; transform: translateY(-1px); }
+  .google-btn .google-icon { width: 20px; height: 20px; background: white; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .steps { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .step { display: flex; gap: 12px; align-items: flex-start; font-size: 12px; color: var(--muted); line-height: 1.5; }
+  .step .num { width: 20px; height: 20px; background: rgba(16,185,129,.15); color: #6ee7b7; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+</style>
+{% endblock %}
+{% block body %}
+<div class="sso-wrap">
+  <div class="sso-card">
+    <div class="sso-header">
+      <a href="/" class="back">← Back to login</a>
+      <h2>👤 Customer — Connect Your Bank</h2>
+      <p>Link your bank account to access your risk score, EMI schedule, and support options.</p>
+    </div>
 
-  <form method="post" action="/login/customer">
-    <select name="bank_id" required style="width:100%;padding:10px;margin:12px 0;font-size:15px;border-radius:5px;border:1px solid #ccc">
-      <option value="" disabled selected>Select your Bank...</option>
-      {% for bank_id, info in banks.items() %}
-        <option value="{{ bank_id }}">{{ info.name }}</option>
-      {% endfor %}
-    </select>
-    <br>
-    <button class="btn" style="width:100%;padding:12px;background:#34A853;color:white;border:none;border-radius:5px;font-size:16px;cursor:pointer">
-      Connect with Google
-    </button>
-  </form>
+    <form method="post" action="/login/customer">
+      <label>Select your bank</label>
+      <div class="bank-select-wrap">
+        <select name="bank_id" required>
+          <option value="" disabled selected>Choose your bank…</option>
+          {% for bank_id, info in banks.items() %}
+            <option value="{{ bank_id }}">{{ info.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
 
-  <p style="margin-top:16px;text-align:center">
-    <small>Any Google account accepted. Your bank account will be linked for self-service.</small>
-  </p>
-  <p style="text-align:center"><a href="/">← Back</a></p>
+      <button type="submit" class="google-btn">
+        <span class="google-icon">G</span>
+        Connect with Google
+      </button>
+    </form>
+
+    <div class="steps">
+      <div class="step"><span class="num">1</span>Select your bank above</div>
+      <div class="step"><span class="num">2</span>Sign in with any Google account</div>
+      <div class="step"><span class="num">3</span>View your risk score, EMI timeline &amp; request support — no late fees</div>
+    </div>
+  </div>
 </div>
 {% endblock %}

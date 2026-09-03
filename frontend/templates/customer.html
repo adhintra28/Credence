@@ -1,20 +1,120 @@
-{% extends "base.html" %}{% block title %}My support{% endblock %}{% block body %}
-<div class="card"><h2>Hi {{cid}} — Account Support</h2>
+{% extends "base.html" %}{% block title %}My Account — {{ cid }}{% endblock %}{% block body %}
+
+<div style="margin-bottom:24px">
+  <h2>👋 Welcome, {{ session.get('name', cid) }}</h2>
+  <small>Customer ID: <strong style="color:var(--text)">{{ cid }}</strong>{% if session.get('bank') %} · Connected to <strong style="color:var(--text)">{{ session.bank }}</strong>{% endif %}</small>
+</div>
+
+{% if msg %}<div class="msg">{{ msg }}</div>{% endif %}
+
 {% set s = ctx.score %}
-{% if s %}<p>Risk tier: <span class="tier-{{s.tier}}">{{s.tier}}</span> (score {{s.score}})</p>
-<p>Why we reached out: {% for r in s.get('reasons_list',[]) %}• {{r}} {% endfor %}</p>
-<p><small>We noticed pressure on cash-flow before your EMI is missed. This is supportive, never a penalty — pick what helps.</small></p>{% else %}
-<p>No score yet for this ID.</p>{% endif %}
-{% if msg %}<div class="msg">{{msg}}</div>{% endif %}
-<form method="post"><h3>Choose support (before EMI is missed):</h3>
-{% for o in offers %}<label><input type="radio" name="offer" value="{{o}}" {% if loop.first %}checked{% endif %}> {{o}}</label><br>{% endfor %}<br>
-<button class="btn" name="x" value="1">Request support</button></form>
-<form method="post" style="margin-top:10px"><button class="btn ghost" name="decision" value="accepted">Accept last offer</button>
-<button class="btn ghost" name="decision" value="declined">Decline</button></form></div>
-<div class="card"><h3>My EMI schedule</h3>
-<table><tr><th>due</th><th>paid</th><th>due amt</th><th>paid amt</th><th>dpd</th></tr>
-{% for e in ctx.emi %}<tr><td>{{e.due_date}}</td><td>{{e.paid_date}}</td><td>{{e.amount_due}}</td><td>{{e.amount_paid}}</td><td>{{e.dpd_days}}</td></tr>{% endfor %}</table></div>
-<div class="card"><h3>My requests</h3>
-<table><tr><th>date</th><th>offer</th><th>status</th><th>note</th></tr>
-{% for h in ctx.interventions %}<tr><td>{{h.date}}</td><td>{{h.offer}}</td><td>{{h.status}}</td><td>{{h.note}}</td></tr>{% endfor %}</table></div>
+
+<!-- Risk Score Card -->
+<div class="card" style="background: linear-gradient(135deg, rgba(17,24,39,1) 0%, rgba(26,34,55,1) 100%); border-color: rgba(99,102,241,.3)">
+  <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px">
+    <div>
+      <h3 style="color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.8px; margin-bottom:10px">Your Risk Score</h3>
+      {% if s %}
+        <div style="display:flex; align-items:center; gap:16px">
+          <span class="tier-{{ s.tier }}" style="font-size:18px; padding:6px 18px">{{ s.tier }}</span>
+          <span style="font-size:36px; font-weight:700">{{ s.score }}</span>
+        </div>
+        <p style="margin-top:12px; font-size:13px; color:var(--muted); max-width:480px">
+          We noticed some pressure on your cash-flow before your EMI is missed.
+          This outreach is <strong style="color:var(--text)">supportive, never a penalty</strong> — pick what helps most below.
+        </p>
+      {% else %}
+        <p style="color:var(--muted); font-size:14px">No score on file yet — run the pipeline first.</p>
+      {% endif %}
+    </div>
+    {% if s %}
+    <div style="background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:12px; padding:16px; min-width:200px">
+      <p style="font-size:11px; text-transform:uppercase; letter-spacing:.6px; color:var(--muted); margin-bottom:10px">Why we reached out</p>
+      {% for r in s.get('reasons_list', []) %}
+        <div style="display:flex; gap:8px; margin-bottom:6px; font-size:13px"><span style="color:#6366f1">•</span> {{ r }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Support request -->
+<div class="card">
+  <h3 style="margin-bottom:16px">🤝 Request Support</h3>
+  <form method="post">
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap:10px; margin-bottom:18px">
+      {% for o in offers %}
+      <label style="display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.03); border:1px solid var(--border); border-radius:10px; padding:12px 14px; cursor:pointer; transition:border-color .2s; font-size:14px"
+             onmouseover="this.style.borderColor='#3b82f6'" onmouseout="this.style.borderColor='var(--border)'">
+        <input type="radio" name="offer" value="{{ o }}" {% if loop.first %}checked{% endif %} style="width:auto; accent-color:#3b82f6">
+        {{ o }}
+      </label>
+      {% endfor %}
+    </div>
+    <button type="submit" name="x" value="1" class="btn" style="padding:12px 28px">Request support →</button>
+  </form>
+</div>
+
+<!-- Accept / Decline last offer -->
+<div class="card" style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+  <div style="flex:1; min-width:200px">
+    <h3 style="margin-bottom:4px">Latest Offer</h3>
+    <small>Respond to the most recent offer from our team.</small>
+  </div>
+  <form method="post" style="display:flex; gap:10px">
+    <button class="btn green" name="decision" value="accepted" style="padding:10px 20px">✓ Accept</button>
+    <button class="btn ghost" name="decision" value="declined" style="padding:10px 20px">✗ Decline</button>
+  </form>
+</div>
+
+<!-- EMI Schedule -->
+<div class="card">
+  <h3 style="margin-bottom:14px">📅 My EMI Schedule</h3>
+  <div style="overflow-x:auto">
+    <table>
+      <tr><th>Due Date</th><th>Paid Date</th><th>Due Amount</th><th>Paid Amount</th><th>DPD Days</th></tr>
+      {% for e in ctx.emi %}
+      <tr>
+        <td>{{ e.due_date }}</td>
+        <td>{{ e.paid_date or '—' }}</td>
+        <td>{{ e.amount_due }}</td>
+        <td>{{ e.amount_paid or '—' }}</td>
+        <td>
+          {% if e.dpd_days and e.dpd_days > 0 %}
+            <span style="color:#fca5a5; font-weight:600">{{ e.dpd_days }}</span>
+          {% else %}
+            <span style="color:#6ee7b7">{{ e.dpd_days or '0' }}</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" style="text-align:center; color:var(--muted); padding:28px">No EMI records yet.</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<!-- Intervention history -->
+<div class="card">
+  <h3 style="margin-bottom:14px">📋 My Requests & Offers</h3>
+  <div style="overflow-x:auto">
+    <table>
+      <tr><th>Date</th><th>Offer</th><th>Status</th><th>Note</th></tr>
+      {% for h in ctx.interventions %}
+      <tr>
+        <td>{{ h.date }}</td>
+        <td>{{ h.offer }}</td>
+        <td>
+          {% if h.status == 'accepted' %}<span style="color:#6ee7b7">✓ {{ h.status }}</span>
+          {% elif h.status == 'declined' %}<span style="color:#fca5a5">✗ {{ h.status }}</span>
+          {% else %}<span style="color:#fcd34d">⏳ {{ h.status }}</span>{% endif %}
+        </td>
+        <td style="color:var(--muted); font-size:12px">{{ h.note or '—' }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="4" style="text-align:center; color:var(--muted); padding:28px">No requests yet.</td></tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
 {% endblock %}
