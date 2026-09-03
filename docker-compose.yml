@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: predelinq
+      POSTGRES_PASSWORD: predelinq
+      POSTGRES_DB: predelinq
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U predelinq"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PREDELINQ_CONFIG: config.yaml
+      DATABASE_URL: "postgresql+psycopg2://predelinq:predelinq@db:5432/predelinq"
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: uvicorn src.serving.api:app --host 0.0.0.0 --port 8000 --reload
+
+  portal:
+    build: .
+    depends_on:
+      - app
+    environment:
+      PREDELINQ_CONFIG: config.yaml
+      API_BASE_URL: "http://app:8000"
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    command: python frontend/app.py
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  pgdata:

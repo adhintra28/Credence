@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "description": "Alert payload — what a channel adapter (SMS/email/app) receives.",
+  "fields": {
+    "alert_id": {"type": "string", "required": true},
+    "customer_id": {"type": "string", "required": true},
+    "scoring_date": {"type": "date", "required": true},
+    "tier": {"type": "enum", "values": ["Amber", "Red"], "required": true},
+    "score": {"type": "float64", "range": [0.001, 0.999], "required": true},
+    "top_reason": {"type": "string", "required": true},
+    "reasons": {"type": "array", "items": "string", "minItems": 3, "required": true},
+    "emi_amount": {"type": "float64", "required": true},
+    "expected_loss": {"type": "float64", "required": true},
+    "action": {"type": "enum", "values": ["auto_nudge", "human_offer"], "required": true},
+    "message": {"type": "string", "required": true, "description": "Rendered outreach message (no PII)"},
+    "signal_groups": {"type": "string", "required": true, "description": "Active signal groups joined by +"},
+    "escalated": {"type": "boolean", "required": true},
+    "suppress_reason": {"type": "string", "required": false, "description": "Non-null only for audit rows of suppressed/capped alerts"},
+    "model_version": {"type": "string", "required": true}
+  }
+}

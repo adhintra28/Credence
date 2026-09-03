@@ -1,0 +1,11 @@
+{% extends "base.html" %}{% block title %}Access Denied{% endblock %}{% block body %}
+<div class="card" style="max-width:480px;margin:60px auto;text-align:center">
+  <h2>⚠️ Access Denied</h2>
+  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:24px;margin:20px 0">
+    <p style="color:#533f03;font-size:16px;margin:0">{{ msg }}</p>
+  </div>
+  <a href="/" class="btn" style="display:inline-block;margin-top:12px;padding:10px 24px;background:#4285F4;color:white;border-radius:5px;text-decoration:none">
+    ← Back to Login
+  </a>
+</div>
+{% endblock %}

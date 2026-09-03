@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "description": "Transaction event envelope for future real-data ingestion.",
+  "fields": {
+    "txn_id": {"type": "string", "required": true, "description": "Unique transaction identifier"},
+    "customer_id": {"type": "string", "required": true, "description": "Hashed customer identifier"},
+    "timestamp": {"type": "datetime", "required": true, "description": "ISO 8601 timestamp with time component"},
+    "txn_type": {
+      "type": "enum",
+      "required": true,
+      "values": ["salary_credit", "upi_p2m", "upi_lending_app", "utility_bill", "dining", "entertainment", "atm_withdrawal", "savings_transfer", "emi_debit", "gambling"],
+      "description": "Transaction type"
+    },
+    "amount": {"type": "float64", "required": true, "range": [0, 1e8], "description": "Transaction amount (always positive; sign determined by txn_type)"},
+    "balance_after": {"type": "float64", "required": true, "description": "Running balance after this transaction"},
+    "channel": {
+      "type": "enum",
+      "required": true,
+      "values": ["UPI", "NEFT", "ATM", "billpay", "autodebit"],
+      "description": "Payment channel"
+    },
+    "merchant_category": {"type": "string", "required": true, "description": "Merchant category code or label"},
+    "status": {
+      "type": "enum",
+      "required": true,
+      "values": ["success", "fail"],
+      "description": "Transaction outcome"
+    }
+  }
+}

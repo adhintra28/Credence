@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "description": "Frozen feature contract — name, dtype, window, group, allowed range, null policy. Tests read this, not a bare list.",
+  "features": [
+    {"name": "days_since_salary", "dtype": "float64", "window": "28d", "group": "income", "range": [0, 999], "null_policy": "impute_median", "description": "Days since last salary credit"},
+    {"name": "salary_delay_vs_median", "dtype": "float64", "window": "28d", "group": "income", "range": [0, 60], "null_policy": "impute_median", "description": "Salary delay vs customer's own trailing 6-month median pay date"},
+    {"name": "salary_cv_3m", "dtype": "float64", "window": "90d", "group": "income", "range": [0, 5], "null_policy": "impute_zero", "description": "CV of last 3 salary amounts"},
+    {"name": "missing_salary_flag", "dtype": "float64", "window": "28d", "group": "income", "range": [0, 1], "null_policy": "impute_zero", "description": "1 if salary >35d late"},
+
+    {"name": "savings_wow_pct", "dtype": "float64", "window": "7d", "group": "liquidity", "range": [-10, 10], "null_policy": "impute_zero", "description": "Week-over-week balance change pct"},
+    {"name": "avg_balance_28d", "dtype": "float64", "window": "28d", "group": "liquidity", "range": [0, 1e8], "null_policy": "impute_median", "description": "Mean balance over 28d"},
+    {"name": "balance_slope_28d", "dtype": "float64", "window": "28d", "group": "liquidity", "range": [-1e6, 1e6], "null_policy": "impute_zero", "description": "Linear slope of balance over 28d"},
+    {"name": "drawdown_streak", "dtype": "float64", "window": "28d", "group": "liquidity", "range": [0, 4], "null_policy": "impute_zero", "description": "Consecutive weeks of WoW decline"},
+    {"name": "min_balance_14d", "dtype": "float64", "window": "14d", "group": "liquidity", "range": [-1e6, 1e8], "null_policy": "impute_median", "description": "Min balance over 14d"},
+
+    {"name": "utility_pay_day", "dtype": "float64", "window": "28d", "group": "discipline", "range": [1, 31], "null_policy": "impute_median", "description": "Median utility payment day of month"},
+    {"name": "utility_delay_days", "dtype": "float64", "window": "28d", "group": "discipline", "range": [0, 30], "null_policy": "impute_zero", "description": "Days utility is paid late vs 12th"},
+    {"name": "utility_partial_ratio", "dtype": "float64", "window": "28d", "group": "discipline", "range": [0, 1], "null_policy": "impute_zero", "description": "Fraction of utility bills partially paid"},
+    {"name": "autodebit_fail_28d", "dtype": "float64", "window": "28d", "group": "discipline", "range": [0, 30], "null_policy": "impute_zero", "description": "Count of failed auto-debits in 28d"},
+
+    {"name": "lending_app_cnt_7d", "dtype": "float64", "window": "7d", "group": "borrowing", "range": [0, 50], "null_policy": "impute_zero", "description": "Lending app txns in 7d"},
+    {"name": "lending_app_cnt_28d", "dtype": "float64", "window": "28d", "group": "borrowing", "range": [0, 100], "null_policy": "impute_zero", "description": "Lending app txns in 28d"},
+    {"name": "lending_app_amt_ratio", "dtype": "float64", "window": "28d", "group": "borrowing", "range": [0, 10], "null_policy": "impute_zero", "description": "Lending app amt / total spend in 28d"},
+    {"name": "new_lender_cnt", "dtype": "float64", "window": "28d", "group": "borrowing", "range": [0, 20], "null_policy": "impute_zero", "description": "New lending merchants in 28d vs prior 90d"},
+
+    {"name": "discretionary_ratio_28d", "dtype": "float64", "window": "28d", "group": "behavioral", "range": [0, 1], "null_policy": "impute_zero", "description": "Dining+entertainment / total spend in 28d"},
+    {"name": "discretionary_drop_pct", "dtype": "float64", "window": "28d", "group": "behavioral", "range": [-5, 5], "null_policy": "impute_zero", "description": "Drop in discretionary vs prior 28d"},
+    {"name": "gambling_flag", "dtype": "float64", "window": "28d", "group": "behavioral", "range": [0, 1], "null_policy": "impute_zero", "description": "1 if any gambling txn in 28d"},
+    {"name": "night_txn_ratio", "dtype": "float64", "window": "28d", "group": "behavioral", "range": [0, 1], "null_policy": "impute_zero", "description": "Fraction of txns between 22:00-04:00"},
+
+    {"name": "atm_cnt_7d", "dtype": "float64", "window": "7d", "group": "cash", "range": [0, 50], "null_policy": "impute_zero", "description": "ATM withdrawals in 7d"},
+    {"name": "atm_amt_avg", "dtype": "float64", "window": "28d", "group": "cash", "range": [0, 1e6], "null_policy": "impute_zero", "description": "Avg ATM withdrawal amount in 28d"},
+    {"name": "cash_to_spend_ratio", "dtype": "float64", "window": "28d", "group": "cash", "range": [0, 10], "null_policy": "impute_zero", "description": "ATM withdrawals / total spend in 28d"},
+
+    {"name": "emi_to_income", "dtype": "float64", "window": "static", "group": "context", "range": [0, 5], "null_policy": "impute_median", "description": "EMI amount / income"},
+    {"name": "months_on_book", "dtype": "float64", "window": "static", "group": "context", "range": [0, 600], "null_policy": "impute_zero", "description": "Months since origination (replaces leaky tenure_months)"},
+    {"name": "salary_to_emi_buffer_days", "dtype": "float64", "window": "28d", "group": "context", "range": [-28, 28], "null_policy": "impute_zero", "description": "Days between salary credit and EMI due date"},
+    {"name": "channel_mix_entropy", "dtype": "float64", "window": "28d", "group": "context", "range": [0, 5], "null_policy": "impute_zero", "description": "Shannon entropy of transaction channels"}
+  ],
+  "categorical_features": [
+    {"name": "archetype", "dtype": "category", "group": "context", "values": ["salaried_stable", "salaried_stressed", "gig_worker", "sme_owner", "pensioner"]},
+    {"name": "geography", "dtype": "category", "group": "context", "values": ["Mumbai", "Delhi", "Bengaluru", "Chennai", "Hyderabad", "Kolkata"]},
+    {"name": "product_type", "dtype": "category", "group": "context", "values": ["personal", "home", "credit_card"]}
+  ]
+}

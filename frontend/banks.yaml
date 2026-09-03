@@ -1,0 +1,62 @@
+indian_banks:
+  # Private Banks
+  hdfc_bank: "@hdfcbank.com"
+  icici_bank: "@icicibank.com"
+  axis_bank: "@axisbank.com"
+  kotak_mahindra: "@kotak.com"
+  indusind_bank: "@indusind.com"
+  yes_bank: "@yesbank.in"
+  federal_bank: "@federalbank.co.in"
+  karur_vysya: "@kvbank.in"
+  south_indian_bank: "@southindianbank.co.in"
+  city_union_bank: "@cityunionbank.com"
+  rbl_bank: "@rblbank.com"
+  bandhan_bank: "@bandhanbank.com"
+  au_small_finance: "@aubank.in"
+  ujjivan_small_finance: "@ujjivanbank.com"
+
+  # Public Sector Banks
+  state_bank_of_india: "@sbi.co.in"
+  punjab_national_bank: "@pnb.co.in"
+  bank_of_baroda: "@bob.co.in"
+  canara_bank: "@canarabank.com"
+  union_bank_of_india: "@unionbankofindia.co.in"
+  bank_of_india: "@bankofindia.co.in"
+  indian_bank: "@indianbank.co.in"
+  central_bank_of_india: "@centralbank.co.in"
+  punjab_and_sind_bank: "@psb.gov.in"
+  indian_overseas_bank: "@iobnet.co.in"
+
+  # Foreign Banks in India
+  hsbc_india: "@hsbc.co.in"
+  citibank_india: "@citi.com"
+  standard_chartered: "@sc.com"
+  deutsche_bank: "@db.com"
+  barclays: "@barclays.com"
+
+us_banks:
+  jpmorgan_chase: "@jpmchase.com"
+  bank_of_america: "@bofa.com"
+  wells_fargo: "@wellsfargo.com"
+  citibank: "@citi.com"
+  goldman_sachs: "@goldmansachs.com"
+  morgan_stanley: "@morganstanley.com"
+  us_bank: "@usbank.com"
+  pnc_bank: "@pnc.com"
+  capital_one: "@capitalone.com"
+  charles_schwab: "@schwab.com"
+
+uk_banks:
+  barclays_uk: "@barclays.com"
+  hsbc_uk: "@hsbc.com"
+  lloyds: "@lloydsbanking.com"
+  royal_bank_of_scotland: "@rbs.co.uk"
+  standard_chartered_uk: "@sc.com"
+  natwest: "@natwest.com"
+
+singapore_hk:
+  dbs_bank: "@dbs.com"
+  ocbc: "@ocbc.com"
+  uob: "@uob.com.sg"
+  hang_seng: "@hangseng.com"
+  hkbc: "@hkbea.com"

@@ -1,38 +1,54 @@
 # Pre-delinquency engine config — all bank-specific knobs live here
+# Loaded exclusively through src/config.py (Pydantic Settings). No literals elsewhere.
 seed: 42
+
 data:
   n_customers: 2000        # use 20000 for full run; 2000 keeps laptop runs <2 min
   start_date: "2024-01-01"
   months: 12
   emi_day: 5
   positive_rate_target: 0.10
+  cure_rate: 0.15           # share of stressed customers that show stress but do NOT miss
+
 scoring:
   scoring_date: "2024-11-01"
-  train_months: "1-8"      # months since start
+  train_months: "1-8"       # months since start
   valid_months: "9-10"
   test_months: "11-12"
   windows: [7, 14, 28]
+
 tiers:
   amber_min: 0.30
   green_max: 0.30
   red_min: 0.60
   red_cap_per_day: 200
   suppression_days: 7
+
 paths:
   raw_dir: "data/raw"
   processed_dir: "data/processed"
   models_dir: "models"
   outputs_dir: "data/outputs"
+
 model:
   champion: "lightgbm"
   challenger: "xgboost"
   calibrate: true
-# --- AWS (COMMENTED until backend configured; see aws/ folder) ---
-# aws:
-#   region: "ap-south-1"  # TODO: set region
-#   sagemaker_role: "arn:aws:iam::123456789012:role/SageMakerExec"  # TODO
-#   kinesis_stream: "pre-delinquency-txns"  # TODO
-#   feature_group: "predelinq-features"  # TODO
-#   redshift_cluster: "rs-predelinq"  # TODO
-#   dynamodb_table: "risk_scores"  # TODO
-#   sns_topic_arn: "arn:aws:sns:ap-south-1:123456789012:risk-alerts"  # TODO
+
+database:
+  url: "postgresql+psycopg2://predelinq:predelinq@localhost:5432/predelinq"
+  pool_size: 5
+  echo: false
+
+auth:
+  secret_key: "CHANGE-ME-IN-PRODUCTION-NOT-DEFAULT"
+  algorithm: "HS256"
+  access_token_expire_minutes: 60
+  refresh_token_expire_minutes: 1440
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins:
+    - "http://localhost:5000"
+  debug: false

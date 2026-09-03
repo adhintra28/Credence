@@ -1,0 +1,40 @@
+{
+  "version": "1.0.0",
+  "description": "Model bundle manifest — artifact manifest with hashes, produced per training run.",
+  "fields": {
+    "run_id": {"type": "string", "required": true, "description": "Unique run identifier"},
+    "champion": {"type": "string", "required": true},
+    "created_at": {"type": "datetime", "required": true},
+    "artifacts": {
+      "model_pkl": {"type": "filepath", "required": true, "description": "Serialised model"},
+      "imputer_pkl": {"type": "filepath", "required": true, "description": "Train-fit imputer"},
+      "calibrator_pkl": {"type": "filepath", "required": true, "description": "Isotonic/Platt calibrator"},
+      "thresholds_json": {"type": "filepath", "required": true, "description": "Tier thresholds"},
+      "shap_background_parquet": {"type": "filepath", "required": true, "description": "SHAP background dataset"},
+      "feature_contract_json": {"type": "filepath", "required": true, "description": "Frozen feature contract"},
+      "model_card_md": {"type": "filepath", "required": true, "description": "Model card"}
+    },
+    "metrics": {
+      "pr_auc": {"type": "float64", "required": true},
+      "roc_auc": {"type": "float64", "required": true},
+      "recall_at_15": {"type": "float64", "required": true},
+      "precision_at_red": {"type": "float64", "required": true},
+      "brier": {"type": "float64", "required": true},
+      "calibration_slope": {"type": "float64", "required": true},
+      "flagged_rate": {"type": "float64", "required": true}
+    },
+    "gates": {
+      "recall_at_15_ge_70": {"type": "boolean", "required": true},
+      "calibration_slope_in_range": {"type": "boolean", "required": true},
+      "flagged_le_15": {"type": "boolean", "required": true}
+    },
+    "data_lineage": {
+      "n_train": {"type": "integer"},
+      "n_valid": {"type": "integer"},
+      "n_test": {"type": "integer"},
+      "train_pos_rate": {"type": "float64"},
+      "train_date_range": {"type": "string"},
+      "test_date_range": {"type": "string"}
+    }
+  }
+}
