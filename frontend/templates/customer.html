@@ -1,130 +1,140 @@
 {% extends "base.html" %}{% block title %}My Account — {{ cid }}{% endblock %}{% block body %}
 
-<div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:32px">
+<div class="h-row">
   <div>
-    <h2>👋 Welcome, {{ session.get('name', cid) }}</h2>
-    <p class="subtitle">Customer ID: <strong style="color:var(--text-primary)">{{ cid }}</strong>{% if session.get('bank') %} · Connected to <strong style="color:var(--text-primary)">{{ session.bank }}</strong>{% endif %}</p>
+    <span class="eyebrow">Customer Self-Service</span>
+    <h1>Welcome, {{ session.get('name', cid) }}</h1>
+    <p class="subtitle">Customer ID: <span class="mono" style="color:var(--text-primary)">{{ cid }}</span>{% if session.get('bank') %} · Connected to <span style="color:var(--text-primary)">{{ session.bank }}</span>{% endif %}</p>
   </div>
+  {% if ctx.scoring_date %}<span class="chip">Assessment cycle: <b style="color:var(--accent)">{{ ctx.scoring_date }}</b></span>{% endif %}
 </div>
 
 {% if msg %}<div class="msg">{{ msg }}</div>{% endif %}
-
 {% set s = ctx.score %}
 
-<!-- Risk Score Card -->
-<div class="card" style="border-color:var(--accent-dim); box-shadow:0 0 40px var(--accent-dim)">
-  <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px">
-    <div>
-      <p style="font-family:var(--font-body); font-size:12px; text-transform:uppercase; letter-spacing:.8px; color:var(--text-secondary); margin-bottom:12px">Current Risk Assessment</p>
+<!-- RISK SCORE CARD -->
+<div class="panel" style="border-color:var(--accent-border)">
+  <div class="panel-head">
+    <span class="panel-title">Current Risk Assessment</span>
+    {% if s %}<span class="tier-{{ s.tier }}">{{ s.tier }} Risk</span>{% endif %}
+  </div>
+  <div class="panel-body" style="display:flex;gap:26px;flex-wrap:wrap">
+    <div style="min-width:220px">
       {% if s %}
-        <div style="display:flex; align-items:center; gap:16px">
-          <span class="tier-{{ s.tier }}" style="font-size:13px; padding:6px 18px">{{ s.tier }} Risk</span>
-          <span style="font-family:var(--font-display); font-size:36px; font-weight:700; color:var(--text-primary)">{{ s.score }}</span>
-        </div>
-        <p style="margin-top:14px; font-size:13px; color:var(--text-muted); max-width:480px; line-height:1.6">
+        <div class="kpi-value" style="font-size:44px;color:{{ 'var(--red)' if s.tier=='Red' else 'var(--amber)' if s.tier=='Amber' else 'var(--green)' }}">{{ '%.3f' % s.score }}</div>
+        <div class="bar" style="width:240px;margin-top:10px"><div class="bar-fill {{ 'error' if s.tier=='Red' else 'amber' if s.tier=='Amber' else 'green' }}" style="width:{{ '%.0f' % (100*s.score) }}%"></div></div>
+        <p style="margin-top:16px;font-size:12.5px;color:var(--text-secondary);max-width:480px;line-height:1.65">
           We noticed some pressure on your cash-flow before your EMI is missed.
-          This outreach is <strong style="color:var(--text-primary)">supportive, never a penalty</strong>. We want to help you stay on track.
+          This outreach is <b style="color:var(--text-primary)">supportive, never a penalty</b>.
+          We want to help you stay on track.
         </p>
       {% else %}
-        <p style="color:var(--text-muted); font-size:14px">No assessment on file yet.</p>
+        <p style="color:var(--text-muted);font-size:13px">No assessment on file yet.</p>
       {% endif %}
     </div>
-    {% if s %}
-    <div style="background:var(--bg-base); border:1px solid var(--border-light); border-radius:var(--radius); padding:18px; min-width:240px">
-      <p style="font-size:11px; text-transform:uppercase; letter-spacing:.6px; color:var(--text-secondary); margin-bottom:12px">Identified Factors</p>
-      {% for r in s.get('reasons_list', []) %}
-        <div style="display:flex; gap:10px; margin-bottom:8px; font-size:12px; color:var(--text-primary)">
-          <span style="color:var(--accent)">•</span> {{ r }}
-        </div>
-      {% endfor %}
+    {% if s and s.get('reasons_list') %}
+    <div style="flex:1;min-width:260px">
+      <div class="kpi-label" style="margin-bottom:12px">Identified Factors</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        {% for r in s.get('reasons_list') %}
+          <div style="display:flex;gap:10px;font-size:12px;font-family:var(--mono);color:var(--text-primary);background:var(--bg-lowest);border:1px solid var(--border);border-radius:4px;padding:9px 12px">
+            <span style="color:var(--accent)">▸</span>{{ r }}
+          </div>
+        {% endfor %}
+      </div>
     </div>
     {% endif %}
   </div>
 </div>
 
-<!-- Support request -->
-<div class="card">
-  <h3 style="margin-bottom:18px">🤝 Available Support Options</h3>
-  <form method="post">
-    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:12px; margin-bottom:20px">
-      {% for o in offers %}
-      <label style="display:flex; align-items:flex-start; gap:12px; background:var(--bg-base); border:1px solid var(--border); border-radius:var(--radius); padding:16px; cursor:pointer; transition:all .2s; font-size:13px; color:var(--text-primary)"
-             onmouseover="this.style.borderColor='var(--accent)';this.style.background='var(--bg-card-hover)'" 
-             onmouseout="this.style.borderColor='var(--border)';this.style.background='var(--bg-base)'">
-        <input type="radio" name="offer" value="{{ o }}" {% if loop.first %}checked{% endif %} style="width:auto; margin-top:2px; accent-color:var(--accent)">
-        <span style="line-height:1.4">{{ o }}</span>
-      </label>
-      {% endfor %}
-    </div>
-    <button type="submit" name="x" value="1" class="btn" style="padding:12px 28px">Request Support →</button>
-  </form>
+<!-- SUPPORT OPTIONS -->
+<div class="panel">
+  <div class="panel-head">
+    <span class="panel-title">Available Support Options</span>
+    <span class="panel-meta">CHOOSE ANY · NO LATE FEE</span>
+  </div>
+  <div class="panel-body">
+    <form method="post">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:16px">
+        {% for o in offers %}
+        <label class="kpi" style="min-height:auto;flex-direction:row;align-items:center;gap:10px;cursor:pointer;padding:13px 14px;margin:0">
+          <input type="radio" name="offer" value="{{ o }}" {% if loop.first %}checked{% endif %} style="width:auto;accent-color:var(--accent)">
+          <span style="font-size:12px;font-family:var(--mono);color:var(--text-primary);line-height:1.4">{{ o }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <button type="submit" name="x" value="1" class="btn" style="padding:10px 22px">Request Support →</button>
+    </form>
+  </div>
 </div>
 
-<!-- Accept / Decline last offer -->
-<div class="card" style="display:flex; gap:16px; align-items:center; flex-wrap:wrap">
-  <div style="flex:1; min-width:200px">
-    <h3 style="margin-bottom:6px">Review Latest Bank Offer</h3>
+<!-- ACCEPT / DECLINE -->
+<div class="panel" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:18px 20px">
+  <div style="flex:1;min-width:200px">
+    <h2 style="margin-bottom:4px">Review Latest Bank Offer</h2>
     <p class="subtitle">Respond to the most recent intervention proposed by our team.</p>
   </div>
-  <form method="post" style="display:flex; gap:12px">
-    <button class="btn green" name="decision" value="accepted" style="padding:10px 24px">Accept Offer</button>
-    <button class="btn ghost" name="decision" value="declined" style="padding:10px 24px; color:var(--red); border-color:var(--red-border)">Decline</button>
+  <form method="post" style="display:flex;gap:10px">
+    <button class="btn green" name="decision" value="accepted" style="padding:10px 22px">Accept Offer</button>
+    <button class="btn ghost" name="decision" value="declined" style="padding:10px 22px;color:var(--red);border-color:var(--red-border)">Decline</button>
   </form>
 </div>
 
-<!-- EMI Schedule -->
-<div class="table-container" style="margin-bottom:28px">
-  <div style="padding:18px 20px; border-bottom:1px solid var(--border)"><h3 style="margin:0; font-size:15px">📅 EMI Schedule</h3></div>
-  <div style="overflow-x:auto">
+<!-- EMI SCHEDULE -->
+<div class="panel">
+  <div class="panel-head">
+    <span class="panel-title">EMI Schedule</span>
+    <span class="panel-meta">LAST 12 INSTALLMENTS</span>
+  </div>
+  <div class="table-scroll">
     <table>
       <thead>
-        <tr><th style="padding-left:20px">Due Date</th><th>Paid Date</th><th>Due Amount</th><th>Paid Amount</th><th>Status (DPD)</th></tr>
+        <tr><th>Due Date</th><th>Paid Date</th><th>Due Amount</th><th>Paid Amount</th><th>Status</th></tr>
       </thead>
       <tbody>
       {% for e in ctx.emi %}
-      <tr>
-        <td style="padding-left:20px; color:var(--text-primary)">{{ e.due_date }}</td>
-        <td style="color:var(--text-muted)">{{ e.paid_date or '—' }}</td>
-        <td style="color:var(--text-primary); font-family:Courier New,monospace">{{ e.amount_due }}</td>
-        <td style="color:var(--text-muted); font-family:Courier New,monospace">{{ e.amount_paid or '—' }}</td>
-        <td>
-          {% if e.dpd_days and e.dpd_days > 0 %}
-            <span style="background:var(--red-dim); color:var(--red); padding:3px 8px; border-radius:10px; font-size:11px; font-weight:600">{{ e.dpd_days }} Days Late</span>
-          {% else %}
-            <span style="background:var(--green-dim); color:var(--green); padding:3px 8px; border-radius:10px; font-size:11px; font-weight:600">On Track</span>
-          {% endif %}
-        </td>
-      </tr>
+        <tr>
+          <td class="num">{{ e.due_date }}</td>
+          <td class="muted">{{ e.paid_date or '—' }}</td>
+          <td class="num">{{ e.amount_due }}</td>
+          <td class="muted">{{ e.amount_paid or '—' }}</td>
+          <td>
+            {% if e.dpd_days is defined and e.dpd_days|int > 0 %}
+              <span class="chip error">{{ e.dpd_days }} Days Late</span>
+            {% else %}<span class="chip green">On Track</span>{% endif %}
+          </td>
+        </tr>
       {% else %}
-      <tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:40px 20px">No EMI records yet.</td></tr>
+        <tr><td colspan="5"><div class="empty">No EMI records yet.</div></td></tr>
       {% endfor %}
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- Intervention history -->
-<div class="table-container">
-  <div style="padding:18px 20px; border-bottom:1px solid var(--border)"><h3 style="margin:0; font-size:15px">📋 Request & Offer History</h3></div>
-  <div style="overflow-x:auto">
+<!-- HISTORY -->
+<div class="panel">
+  <div class="panel-head">
+    <span class="panel-title">Request &amp; Offer History</span>
+    <span class="panel-meta">APPEND-ONLY</span>
+  </div>
+  <div class="table-scroll">
     <table>
-      <thead>
-        <tr><th style="padding-left:20px">Date</th><th>Offer Details</th><th>Status</th><th>Note</th></tr>
-      </thead>
+      <thead><tr><th>Date</th><th>Offer Details</th><th>Status</th><th>Note</th></tr></thead>
       <tbody>
       {% for h in ctx.interventions %}
-      <tr>
-        <td style="padding-left:20px; color:var(--text-muted); font-size:12px">{{ h.date }}</td>
-        <td style="color:var(--text-primary)">{{ h.offer }}</td>
-        <td>
-          {% if h.status == 'accepted' %}<span style="color:var(--green); font-weight:500">Accepted</span>
-          {% elif h.status == 'declined' %}<span style="color:var(--red); font-weight:500">Declined</span>
-          {% else %}<span style="color:var(--amber); font-weight:500">Pending</span>{% endif %}
-        </td>
-        <td style="color:var(--text-secondary); font-size:12px">{{ h.note or '—' }}</td>
-      </tr>
+        <tr>
+          <td class="mono muted" style="font-size:11px">{{ h.date }}</td>
+          <td style="color:var(--text-secondary);font-size:12px">{{ h.offer or '—' }}</td>
+          <td>
+            {% if h.status == 'accepted' %}<span class="chip green">Accepted</span>
+            {% elif h.status == 'declined' %}<span class="chip error">Declined</span>
+            {% else %}<span class="chip amber">{{ h.status or 'Pending' }}</span>{% endif %}
+          </td>
+          <td class="muted" style="font-size:12px">{{ h.note or '—' }}</td>
+        </tr>
       {% else %}
-      <tr><td colspan="4" style="text-align:center; color:var(--text-muted); padding:40px 20px">No requests history.</td></tr>
+        <tr><td colspan="4"><div class="empty">No requests history.</div></td></tr>
       {% endfor %}
       </tbody>
     </table>

@@ -1,22 +1,195 @@
-{% extends "base.html" %}{% block title %}Customer 360 {{cid}}{% endblock %}{% block body %}
-<div class="nav card"><a href="/bank">Portfolio</a><a href="/bank/queue">Alerts queue</a><a href="/bank/interventions">Interventions</a><a href="/bank/model">Model health</a></div>
-<div class="card"><h2>Customer 360 — {{cid}} <small>{{ctx.scoring_date}}</small></h2>
-{% if msg %}<div class="msg">{{msg}}</div>{% endif %}
-{% set s = ctx.score %}{% set p = ctx.profile %}
-<p>Profile: {{p.archetype}} · {{p.geography}} · {{p.product_type}} · EMI Rs.{{p.emi_amount}} · income Rs.{{p.income_median}}</p>
-<p>Risk: {% if s %}<span class="tier-{{s.tier}}">{{s.tier}}</span> score {{s.score}} ({{s.model}}){% else %}no score{% endif %}</p>
-<p>Why: {% for r in s.get('reasons_list',[]) %}• {{r}} {% endfor %}</p>
-<p>Signals: savings WoW {{ctx.features.get('savings_wow_pct')}} · salary delay {{ctx.features.get('salary_delay_vs_median')}}d · lending 7d {{ctx.features.get('lending_app_cnt_7d')}} · utility delay {{ctx.features.get('utility_delay_days')}}d · autodebit fails {{ctx.features.get('autodebit_fail_28d')}} · discretionary drop {{ctx.features.get('discretionary_drop_pct')}} · ATM 7d {{ctx.features.get('atm_cnt_7d')}}</p>
+{% extends "base.html" %}{% block title %}Customer 360 — {{ cid }}{% endblock %}{% block body %}
+
+<div class="h-row">
+  <div>
+    <span class="eyebrow">Customer Deep Dive &amp; Streams</span>
+    <h1>Customer 360 — <span class="mono">{{ cid }}</span></h1>
+    <p class="subtitle">Point-in-time profile, cash-flow timeline, stress signals and intervention history.</p>
+  </div>
+  <div class="h-actions">
+    <span class="chip">Cycle: <b style="color:var(--accent)">{{ ctx.scoring_date or '—' }}</b></span>
+    <a href="/bank/queue" class="btn ghost sm">← Back to Queue</a>
+  </div>
 </div>
-<div class="card"><h3>Make an offer (Red) / nudge (Amber)</h3>
-<form method="post">{% for o in offers %}<label><input type="radio" name="offer" value="{{o}}" {% if loop.first %}checked{% endif %}> {{o}}</label><br>{% endfor %}
-<br>Channel <select name="channel"><option>call</option><option>sms</option><option>app</option><option>email</option><option>branch</option></select>
-<button class="btn">Send offer</button></form></div>
-<div class="card"><h3>EMI schedule (last 12)</h3>
-<table><tr><th>due</th><th>paid</th><th>due amt</th><th>paid amt</th><th>dpd</th><th>bounce</th></tr>
-{% for e in ctx.emi %}<tr><td>{{e.due_date}}</td><td>{{e.paid_date}}</td><td>{{e.amount_due}}</td><td>{{e.amount_paid}}</td><td>{{e.dpd_days}}</td><td>{{e.bounce_flag}}</td></tr>{% endfor %}</table></div>
-<div class="card"><h3>Interventions & analyst actions</h3>
-<table><tr><th>date</th><th>offer</th><th>channel</th><th>status</th><th>by</th><th>note</th></tr>
-{% for h in ctx.interventions %}<tr><td>{{h.date}}</td><td>{{h.offer}}</td><td>{{h.channel}}</td><td>{{h.status}}</td><td>{{h.action_by}}</td><td>{{h.note}}</td></tr>{% endfor %}</table>
-<p><small>Balance points (120d): {{ctx.timeline.get('balance',[])|length}} · salary credits: {{ctx.timeline.get('salary_markers',[])|length}} · utility bills: {{ctx.timeline.get('utility',[])|length}}</small></p></div>
+
+{% if msg %}<div class="msg">{{ msg }}</div>{% endif %}
+{% set s = ctx.score %}{% set p = ctx.profile %}
+
+<!-- PROFILE + SCORE + SIGNALS -->
+<div class="two-col">
+  <div class="panel">
+    <div class="panel-head">
+      <span class="panel-title">Risk Assessment</span>
+      {% if s %}<span class="tier-{{ s.tier }}">{{ s.tier }}</span>{% endif %}
+    </div>
+    <div class="panel-body" style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap">
+        <div>
+          <div class="kpi-label" style="margin-bottom:6px">Default Probability (28d)</div>
+          {% if s %}
+            <div class="kpi-value" style="font-size:40px;color:{{ 'var(--red)' if s.tier=='Red' else 'var(--amber)' if s.tier=='Amber' else 'var(--green)' }}">{{ '%.3f' % s.score }}</div>
+            <div class="bar" style="width:220px;margin-top:8px"><div class="bar-fill {{ 'error' if s.tier=='Red' else 'amber' if s.tier=='Amber' else 'green' }}" style="width:{{ '%.0f' % (100*s.score) }}%"></div></div>
+            <div class="kpi-sub" style="margin-top:8px">{{ s.model or '' }} · thresholds frozen</div>
+          {% else %}
+            <div class="kpi-value" style="color:var(--text-muted)">—</div>
+            <div class="kpi-sub">No score on file for this cycle.</div>
+          {% endif %}
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:11px;color:var(--text-secondary)">
+          <span>Archetype <b style="color:var(--text-primary)">{{ p.archetype or '—' }}</b></span>
+          <span>Geography <b style="color:var(--text-primary)">{{ p.geography or '—' }}</b></span>
+          <span>Product <b style="color:var(--text-primary)">{{ p.product_type or '—' }}</b></span>
+          <span>EMI <b style="color:var(--text-primary)">₹{{ (p.emi_amount or 0)|int }}</b> · Income <b style="color:var(--text-primary)">₹{{ '{:,.0f}'.format((p.income_median or 0)|float) }}</b></span>
+        </div>
+      </div>
+      {% if s and s.get('reasons_list') %}
+      <div>
+        <div class="kpi-label" style="margin-bottom:8px">Top SHAP Explanations</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+        {% for r in s.get('reasons_list') %}
+          <div style="display:flex;gap:10px;font-size:12px;font-family:var(--mono);color:var(--text-secondary)">
+            <span style="color:var(--accent)">{{ loop.index }}.</span>{{ r }}
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head">
+      <span class="panel-title">Stress Signal Strip · 7 Featured</span>
+      <span class="panel-meta">FEATURE SNAPSHOT</span>
+    </div>
+    <div class="panel-body" style="display:flex;flex-direction:column;gap:11px">
+      {% set F = ctx.features %}
+      {% if F %}
+      {% set sigs = [
+        ('Salary delay vs median', F.get('salary_delay_vs_median'), 'd', 1),
+        ('Savings change (WoW)', F.get('savings_wow_pct'), '%', 100),
+        ('Lending-app txns (7d)', F.get('lending_app_cnt_7d'), '', 1),
+        ('Utility delay (days)', F.get('utility_delay_days'), 'd', 1),
+        ('Auto-debit fails (28d)', F.get('autodebit_fail_28d'), '', 1),
+        ('Discretionary drop', F.get('discretionary_drop_pct'), '%', 100),
+        ('ATM withdrawals (7d)', F.get('atm_cnt_7d'), '', 1) ] %}
+      {% for label, val, unit, mult in sigs %}
+        <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:11.5px;border-bottom:1px solid var(--border-light);padding-bottom:8px">
+          <span style="color:var(--text-secondary)">{{ label }}</span>
+          <span class="strong" style="color:var(--text-primary)">{{ '%.1f' % ((val|float)*mult) if (val is not none and val == val and val != '') else '—' }}{{ unit }}</span>
+        </div>
+      {% endfor %}
+      {% else %}
+      <div class="empty">No feature snapshot for this customer.</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- CASH-FLOW TIMELINE -->
+<div class="panel">
+  <div class="panel-head">
+    <span class="panel-title">Cash-Flow Timeline · 120d</span>
+    <span class="foot-note">{{ ctx.timeline.get('balance',[])|length }} balance points · {{ ctx.timeline.get('salary_markers',[])|length }} salary credits · {{ ctx.timeline.get('utility',[])|length }} utility bills</span>
+  </div>
+  <div class="panel-body">
+    {% set pts = ctx.timeline.get('balance', []) %}
+    {% if pts|length > 1 %}
+      {% set vals = pts | map(attribute='balance') | list %}
+      {% set vmin = vals | min %}{% set vmax = vals | max %}{% set rng = (vmax - vmin) or 1 %}
+      <svg viewBox="0 0 100 34" preserveAspectRatio="none" style="width:100%;height:96px;display:block">
+        <polyline fill="none" stroke="var(--accent)" stroke-width="1.1" points="
+          {%- for p in pts %}{{ '%.2f' % (loop.index0/(pts|length-1)*100) }},{{ '%.2f' % (28 - (p.balance - vmin)/rng*24) }} {% endfor -%}"/>
+        <polyline fill="rgba(167,139,250,.08)" stroke="none" points="0,34 {% for p in pts %}{{ '%.2f' % (loop.index0/(pts|length-1)*100) }},{{ '%.2f' % (28 - (p.balance - vmin)/rng*24) }} {% endfor %}100,34"/>
+      </svg>
+      <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;color:var(--text-muted);margin-top:4px">
+        <span>min ₹{{ '{:,.0f}'.format(vmin) }}</span><span>max ₹{{ '{:,.0f}'.format(vmax) }}</span>
+      </div>
+    {% else %}
+      <div class="empty">No transaction stream for this customer.</div>
+    {% endif %}
+  </div>
+</div>
+
+<!-- OFFER / NUDGE -->
+<div class="panel">
+  <div class="panel-head">
+    <span class="panel-title">{% if s and s.tier == 'Red' %}Make an Offer (Red){% else %}Send a Nudge (Amber){% endif %}</span>
+    <span class="panel-meta">EMPATHETIC · TEMPLATE-LOCKED</span>
+  </div>
+  <div class="panel-body">
+    <form method="post" style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+        {% for o in offers %}
+        <label class="kpi" style="min-height:auto;cursor:pointer;flex-direction:row;align-items:center;gap:10px;padding:12px 14px;margin:0">
+          <input type="radio" name="offer" value="{{ o }}" {% if loop.first %}checked{% endif %} style="width:auto;accent-color:var(--accent)">
+          <span style="font-size:12px;font-family:var(--mono);color:var(--text-primary);line-height:1.4">{{ o }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+        <div style="width:180px">
+          <label>Channel</label>
+          <select name="channel">
+            <option>call</option><option>sms</option><option>app</option><option>email</option><option>branch</option>
+          </select>
+        </div>
+        <button class="btn">Log Intervention</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- EMI SCHEDULE + HISTORY -->
+<div class="two-col">
+  <div class="panel">
+    <div class="panel-head"><span class="panel-title">EMI Schedule · last 12</span></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Due</th><th>Paid</th><th>Due Amt</th><th>Paid Amt</th><th>DPD</th><th>Bounce</th></tr></thead>
+        <tbody>
+        {% for e in ctx.emi %}
+          <tr>
+            <td class="num">{{ e.due_date }}</td>
+            <td class="muted">{{ e.paid_date or '—' }}</td>
+            <td class="num">{{ e.amount_due }}</td>
+            <td class="muted">{{ e.amount_paid or '—' }}</td>
+            <td>
+              {% if e.dpd_days is defined and e.dpd_days|int > 0 %}
+                <span class="chip error">{{ e.dpd_days }}d late</span>
+              {% else %}<span class="chip green">On track</span>{% endif %}
+            </td>
+            <td>{% if e.bounce_flag is defined and e.bounce_flag|int > 0 %}<span class="chip error">BOUNCED</span>{% else %}<span class="muted">—</span>{% endif %}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="6"><div class="empty">No EMI records.</div></td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><span class="panel-title">Interventions &amp; Analyst Actions</span><span class="panel-meta">APPEND-ONLY AUDIT</span></div>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Date</th><th>Offer</th><th>Channel</th><th>Status</th><th>By</th><th>Note</th></tr></thead>
+        <tbody>
+        {% for h in ctx.interventions %}
+          <tr>
+            <td class="muted mono" style="font-size:11px">{{ h.date }}</td>
+            <td class="strong" style="font-size:11.5px">{{ h.offer or '—' }}</td>
+            <td class="mono" style="font-size:11px">{{ h.channel or '—' }}</td>
+            <td><span class="chip {{ 'green' if h.status=='accepted' else 'error' if h.status=='declined' else 'amber' }}">{{ h.status }}</span></td>
+            <td class="mono muted" style="font-size:11px">{{ h.action_by or '—' }}</td>
+            <td class="muted" style="font-size:11px">{{ h.note or '—' }}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="6"><div class="empty">No interventions yet.</div></td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 {% endblock %}

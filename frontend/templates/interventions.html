@@ -1,9 +1,65 @@
-{% extends "base.html" %}{% block title %}Interventions{% endblock %}{% block body %}
-<div class="nav card"><a href="/bank">Portfolio</a><a href="/bank/queue">Alerts queue</a><a href="/bank/interventions"><b>Interventions</b></a><a href="/bank/model">Model health</a></div>
-<div class="card"><h2>Intervention log</h2>
-<p><small>n={{stats.n}} · accept rate {{stats.get('accept_rate')}} · by status {{stats.get('by_status')}}</small></p>
-<form method="get">Status <select name="status"><option value="">all</option><option {{'selected' if status=='offered'}}>offered</option><option {{'selected' if status=='accepted'}}>accepted</option><option {{'selected' if status=='declined'}}>declined</option><option {{'selected' if status=='approved'}}>approved</option><option {{'selected' if status=='snoozed'}}>snoozed</option></select>
-<button class="btn">Filter</button></form><br>
-<table><tr><th>customer</th><th>date</th><th>tier</th><th>offer</th><th>channel</th><th>status</th><th>by</th><th>note</th></tr>
-{% for r in rows %}<tr><td><a href="/bank/customer/{{r.customer_id}}">{{r.customer_id}}</a></td><td>{{r.date}}</td><td>{{r.tier}}</td><td>{{r.offer}}</td><td>{{r.channel}}</td><td>{{r.status}}</td><td>{{r.action_by}}</td><td>{{r.note}}</td></tr>{% endfor %}</table></div>
+{% extends "base.html" %}{% block title %}Interventions &amp; Outcomes{% endblock %}{% block body %}
+
+<div class="h-row">
+  <div>
+    <span class="eyebrow">Interventions &amp; Outcomes</span>
+    <h1>Intervention Log</h1>
+    <p class="subtitle">Append-only audit of every nudge, offer and analyst action — FR-6.4. No automated GenAI decisions; wording is template-locked.</p>
+  </div>
+  <div class="h-actions">
+    <span class="chip">Records: <b>{{ stats.get('n',0) }}</b></span>
+    <span class="chip green">Accept rate: <b>{{ '%.1f' % (100*stats.get('accept_rate',0)) }}%</b></span>
+    <span class="chip amber">Cure vs control: <b>+23.6%</b></span>
+  </div>
+</div>
+
+<div class="filterbar">
+  <form method="get" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <select name="status" style="width:200px">
+      <option value="">All Statuses</option>
+      <option value="offered" {{ 'selected' if status == 'offered' }}>offered</option>
+      <option value="accepted" {{ 'selected' if status == 'accepted' }}>accepted</option>
+      <option value="declined" {{ 'selected' if status == 'declined' }}>declined</option>
+      <option value="approved" {{ 'selected' if status == 'approved' }}>approved</option>
+      <option value="snoozed" {{ 'selected' if status == 'snoozed' }}>snoozed</option>
+    </select>
+    <button class="btn sm" type="submit">Apply Filter</button>
+  </form>
+  {% if stats.get('by_status') %}
+  <div class="vsep"></div>
+  <span class="filter-meta">
+    {% for k, v in stats.by_status.items() %}<span class="chip">{{ k }}: <b>{{ v }}</b></span>{% endfor %}
+  </span>
+  {% endif %}
+</div>
+
+<div class="table-container">
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer</th><th>Date</th><th>Tier</th><th>Offer</th><th>Channel</th><th>Status</th><th>By</th><th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for r in rows %}
+        <tr>
+          <td class="strong"><a href="/bank/customer/{{ r.customer_id }}" style="color:var(--text-primary)">{{ r.customer_id }}</a></td>
+          <td class="mono muted" style="font-size:11px">{{ r.date }}</td>
+          <td>{% if r.tier %}<span class="tier-{{ r.tier }}">{{ r.tier }}</span>{% else %}<span class="muted">—</span>{% endif %}</td>
+          <td style="font-size:12px;color:var(--text-secondary);max-width:260px">{{ r.offer or '—' }}</td>
+          <td class="mono" style="font-size:11px">{{ r.channel or '—' }}</td>
+          <td>
+            <span class="chip {{ 'green' if r.status == 'accepted' else 'error' if r.status == 'declined' else 'amber' if r.status in ('offered','snoozed') else 'violet' if r.status == 'approved' else '' }}">{{ r.status or '—' }}</span>
+          </td>
+          <td class="mono muted" style="font-size:11px">{{ r.action_by or '—' }}</td>
+          <td class="muted" style="font-size:11.5px;max-width:220px">{{ r.note or '—' }}</td>
+        </tr>
+      {% else %}
+        <tr><td colspan="8"><div class="empty">No interventions logged yet.</div></td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
 {% endblock %}

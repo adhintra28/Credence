@@ -1,7 +1,7 @@
 {
   "amber_min": 0.3,
   "red_min": 0.6,
-  "tuned_red": 0.1415929203539823,
-  "champion": "lightgbm",
-  "valid_pr_auc": 0.6685897968151909
+  "tuned_red": 0.12393162393162394,
+  "champion": "sklearn_hgb",
+  "valid_pr_auc": 0.6829886913644156
 }

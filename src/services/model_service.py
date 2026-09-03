@@ -71,7 +71,10 @@ def model_health(scoring_date=None):
     gsh = f"{p['models_dir']}/global_shap.csv"
     if os.path.exists(gsh):
         try:
-            out["global_shap"] = pd.read_csv(gsh).head(10).to_dict("records")
+            df = pd.read_csv(gsh)
+            out["global_shap"] = [
+                {"feature": r.get("Unnamed: 0", ""), "importance": float(float(r.get("0", 0)))}
+                for _, r in df.iterrows()]
         except Exception:
             pass
     return out

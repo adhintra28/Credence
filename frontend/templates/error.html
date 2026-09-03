@@ -1,49 +1,12 @@
 {% extends "base.html" %}{% block title %}Access Denied{% endblock %}
-{% block head %}
-<style>
-  .err-wrap { min-height: calc(100vh - 60px); display: flex; align-items: center; justify-content: center; padding: 40px 16px; }
-  .err-card {
-    background: rgba(17,24,39,.9);
-    border: 1px solid rgba(239,68,68,.25);
-    border-radius: 20px;
-    padding: 48px 44px;
-    width: 100%; max-width: 460px;
-    text-align: center;
-    box-shadow: 0 0 60px rgba(239,68,68,.08), 0 24px 48px rgba(0,0,0,.5);
-    animation: fadeUp .4s ease;
-  }
-  @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
-  .err-icon { font-size: 52px; margin-bottom: 20px; }
-  .err-card h2 { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
-  .err-msg {
-    background: rgba(239,68,68,.08);
-    border: 1px solid rgba(239,68,68,.2);
-    border-radius: 10px;
-    padding: 16px 20px;
-    color: #fca5a5;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-    text-align: left;
-  }
-  .back-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 24px;
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    border-radius: 10px; color: #fff; text-decoration: none;
-    font-size: 14px; font-weight: 600;
-    transition: opacity .2s, transform .15s;
-  }
-  .back-btn:hover { opacity: .88; transform: translateY(-1px); }
-</style>
-{% endblock %}
 {% block body %}
-<div class="err-wrap">
-  <div class="err-card">
-    <div class="err-icon">⚠️</div>
-    <h2>Access Denied</h2>
-    <div class="err-msg">{{ msg }}</div>
-    <a href="/" class="back-btn">← Back to Login</a>
+<div class="login-wrap">
+  <div class="login-card" style="text-align:center;border-color:var(--red-border)">
+    <div class="mark" style="width:44px;height:44px;border-radius:8px;background:var(--red-dim);color:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:var(--mono);font-weight:700;font-size:16px">!</div>
+    <h1>Access Denied</h1>
+    <p class="subtitle" style="margin-top:4px">Authorization failed</p>
+    <div class="err" style="text-align:left;margin-top:22px;margin-bottom:24px">{{ msg }}</div>
+    <a href="/" class="btn">← Back to Login</a>
   </div>
 </div>
 {% endblock %}

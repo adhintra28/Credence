@@ -1,75 +1,12 @@
-{% extends "base.html" %}{% block title %}Sign In — Pre-Delinquency Engine{% endblock %}
-{% block head %}
-<style>
-  body { background: radial-gradient(ellipse at 50% 0%, #101522 0%, var(--bg-base) 60%); }
-  .login-wrap { min-height: calc(100vh - 80px); display: flex; align-items: center; justify-content: center; padding: 40px 16px; }
-  .login-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 40px 44px;
-    width: 100%; max-width: 440px;
-    box-shadow: var(--shadow);
-    animation: fadeUp .4s ease;
-  }
-  @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
-  .login-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
-  .login-logo .icon { 
-    width: 44px; height: 44px; 
-    background: var(--accent); 
-    border-radius: var(--radius-sm); 
-    display: flex; align-items: center; justify-content: center; 
-  }
-  .login-logo h1 { font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1.2; letter-spacing: -0.3px; margin: 0; }
-  .login-logo span { font-size: 12px; color: var(--text-secondary); }
-  .field { margin-bottom: 16px; }
-  .field input {
-    background: var(--bg-base);
-    border: 1px solid var(--border);
-    padding: 12px 16px;
-    font-size: 14px;
-    border-radius: var(--radius-sm);
-    transition: border-color .2s, box-shadow .2s;
-  }
-  .field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
-  .submit-btn {
-    width: 100%; padding: 13px;
-    background: var(--accent);
-    border: 0; border-radius: var(--radius-sm); color: #0d0f14;
-    font-size: 14px; font-weight: 600; font-family: var(--font-body);
-    cursor: pointer; transition: opacity .2s, transform .15s;
-    letter-spacing: .2px;
-  }
-  .submit-btn:hover { opacity: .88; transform: translateY(-1px); }
-  .divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; color: var(--text-muted); font-size: 12px; }
-  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .sso-btn {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    width: 100%; padding: 12px;
-    border-radius: var(--radius-sm); border: 1px solid var(--border);
-    background: var(--bg-base);
-    font-size: 13px; font-weight: 600; font-family: var(--font-body);
-    cursor: pointer; text-decoration: none; color: var(--text-primary);
-    transition: all .2s; margin-bottom: 10px;
-  }
-  .sso-btn:hover { background: var(--bg-card-hover); border-color: rgba(255,255,255,.2); transform: translateY(-1px); }
-  .sso-btn .icon { width: 22px; height: 22px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
-  .sso-btn.bank .icon { background: var(--accent); }
-  .sso-btn.customer .icon { background: var(--green); }
-  .hints { margin-top: 24px; padding: 16px; background: var(--bg-base); border-radius: var(--radius-sm); border: 1px solid var(--border); }
-  .hints p { font-size: 12px; color: var(--text-secondary); line-height: 1.7; margin: 0; }
-</style>
-{% endblock %}
+{% extends "base.html" %}{% block title %}Sign In — Pre-Delinquency Risk Intelligence{% endblock %}
 {% block body %}
 <div class="login-wrap">
   <div class="login-card">
     <div class="login-logo">
-      <div class="icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d0f14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-      </div>
+      <div class="mark">PD</div>
       <div>
-        <h1>Pre-Delinquency Engine</h1>
-        <span>Risk analytics &amp; customer support</span>
+        <h1 style="margin-top:0">Pre-Delinquency Engine</h1>
+        <p class="subtitle">Risk analytics &amp; customer support</p>
       </div>
     </div>
 
@@ -78,28 +15,26 @@
     <form method="post">
       <div class="field"><label>Email address</label><input name="email" type="email" placeholder="you@yourbank.com" value="bank@bank.com" autocomplete="email"></div>
       <div class="field"><label>Password</label><input name="password" type="password" placeholder="••••••••" value="bank123"></div>
-      <div class="field"><label>Customer ID <span style="color:var(--text-muted)">(customers only)</span></label><input name="customer_id" placeholder="e.g. C000000"></div>
+      <div class="field"><label>Customer ID <span class="muted" style="text-transform:none">(customers only)</span></label><input name="customer_id" placeholder="e.g. C000000"></div>
       <button type="submit" class="submit-btn">Sign In →</button>
     </form>
 
     <div class="divider">or continue with Google SSO</div>
 
     <a href="/login/bank" class="sso-btn bank">
-      <span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0d0f14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2-4h14l2 4"></path><line x1="4" y1="10" x2="4" y2="21"></line><line x1="20" y1="10" x2="20" y2="21"></line><path d="M14 21V9a2 2 0 0 0-4 0v12"></path></svg></span>
+      <span class="icon">B</span>
       Bank Employee — Sign in
     </a>
     <a href="/login/customer" class="sso-btn customer">
-      <span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0d0f14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+      <span class="icon">U</span>
       Customer — Connect Account
     </a>
 
     <div class="hints">
-      <p>
-        <strong style="color:var(--text-primary)">Demo credentials:</strong><br>
-        Bank analyst: bank@bank.com / bank123<br>
-        Risk manager: risk@bank.com / risk123<br>
-        Customer: customer@customer.com / cust123
-      </p>
+      <b>Demo credentials:</b><br>
+      Bank analyst: bank@bank.com / bank123<br>
+      Risk manager: risk@bank.com / risk123<br>
+      Customer: customer@customer.com / cust123
     </div>
   </div>
 </div>

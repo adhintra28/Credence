@@ -42,6 +42,54 @@ def portfolio_summary(scoring_date=None):
     return out
 
 
+# Signal groups (PRD FR-2 / brief 7 signals) — thresholds mirror src/policy/engine.py
+# count_signal_groups() exactly, so the dashboard always agrees with policy.
+SIGNAL_GROUPS = [
+    ("Income · Salary delay / missing", "income",
+     lambda g: (g.get("salary_delay_vs_median", 0) >= 3)
+     or (g.get("days_since_salary", 0) > 35)
+     or (g.get("missing_salary_flag", 0) == 1), "amber"),
+    ("Liquidity · Savings drawdown", "liquidity",
+     lambda g: (g.get("savings_wow_pct", 0) < -0.10)
+     or (g.get("drawdown_streak", 0) == 1)
+     or (g.get("balance_slope_28d", 0) < 0), "error"),
+    ("Discipline · Utility / auto-debit", "discipline",
+     lambda g: (g.get("utility_delay_days", 0) >= 3)
+     or (g.get("autodebit_fail_28d", 0) >= 1), "violet"),
+    ("Borrowing · Lending-app / bureau", "borrowing",
+     lambda g: (g.get("lending_app_cnt_7d", 0) >= 1)
+     or (g.get("lending_app_cnt_28d", 0) >= 2), "amber"),
+    ("Behavioral · Discretionary drop", "behavioral",
+     lambda g: (g.get("discretionary_drop_pct", 0) > 0.25)
+     or (g.get("gambling_flag", 0) == 1), "error"),
+    ("Cash · ATM hoarding", "cash",
+     lambda g: (g.get("atm_cnt_7d", 0) >= 3)
+     or (g.get("cash_to_spend_ratio", 0) > 0.35), "grey"),
+]
+
+
+def signal_distribution(scoring_date=None):
+    """Prevalence of each policy signal group across the scored population."""
+    feats, sd = store.get_features(scoring_date)
+    if len(feats) == 0:
+        return {"scoring_date": sd, "n": 0, "signals": []}
+    n = int(len(feats))
+    counts = [0] * len(SIGNAL_GROUPS)
+    for _, row in feats.iterrows():
+        g = row.to_dict()
+        for i, (_, _, rule, _) in enumerate(SIGNAL_GROUPS):
+            try:
+                if rule(g):
+                    counts[i] += 1
+            except Exception:
+                pass
+    out = [{"label": label, "group": grp, "count": counts[i],
+            "pct": round(counts[i] / max(n, 1) * 100, 1), "color": color}
+           for i, (label, grp, _, color) in enumerate(SIGNAL_GROUPS)]
+    out.sort(key=lambda r: -r["pct"])
+    return {"scoring_date": sd, "n": n, "signals": out}
+
+
 def search_customers(q="", tier=None, archetype=None, geography=None, limit=50, scoring_date=None):
     scores, sd = store.get_scores(scoring_date)
     cust = store.get_customers()
@@ -74,7 +122,7 @@ def customer_360(customer_id, scoring_date=None):
     interventions = store.get_interventions()
     actions = store.get_alert_actions()
 
-    srow = scores[scores["customer_id"] == customer_id]
+    srow = scores[scores["customer_id"] == customer_id] if len(scores) and "customer_id" in scores.columns else pd.DataFrame()
     score = srow.iloc[0].to_dict() if len(srow) else {}
     if "_reasons_list" in score:
         score["reasons_list"] = score.pop("_reasons_list")
@@ -84,7 +132,7 @@ def customer_360(customer_id, scoring_date=None):
         except Exception:
             score["reasons_list"] = []
 
-    crow = cust[cust["customer_id"] == customer_id]
+    crow = cust[cust["customer_id"] == customer_id] if len(cust) and "customer_id" in cust.columns else pd.DataFrame()
     profile = crow.iloc[0].to_dict() if len(crow) else {"customer_id": customer_id}
     # feature row
     frow = feats[feats["customer_id"] == customer_id] if len(feats) else pd.DataFrame()

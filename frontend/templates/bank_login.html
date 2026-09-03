@@ -1,62 +1,14 @@
 {% extends "base.html" %}{% block title %}Bank Employee Login{% endblock %}
-{% block head %}
-<style>
-  body { background: radial-gradient(ellipse at 30% 0%, #101522 0%, var(--bg-base) 60%); }
-  .sso-wrap { min-height: calc(100vh - 80px); display: flex; align-items: center; justify-content: center; padding: 40px 16px; }
-  .sso-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 40px 44px;
-    width: 100%; max-width: 480px;
-    box-shadow: var(--shadow);
-    animation: fadeUp .4s ease;
-  }
-  @keyframes fadeUp { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: none; } }
-  .sso-header { margin-bottom: 28px; }
-  .sso-header .back { display: inline-flex; align-items: center; gap: 6px; color: var(--text-muted); font-size: 13px; text-decoration: none; margin-bottom: 18px; transition: color .2s; }
-  .sso-header .back:hover { color: var(--text-primary); }
-  .sso-header h2 { margin-bottom: 6px; }
-  .sso-header p { color: var(--text-secondary); font-size: 13px; line-height: 1.5; }
-  .bank-select-wrap { position: relative; margin-bottom: 20px; }
-  .bank-select-wrap select {
-    appearance: none;
-    padding: 14px 40px 14px 16px;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  .bank-select-wrap::after { content: '▾'; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
-  .google-btn {
-    width: 100%; padding: 14px;
-    background: var(--accent);
-    border: 0; border-radius: var(--radius-sm); color: #0d0f14;
-    font-size: 14px; font-weight: 600; font-family: var(--font-body);
-    cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
-    transition: opacity .2s, transform .15s;
-  }
-  .google-btn:hover { opacity: .88; transform: translateY(-1px); }
-  .google-btn .google-icon { width: 20px; height: 20px; background: #0d0f14; color: var(--accent); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
-  .domain-note {
-    margin-top: 16px; padding: 12px 16px;
-    background: var(--accent-dim);
-    border: 1px solid rgba(0, 174, 239, 0.2);
-    border-radius: var(--radius-sm); font-size: 12px; color: var(--accent); line-height: 1.6;
-  }
-  .domain-note strong { color: var(--text-primary); }
-</style>
-{% endblock %}
 {% block body %}
-<div class="sso-wrap">
-  <div class="sso-card">
-    <div class="sso-header">
-      <a href="/" class="back">← Back to login</a>
-      <h2>🏦 Bank Employee Portal</h2>
-      <p>Select your institution. Your Google email will be verified against the bank's corporate domain.</p>
-    </div>
+<div class="login-wrap">
+  <div class="login-card" style="max-width:480px">
+    <a href="/" class="mono muted" style="font-size:11px;text-decoration:none">← Back to login</a>
+    <h1 style="margin-top:16px">Bank Employee Portal</h1>
+    <p class="subtitle" style="margin-bottom:26px">Select your institution. Your Google email will be verified against the bank's corporate domain.</p>
 
     <form method="post" action="/login/bank">
-      <label>Select your bank</label>
-      <div class="bank-select-wrap">
+      <div class="field">
+        <label>Select your bank</label>
         <select name="bank_id" required>
           <option value="" disabled selected>Choose your institution…</option>
           {% for bank_id, info in banks.items() %}
@@ -64,15 +16,11 @@
           {% endfor %}
         </select>
       </div>
-
-      <button type="submit" class="google-btn">
-        <span class="google-icon">G</span>
-        Continue with Google
-      </button>
+      <button type="submit" class="submit-btn">Continue with Google</button>
     </form>
 
-    <div class="domain-note">
-      <strong>Domain validation is enforced.</strong><br>
+    <div class="hints">
+      <b>Domain validation is enforced.</b><br>
       Your Google email must match your institution's corporate domain (e.g. <code>@hdfcbank.com</code>) to gain access.
     </div>
   </div>

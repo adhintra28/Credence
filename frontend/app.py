@@ -26,6 +26,7 @@ from src.services import store, risk_service, intervention_service, model_servic
 app = Flask(__name__, template_folder="templates")
 app.secret_key = os.environ.get("PREDELINQ_SECRET", "predelinq-prod-change-me")
 app.config["SESSION_PERMANENT"] = False
+app.config["TEMPLATES_AUTO_RELOAD"] = True  # live template edits without restart
 
 # --- Google SSO ---
 oauth = OAuth(app)
@@ -77,6 +78,17 @@ def login_required(*roles):
             return fn(*a, **k)
         return wrap
     return deco
+
+
+@app.context_processor
+def inject_sidebar_counts():
+    """Sidebar badges + topbar cycle info, tolerant of missing data."""
+    try:
+        s = risk_service.portfolio_summary()
+        return {"sidebar_counts": {"alerts": s.get("alerts", 0), "red": s.get("red", 0),
+                                   "scoring_date": s.get("scoring_date", "")}}
+    except Exception:
+        return {"sidebar_counts": {}}
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -185,8 +197,12 @@ def bank():
     mix = summary.get("mix", {})
     # tier trend: red/amber share + top reasons
     top_alerts, _ = intervention_service.queue_with_actions(limit=10)
+    signals = risk_service.signal_distribution(sd)
+    health = model_service.model_health(sd)
+    stats = intervention_service.acceptance_stats()
     return render_template("bank.html", summary=summary, mix=mix, top_alerts=top_alerts,
-                           scoring_date=sd, role=session.get("role"))
+                           scoring_date=sd, role=session.get("role"), signals=signals,
+                           health=health, stats=stats)
 
 
 @app.route("/bank/queue", methods=["GET", "POST"])
@@ -272,6 +288,29 @@ def customer():
 def healthz():
     s, sd = store.get_scores()
     return {"status": "ok", "scoring_date": sd, "n_scores": len(s)}
+
+
+@app.route("/__live")
+def live_hash():
+    """Live-reload signal: hash of template/app mtimes + git HEAD.
+
+    The dashboard polls this every 2s and reloads when the hash changes, so
+    UI edits (and commits) appear without a manual refresh. No-op for CI/tests.
+    """
+    import hashlib
+    h = hashlib.sha256()
+    base = os.path.join(os.path.dirname(__file__), "templates")
+    try:
+        for root, _, files in os.walk(base):
+            for f in sorted(files):
+                p = os.path.join(root, f)
+                h.update(f"{p}:{os.path.getmtime(p)}".encode())
+        h.update(f"{os.path.getmtime(__file__)}".encode())
+        head = open(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".git", "HEAD"), "rb").read()
+        h.update(head)
+    except Exception:
+        pass
+    return {"hash": h.hexdigest()[:16]}
 
 
 if __name__ == "__main__":

@@ -8,6 +8,7 @@ import yaml
 
 STEPS = [
     ("generate", [sys.executable, "-m", "src.generator.generate", "--config", "{cfg}"]),
+    ("features", [sys.executable, "-m", "src.features.build", "--scoring-date", "{sd}", "--config", "{cfg}"]),
     ("train", [sys.executable, "-m", "src.models.train", "--config", "{cfg}"]),
     ("score", [sys.executable, "-m", "src.scoring.score", "--scoring-date", "{sd}", "--config", "{cfg}"]),
     ("policy", [sys.executable, "-m", "src.policy.engine", "--scoring-date", "{sd}", "--config", "{cfg}"]),

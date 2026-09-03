@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>PreDelinquency | Early-Warning Risk Platform</title><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary-container":"#ede9fe","inverse-on-surface":"#09090b","primary-container":"#7c3aed","secondary-container":"#27272a","surface":"#0c0c0f","on-error-container":"#fca5a5","on-secondary-fixed-variant":"#3f3f46","tertiary-fixed-dim":"#6ee7b7","on-tertiary-fixed-variant":"#047857","error-container":"#3b1111","primary":"#a78bfa","on-tertiary":"#001a12","error":"#ef4444","primary-fixed-dim":"#c4b5fd","outline":"#52525b","secondary-fixed":"#a1a1aa","tertiary-fixed":"#bbf7d0","surface-container-high":"#18181b","inverse-surface":"#fafafa","secondary-fixed-dim":"#71717a","on-primary":"#0a0012","tertiary-container":"#065f46","on-surface":"#fafafa","surface-container-lowest":"#09090b","on-secondary":"#09090b","tertiary":"#34d399","on-secondary-container":"#a1a1aa","surface-container":"#121215","on-primary-fixed-variant":"#5b21b6","on-tertiary-container":"#bbf7d0","on-tertiary-fixed":"#003318","surface-variant":"#18181b","background":"#09090b","surface-bright":"#18181b","on-secondary-fixed":"#18181b","on-surface-variant":"#a1a1aa","inverse-primary":"#5b21b6","on-error":"#1a0000","on-primary-fixed":"#2e1065","surface-container-highest":"#1e1e22","surface-dim":"#0c0c0f","surface-container-low":"#0f0f12","secondary":"#71717a","primary-fixed":"#ede9fe","on-background":"#fafafa","surface-tint":"#a78bfa","outline-variant":"#27272a"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{},"fontFamily":{"headline":["Geist"],"display":["Geist"],"body":["Geist"],"label":["Geist"]},"fontSize":{}}}}</script></head><body class="bg-background font-body text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container border-r border-outline-variant z-50 flex flex-col justify-between"><div class="flex flex-col"><div class="h-16 px-6 flex items-center border-b border-outline-variant gap-3 bg-surface-container"><div class="w-8 h-8 rounded bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-xl font-bold">shield_with_heart</span></div><div class="flex flex-col"><span class="text-xs font-headline font-bold tracking-wider uppercase text-on-surface">PreDelinquency</span><span class="text-[10px] font-mono tracking-widest text-primary">RISK INTELLIGENCE</span></div></div><div class="px-4 py-4"><div class="px-3 pb-2 text-[10px] font-mono font-semibold uppercase tracking-wider text-outline">Operational Domains</div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-primary border-l-2 border-primary font-medium"><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-r transition-colors bg-surface-container-high text-primary border-l-2 border-primary font-medium" data-path="portfolio-overview" href="#"><span class="material-symbols-outlined text-[18px]">pie_chart</span>Portfolio Overview</a><a class="flex items-center justify-between px-3 py-2.5 rounded-r text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="risk-queue" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">warning</span>Risk Queue</div><div class="flex items-center gap-1"><span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-error-container text-error rounded">142</span><span class="px-1.5 py-0.5 text-[10px] font-mono font-bold bg-secondary-container text-on-surface-variant rounded">89</span></div></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-r text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="customer-deep-dive-stress-signals" href="#"><span class="material-symbols-outlined text-[18px]">person_search</span>Customer Deep Dive & Stress Signals</a><a class="flex items-center gap-3 px-3 py-2.5 rounded-r text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="policy-suppression-engine" href="#"><span class="material-symbols-outlined text-[18px]">rule</span>Policy & Suppression Engine</a><a class="flex items-center justify-between px-3 py-2.5 rounded-r text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="model-health-drift-monitoring" href="#"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">query_stats</span>Model Health & Drift</div><span class="w-2 h-2 rounded-full bg-tertiary"></span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-r text-xs text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="interventions-outcomes" href="#"><span class="material-symbols-outlined text-[18px]">call_missed_outgoing</span>Interventions & Outcomes</a></nav></div></div><div class="p-4 border-t border-outline-variant bg-surface-container-low"><div class="p-3 rounded border border-outline-variant bg-surface-container flex flex-col gap-2"><div class="flex items-center justify-between"><span class="text-[10px] font-mono uppercase text-outline">Signal Engine</span><span class="text-[10px] font-mono text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Operational</span></div><div class="text-[11px] text-on-surface-variant">v4.2.1 • Inference: 12ms</div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container border-b border-outline-variant z-40 flex items-center justify-between px-8"><div class="flex items-center gap-6"><div class="flex items-center gap-2 text-xs font-mono bg-surface-container-lowest px-3 py-1.5 rounded border border-outline-variant"><span class="w-2 h-2 rounded-full bg-tertiary"></span><span class="text-on-surface">Live Batch: 2026-03-29</span><span class="text-outline">|</span><span class="text-on-surface-variant">14D & 28D Horizons Active</span></div><div class="relative w-80"><span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-outline">search</span><input class="w-full h-9 pl-9 pr-4 rounded bg-surface-container-lowest border border-outline-variant text-xs text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-mono" placeholder="Search Customer ID, Account #, or Tax ID..." type="text"/></div></div><div class="flex items-center gap-5"><div class="flex items-center gap-2 border border-outline-variant bg-surface-container-lowest px-3 py-1.5 rounded"><span class="w-2 h-2 rounded-full bg-tertiary"></span><select class="bg-transparent text-xs text-on-surface font-mono focus:outline-none cursor-pointer"><option class="bg-surface-container text-on-surface" value="manager">Role: Risk Manager</option><option class="bg-surface-container text-on-surface" value="analyst">Role: Risk Analyst</option></select></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-background min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<!-- TOP CONTEXT / AUDIT BAR -->
+<div class="w-full bg-surface-container-lowest px-8 py-3 flex flex-wrap items-center justify-between border-b border-outline-variant gap-4">
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center px-2 py-0.5 text-[11px] font-mono font-medium text-tertiary bg-surface-container border border-outline-variant">
+        INSTITUTIONAL RISK v4.2.1
+      </span>
+<span class="text-xs text-on-surface-variant font-mono">Continuous Stream | Latency: 11.8ms | In-Memory Feature Store Active</span>
+</div>
+<div class="flex items-center gap-3 text-xs font-mono">
+<span class="text-outline">Last Cycle:</span>
+<span class="text-on-surface font-semibold">Today, 06:00:00 UTC</span>
+<span class="text-outline">|</span>
+<span class="text-outline">Next Run:</span>
+<span class="text-on-surface-variant">12:00:00 UTC (-03:14:22)</span>
+<span class="w-2 h-2 rounded-none bg-tertiary ml-1"></span>
+</div>
+</div>
+<div class="p-8 flex flex-col gap-8">
+<!-- 1. EXECUTIVE RISK METRICS HEADER -->
+<div class="flex flex-col gap-4">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="text-[10px] font-mono tracking-widest text-primary uppercase font-bold">EXECUTIVE SURVEILLANCE OVERVIEW</span>
+<h1 class="text-2xl font-bold tracking-tight text-on-surface mt-0.5">Pre-Delinquency Risk Intelligence</h1>
+<p class="text-xs text-on-surface-variant mt-1">Screening non-delinquent accounts (DPD = 0) for forward distress signatures across 14-day and 28-day horizons.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-surface-container text-xs font-mono text-on-surface border border-outline-variant hover:bg-surface-container-high transition-colors">
+            Audited Ledger
+          </button>
+<button class="px-3 py-1.5 bg-primary text-xs font-mono font-semibold text-on-primary hover:bg-primary-fixed-dim transition-colors">
+            Generate Risk Brief
+          </button>
+</div>
+</div>
+<!-- METRIC CARDS (STRICT SOLID COLORS) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3">
+<!-- Metric 1 -->
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline text-[11px] font-mono">
+<span>POPULATION SCORED</span>
+<span class="material-symbols-outlined text-[16px]">groups</span>
+</div>
+<div class="mt-3">
+<div class="text-2xl font-mono font-bold tracking-tight text-on-surface">142,850</div>
+<div class="text-[11px] font-mono text-tertiary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check</span> 0 DPD Current
+            </div>
+</div>
+</div>
+<!-- Metric 2 (RED QUEUE) -->
+<div class="bg-surface-container border-l-2 border-l-error border border-outline-variant p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant text-[11px] font-mono">
+<span>ACTIVE RED QUEUE</span>
+<span class="px-1.5 py-0.2 font-mono text-[10px] bg-error-container text-error font-bold">14D CRITICAL</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-mono font-bold tracking-tight text-error">1,248</span>
+<span class="text-xs font-mono text-on-surface-variant">(0.87%)</span>
+</div>
+<div class="text-[11px] font-mono text-on-error-container mt-1">
+              Immediate action window
+            </div>
+</div>
+</div>
+<!-- Metric 3 (AMBER WATCHLIST) -->
+<div class="bg-surface-container border-l-2 border-l-[#f59e0b] border border-outline-variant p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant text-[11px] font-mono">
+<span>AMBER WATCHLIST</span>
+<span class="px-1.5 py-0.2 font-mono text-[10px] bg-surface-container-high text-[#f59e0b] font-bold">MONITORING</span>
+</div>
+<div class="mt-3">
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-mono font-bold tracking-tight text-[#f59e0b]">4,680</span>
+<span class="text-xs font-mono text-on-surface-variant">(3.28%)</span>
+</div>
+<div class="text-[11px] font-mono text-on-surface-variant mt-1">
+              Emerging streak signals
+            </div>
+</div>
+</div>
+<!-- Metric 4 (SUPPRESSION) -->
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline text-[11px] font-mono">
+<span>SUPPRESSED TODAY</span>
+<span class="material-symbols-outlined text-[16px]">do_not_disturb_on</span>
+</div>
+<div class="mt-3">
+<div class="text-2xl font-mono font-bold tracking-tight text-on-surface">312</div>
+<div class="text-[11px] font-mono text-on-surface-variant mt-1">
+              7D hold / capacity guard
+            </div>
+</div>
+</div>
+<!-- Metric 5 (CURE RATE) -->
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline text-[11px] font-mono">
+<span>INTERVENTION CURE</span>
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+</div>
+<div class="mt-3">
+<div class="text-2xl font-mono font-bold tracking-tight text-tertiary">78.4%</div>
+<div class="text-[11px] font-mono text-tertiary mt-1">
+              +23.6% lift vs control
+            </div>
+</div>
+</div>
+<!-- Metric 6 (PREVENTED LOSS) -->
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline text-[11px] font-mono">
+<span>PREVENTED LOSS</span>
+<span class="material-symbols-outlined text-[16px]">savings</span>
+</div>
+<div class="mt-3">
+<div class="text-2xl font-mono font-bold tracking-tight text-primary">$3.84M</div>
+<div class="text-[11px] font-mono text-on-surface-variant mt-1">
+              YTD Gross Default Avoided
+            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. ACTIVE RISK WORKFLOW & HORIZON FILTER BAR -->
+<div class="bg-surface-container border border-outline-variant p-4 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-3">
+<!-- Horizon Toggle -->
+<div class="inline-flex bg-surface-container-lowest p-1 border border-outline-variant">
+<button class="px-3 py-1.5 text-xs font-mono font-bold bg-primary text-on-primary">
+            14-Day Risk Horizon [Active]
+          </button>
+<button class="px-3 py-1.5 text-xs font-mono text-on-surface-variant hover:text-on-surface transition-colors">
+            28-Day Risk Horizon
+          </button>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant hidden sm:block"></div>
+<!-- Continuous Batch Window Selector -->
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 border border-outline-variant">
+<span class="material-symbols-outlined text-[16px] text-outline">calendar_month</span>
+<span class="text-xs font-mono text-on-surface">Cycle Window:</span>
+<span class="text-xs font-mono text-primary font-medium">Mar 15, 2026 – Mar 29, 2026</span>
+<span class="text-[10px] font-mono text-outline uppercase ml-1">(Continuous)</span>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant hidden sm:block"></div>
+<!-- Tier Filter Chips -->
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1 text-xs font-mono bg-surface-container-high text-on-surface border border-outline">
+            All Tiers
+          </button>
+<button class="px-2.5 py-1 text-xs font-mono bg-surface-container-lowest text-error border border-error hover:bg-error-container/20">
+            Red (>0.72)
+          </button>
+<button class="px-2.5 py-1 text-xs font-mono bg-surface-container-lowest text-[#f59e0b] border border-[#f59e0b] hover:bg-[#f59e0b]/10">
+            Amber (0.45-0.72)
+          </button>
+</div>
+</div>
+<!-- Quick Search & Actions -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 text-xs font-mono text-on-surface-variant">
+<span class="text-outline">Showing:</span>
+<span class="text-on-surface font-bold">5 of 1,248</span>
+<span>Red Tier Records</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container-lowest border border-outline-variant text-xs font-mono text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+          Filter Stack (3)
+        </button>
+</div>
+</div>
+<!-- 3. PRIORITY RISK QUEUE & EARLY-WARNING TABLE -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="text-base font-bold tracking-tight text-on-surface">Continuous Inference Risk Queue</h2>
+<span class="px-2 py-0.5 text-[10px] font-mono bg-surface-container text-outline border border-outline-variant">
+            RANKED BY CALIBRATED DEFAULT ODDS
+          </span>
+</div>
+<div class="flex items-center gap-4 text-xs font-mono text-outline">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-error"></span> Red: Immediate Restructuring
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-[#f59e0b]"></span> Amber: Digital Nudge / Monitor
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 bg-tertiary"></span> Cured / Cleared
+          </span>
+</div>
+</div>
+<div class="w-full overflow-x-auto border border-outline-variant bg-surface-container">
+<table class="w-full text-left border-collapse font-mono text-xs">
+<thead>
+<tr class="bg-surface-container-lowest text-outline border-b border-outline-variant text-[11px]">
+<th class="py-3 px-4 font-semibold">CUSTOMER REF & NAME</th>
+<th class="py-3 px-4 font-semibold">14D PROBABILITY</th>
+<th class="py-3 px-4 font-semibold">RISK TIER</th>
+<th class="py-3 px-4 font-semibold">TOP SHAP EXPLANATIONS</th>
+<th class="py-3 px-4 font-semibold">POLICY DECISION</th>
+<th class="py-3 px-4 font-semibold">STRESS INDICATORS</th>
+<th class="py-3 px-4 font-semibold">RECOMMENDED ACTION</th>
+<th class="py-3 px-4 font-semibold text-right">ACTION TRIGGER</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- ROW 1: CUST-88291 (Marcus Vance) -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="font-bold text-on-surface">CUST-88291</div>
+<div class="text-[11px] text-on-surface-variant">Marcus Vance</div>
+<div class="text-[10px] text-outline">Personal Unsecured • $12.4k</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-baseline gap-2">
+<span class="text-base font-bold text-error">0.842</span>
+<span class="text-[10px] text-error font-mono">▲ +0.14</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container-lowest border border-outline-variant mt-1">
+<div class="h-full bg-error" style="width: 84.2%;"></div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 font-mono text-[11px] font-bold bg-error text-on-error">
+                  RED TIER
+                </span>
+<div class="text-[10px] text-outline mt-1 font-mono">Action: < 48 hrs</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1 max-w-xs">
+<span class="text-[11px] text-on-surface">1. Salary timing delayed (+6d)</span>
+<span class="text-[11px] text-on-surface-variant">2. Balance buffer < 0.2x EMI</span>
+<span class="text-[11px] text-outline">3. New NBFC loan inquiry (x3 in 7d)</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] bg-tertiary text-on-tertiary font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                  APPROVED
+                </div>
+<div class="text-[10px] text-on-surface-variant mt-1">Cap Passed • No Hold</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1 max-w-[200px]">
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-error font-mono">Salary Shift</span>
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-error font-mono">Buffer Shock</span>
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-mono">Multi-Borrow</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-xs text-on-surface font-semibold">Repayment Restructuring</div>
+<div class="text-[11px] text-on-surface-variant">Offer 1-Cycle EMI Holiday</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 bg-error text-on-error text-xs font-mono font-bold hover:opacity-90 transition-opacity">
+                  Initiate Outreach
+                </button>
+</td>
+</tr>
+<!-- ROW 2: CUST-74103 (Elena Rostova) -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="font-bold text-on-surface">CUST-74103</div>
+<div class="text-[11px] text-on-surface-variant">Elena Rostova</div>
+<div class="text-[10px] text-outline">Revolving Auto • $24.8k</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-baseline gap-2">
+<span class="text-base font-bold text-error">0.765</span>
+<span class="text-[10px] text-error font-mono">▲ Streak</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container-lowest border border-outline-variant mt-1">
+<div class="h-full bg-error" style="width: 76.5%;"></div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 font-mono text-[11px] font-bold bg-error text-on-error">
+                  RED TIER
+                </span>
+<div class="text-[10px] text-outline mt-1 font-mono">Auto-Escalated</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1 max-w-xs">
+<span class="text-[11px] text-on-surface">1. Discretionary spend down 62%</span>
+<span class="text-[11px] text-on-surface-variant">2. Balance pressure spike</span>
+<span class="text-[11px] text-outline">3. 3 consecutive Amber days</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] bg-tertiary text-on-tertiary font-bold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                  APPROVED
+                </div>
+<div class="text-[10px] text-on-surface-variant mt-1">Escalated from Amber</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1 max-w-[200px]">
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-[#f59e0b] font-mono">Spend Crash</span>
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-error font-mono">Runway < 5d</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-xs text-on-surface font-semibold">Proactive Grace Period</div>
+<div class="text-[11px] text-on-surface-variant">Split Payment Schedule Plan</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 bg-error text-on-error text-xs font-mono font-bold hover:opacity-90 transition-opacity">
+                  Initiate Outreach
+                </button>
+</td>
+</tr>
+<!-- ROW 3: CUST-90142 (David Chen) -->
+<tr class="hover:bg-surface-container-high/60 transition-colors bg-surface-container-low">
+<td class="py-3.5 px-4">
+<div class="font-bold text-on-surface">CUST-90142</div>
+<div class="text-[11px] text-on-surface-variant">David Chen</div>
+<div class="text-[10px] text-outline">Small Business LOC • $45.0k</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-baseline gap-2">
+<span class="text-base font-bold text-error">0.738</span>
+<span class="text-[10px] text-outline font-mono">HOLD</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container-lowest border border-outline-variant mt-1">
+<div class="h-full bg-error" style="width: 73.8%;"></div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 font-mono text-[11px] font-bold bg-error text-on-error">
+                  RED TIER
+                </span>
+<div class="text-[10px] text-outline mt-1 font-mono">Action Blocked</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1 max-w-xs">
+<span class="text-[11px] text-on-surface">1. Salary disruption signal</span>
+<span class="text-[11px] text-on-surface-variant">2. Utility payment drop (-100%)</span>
+<span class="text-[11px] text-outline">3. Merchant dispute filing</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] bg-surface-container-highest text-outline font-bold border border-outline">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                  SUPPRESSED
+                </div>
+<div class="text-[10px] text-error font-mono mt-1">Contact Hold (4d ago)</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1 max-w-[200px]">
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-outline font-mono">Suppressed (7D)</span>
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-error font-mono">Util Collapse</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-xs text-outline font-semibold">Review Intervention Log</div>
+<div class="text-[11px] text-outline">Previous SMS Delivered 2026-03-25</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 bg-surface-container-high border border-outline text-xs font-mono text-on-surface hover:bg-surface-container-highest transition-colors">
+                  View Audit Log
+                </button>
+</td>
+</tr>
+<!-- ROW 4: CUST-63219 (Priya Sharma) -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="font-bold text-on-surface">CUST-63219</div>
+<div class="text-[11px] text-on-surface-variant">Priya Sharma</div>
+<div class="text-[10px] text-outline">Credit Card • $8.2k</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-baseline gap-2">
+<span class="text-base font-bold text-[#f59e0b]">0.615</span>
+<span class="text-[10px] text-outline font-mono">Streak 2/4</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container-lowest border border-outline-variant mt-1">
+<div class="h-full bg-[#f59e0b]" style="width: 61.5%;"></div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 font-mono text-[11px] font-bold bg-[#f59e0b] text-on-surface">
+                  AMBER TIER
+                </span>
+<div class="text-[10px] text-outline mt-1 font-mono">Day 2 Persistent</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1 max-w-xs">
+<span class="text-[11px] text-on-surface">1. Cash-flow buffer down (-45%)</span>
+<span class="text-[11px] text-on-surface-variant">2. Multi-lender inquiry pattern</span>
+<span class="text-[11px] text-outline">3. Micro-ATM cash-out event</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] bg-surface-container-high text-[#f59e0b] font-bold border border-[#f59e0b]">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+                  MONITORED
+                </div>
+<div class="text-[10px] text-on-surface-variant mt-1">Streak Day 2 of 4</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1 max-w-[200px]">
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-[#f59e0b] font-mono">Buffer Contraction</span>
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-mono">ATM Liquidity</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-xs text-on-surface font-semibold">Digital Nudge & Budget Assistant</div>
+<div class="text-[11px] text-on-surface-variant">Self-service in-app reminder</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 bg-[#f59e0b] text-on-surface text-xs font-mono font-bold hover:opacity-90 transition-opacity">
+                  Log Nudge
+                </button>
+</td>
+</tr>
+<!-- ROW 5: CUST-51920 (Julian Brandt) -->
+<tr class="hover:bg-surface-container-high/60 transition-colors">
+<td class="py-3.5 px-4">
+<div class="font-bold text-on-surface">CUST-51920</div>
+<div class="text-[11px] text-on-surface-variant">Julian Brandt</div>
+<div class="text-[10px] text-outline">Home Equity • $88.5k</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-baseline gap-2">
+<span class="text-base font-bold text-[#f59e0b]">0.582</span>
+<span class="text-[10px] text-outline font-mono">Initial</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container-lowest border border-outline-variant mt-1">
+<div class="h-full bg-[#f59e0b]" style="width: 58.2%;"></div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 font-mono text-[11px] font-bold bg-[#f59e0b] text-on-surface">
+                  AMBER TIER
+                </span>
+<div class="text-[10px] text-outline mt-1 font-mono">First Cycle Alert</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1 max-w-xs">
+<span class="text-[11px] text-on-surface">1. Channel diversity drop</span>
+<span class="text-[11px] text-on-surface-variant">2. Liquidity pressure index</span>
+<span class="text-[11px] text-outline">3. Savings draw-down > 30d</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] bg-surface-container-high text-[#f59e0b] font-bold border border-[#f59e0b]">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+                  MONITORED
+                </div>
+<div class="text-[10px] text-on-surface-variant mt-1">Single Day Flag</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1 max-w-[200px]">
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-[#f59e0b] font-mono">Channel Shift</span>
+<span class="px-1.5 py-0.5 text-[10px] bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-mono">Liquidity Index</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-xs text-on-surface font-semibold">Automated Balance Alert</div>
+<div class="text-[11px] text-on-surface-variant">Low-impact automated check</div>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 bg-surface-container-high border border-outline text-xs font-mono text-on-surface hover:bg-surface-container-highest transition-colors">
+                  Log Note
+                </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Bar -->
+<div class="flex items-center justify-between text-xs font-mono text-outline py-1">
+<div>Showing entries 1-5 of 1,248 high-priority subjects</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface disabled:opacity-40" disabled="">PREV</button>
+<button class="px-2.5 py-1 bg-primary text-on-primary font-bold">1</button>
+<button class="px-2.5 py-1 bg-surface-container border border-outline-variant text-on-surface">2</button>
+<button class="px-2.5 py-1 bg-surface-container border border-outline-variant text-on-surface">3</button>
+<span class="px-1">...</span>
+<button class="px-2.5 py-1 bg-surface-container border border-outline-variant text-on-surface">250</button>
+<button class="px-2 py-1 bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface">NEXT</button>
+</div>
+</div>
+</div>
+<!-- 4. ANALYTICAL PANELS (SPLIT 2-COLUMN SECTION) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- LEFT COLUMN: Early Stress Signal Distribution -->
+<div class="bg-surface-container border border-outline-variant p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-bold tracking-tight text-on-surface">Early Stress Signal Distribution</h3>
+<span class="text-[11px] font-mono text-primary font-semibold">142,850 EVALUATED</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">Leading statistical drivers contributing to high SHAP impact scores in this inference window.</p>
+<div class="mt-6 flex flex-col gap-4">
+<!-- Indicator 1 -->
+<div>
+<div class="flex justify-between text-xs font-mono mb-1.5">
+<span class="text-on-surface font-medium">Balance Buffer Exhaustion (<0.5x EMI)</span>
+<span class="text-error font-bold">34% (48,569 accts)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border border-outline-variant">
+<div class="h-full bg-error" style="width: 34%;"></div>
+</div>
+</div>
+<!-- Indicator 2 -->
+<div>
+<div class="flex justify-between text-xs font-mono mb-1.5">
+<span class="text-on-surface font-medium">Salary Timing Delay or Variance (>3d)</span>
+<span class="text-[#f59e0b] font-bold">28% (39,998 accts)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border border-outline-variant">
+<div class="h-full bg-[#f59e0b]" style="width: 28%;"></div>
+</div>
+</div>
+<!-- Indicator 3 -->
+<div>
+<div class="flex justify-between text-xs font-mono mb-1.5">
+<span class="text-on-surface font-medium">Multiple External Lender Inquiries (Bureau ping)</span>
+<span class="text-primary font-bold">19% (27,141 accts)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border border-outline-variant">
+<div class="h-full bg-primary" style="width: 19%;"></div>
+</div>
+</div>
+<!-- Indicator 4 -->
+<div>
+<div class="flex justify-between text-xs font-mono mb-1.5">
+<span class="text-on-surface font-medium">Discretionary Spend Contraction (>40% drop)</span>
+<span class="text-on-surface-variant font-bold">12% (17,142 accts)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border border-outline-variant">
+<div class="h-full bg-secondary-fixed-dim" style="width: 12%;"></div>
+</div>
+</div>
+<!-- Indicator 5 -->
+<div>
+<div class="flex justify-between text-xs font-mono mb-1.5">
+<span class="text-on-surface font-medium">Transaction Channel Drift & ATM Cash-out</span>
+<span class="text-outline font-bold">7% (9,999 accts)</span>
+</div>
+<div class="w-full h-3 bg-surface-container-lowest border border-outline-variant">
+<div class="h-full bg-outline" style="width: 7%;"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant flex items-center justify-between text-[11px] font-mono text-outline">
+<span>SHAP TreeExplainer v0.44</span>
+<span class="text-tertiary">Feature Importance Correlation: r = 0.892</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Policy & Suppression Engine Status -->
+<div class="bg-surface-container border border-outline-variant p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-bold tracking-tight text-on-surface">Policy & Suppression Guardrails</h3>
+<span class="inline-flex items-center gap-1.5 text-[11px] font-mono text-tertiary">
+<span class="w-2 h-2 bg-tertiary"></span> Engine Enforcing
+            </span>
+</div>
+<p class="text-xs text-on-surface-variant mt-1">Multi-signal confirmation, contact fatigue suppressions, and escalation state transitions.</p>
+<div class="grid grid-cols-2 gap-3 mt-6">
+<!-- State Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-3.5">
+<div class="text-[10px] font-mono text-outline uppercase font-semibold">Multi-Signal Confirmation</div>
+<div class="text-xl font-mono font-bold text-tertiary mt-2">94.2% PASS</div>
+<div class="text-[11px] text-on-surface-variant mt-1">
+                Single-metric false alerts automatically pruned.
+              </div>
+</div>
+<!-- State Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-3.5">
+<div class="text-[10px] font-mono text-outline uppercase font-semibold">Contact Suppression Hold</div>
+<div class="text-xl font-mono font-bold text-on-surface mt-2">184 CASES</div>
+<div class="text-[11px] text-on-surface-variant mt-1">
+                Active 7-day no-contact cooling period enforced.
+              </div>
+</div>
+<!-- State Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-3.5">
+<div class="text-[10px] font-mono text-outline uppercase font-semibold">Daily Alert Capacity Cap</div>
+<div class="text-xl font-mono font-bold text-primary mt-2">82 / 100 LEFT</div>
+<div class="text-[11px] text-on-surface-variant mt-1">
+                Analyst workload threshold protection active.
+              </div>
+</div>
+<!-- State Card 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-3.5">
+<div class="text-[10px] font-mono text-outline uppercase font-semibold">Amber Streak Auto-Escalation</div>
+<div class="text-xl font-mono font-bold text-error mt-2">26 PROMOTED</div>
+<div class="text-[11px] text-on-surface-variant mt-1">
+                4-day persistent distress elevated to Red tier today.
+              </div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant flex items-center justify-between text-[11px] font-mono">
+<span class="text-outline">Governance Rulebase: STRESS-POL-2026.3</span>
+<a class="text-primary hover:underline flex items-center gap-1" href="#">
+            Configure Rules >
+          </a>
+</div>
+</div>
+</div>
+<!-- 5. MODEL GOVERNANCE & REAL-TIME PERFORMANCE FOOTER BAR -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+<div class="flex flex-wrap items-center gap-6">
+<!-- Champion Model Badge -->
+<div class="flex items-center gap-3">
+<div class="px-2 py-1 bg-surface-container-high border border-outline text-xs font-mono font-bold text-primary">
+            CHAMPION MODEL
+          </div>
+<div>
+<div class="text-xs font-mono font-bold text-on-surface">LightGBM-v3.4.1</div>
+<div class="text-[10px] font-mono text-outline">Calibrated Isotonic Regression</div>
+</div>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant hidden md:block"></div>
+<!-- Metric Readouts -->
+<div class="flex flex-wrap items-center gap-5 text-xs font-mono">
+<div>
+<span class="text-outline">PR-AUC:</span>
+<span class="text-on-surface font-bold ml-1">0.864</span>
+</div>
+<div>
+<span class="text-outline">KS Stat:</span>
+<span class="text-on-surface font-bold ml-1">52.8</span>
+</div>
+<div>
+<span class="text-outline">PSI:</span>
+<span class="text-tertiary font-bold ml-1">0.041</span>
+<span class="text-[10px] text-tertiary">(Stable)</span>
+</div>
+<div>
+<span class="text-outline">Brier Score:</span>
+<span class="text-on-surface font-bold ml-1">0.082</span>
+</div>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Batch / API Parity: 100%</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 bg-surface-container border border-outline-variant hover:bg-surface-container-high text-xs font-mono text-on-surface transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">download</span>
+          Export Risk Queue CSV
+        </button>
+<button class="px-3 py-1.5 bg-surface-container border border-outline-variant hover:bg-surface-container-high text-xs font-mono text-on-surface transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">play_arrow</span>
+          Run Ad-hoc Scoring
+        </button>
+<button class="px-3 py-1.5 bg-primary text-on-primary text-xs font-mono font-bold hover:bg-primary-fixed-dim transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">settings</span>
+          Open Policy Rules Editor
+        </button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

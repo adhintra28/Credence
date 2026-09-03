@@ -1,17 +1,125 @@
-{% extends "base.html" %}{% block title %}Alerts queue{% endblock %}{% block body %}
-<div class="nav card"><a href="/bank">Portfolio</a><a href="/bank/queue"><b>Alerts queue</b></a><a href="/bank/interventions">Interventions</a><a href="/bank/model">Model health</a></div>
-<div class="card"><h2>Alerts queue — {{scoring_date}}</h2>
-{% if msg %}<div class="msg">{{msg}}</div>{% endif %}
-<form method="get">Search <input name="q" value="{{q}}" placeholder="customer or reason">
-Tier <select name="tier"><option value="">all</option><option {{'selected' if tier=='Red'}}>Red</option><option {{'selected' if tier=='Amber'}}>Amber</option></select>
-View <select name="view"><option value="open" {{'selected' if view=='open'}}>open</option><option value="all" {{'selected' if view=='all'}}>all</option><option value="approved" {{'selected' if view=='approved'}}>approved</option><option value="snoozed" {{'selected' if view=='snoozed'}}>snoozed</option></select>
-<button class="btn">Filter</button></form><br>
-<table><tr><th>customer</th><th>tier</th><th>score</th><th>reason</th><th>emi</th><th>exp loss</th><th>analyst</th><th>action</th></tr>
-{% for r in alerts %}<tr><td><a href="/bank/customer/{{r.customer_id}}">{{r.customer_id}}</a></td>
-<td><span class="tier-{{r.tier}}">{{r.tier}}</span></td><td>{{r.score}}</td><td>{{r.top_reason}}</td><td>{{r.emi_amount}}</td><td>{{r.expected_loss}}</td>
-<td>{{r.analyst_action or '-'}} / {{r.intervention_status or '-'}}</td>
-<td><form method="post" style="display:inline"><input type="hidden" name="customer_id" value="{{r.customer_id}}">
-<button class="btn" name="action" value="approved">Approve</button>
-<button class="btn ghost" name="action" value="snoozed">Snooze</button></form></td></tr>{% endfor %}
-</table><p><small>{{alerts|length}} shown · Red capped top-K/day by expected loss · suppressed rows in data/outputs/suppressed_*.csv</small></p></div>
+{% extends "base.html" %}{% block title %}Risk Queue — {{ scoring_date }}{% endblock %}{% block body %}
+
+<!-- HEADER -->
+<div class="h-row">
+  <div>
+    <span class="eyebrow">Risk Queue · Ranked by Calibrated Default Odds</span>
+    <h1>Continuous Inference Risk Queue</h1>
+    <p class="subtitle">Frozen thresholds {{ 'amber ≥ 0.30 · red ≥ 0.60' }} — Red capped top-K/day by expected loss (score × EMI). Suppressed rows are held in <span class="mono">data/outputs/suppressed_*.csv</span>.</p>
+  </div>
+  <div class="h-actions">
+    <span class="chip">Cycle: <b style="color:var(--accent)">{{ scoring_date or '—' }}</b></span>
+    <span class="chip">Queue size: <b>{{ alerts|length }}</b></span>
+  </div>
+</div>
+
+{% if msg %}<div class="msg">{{ msg }}</div>{% endif %}
+
+<!-- FILTER BAR -->
+<div class="filterbar">
+  <form method="get" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <input name="q" value="{{ q }}" placeholder="customer or reason…" style="width:230px">
+    <select name="tier">
+      <option value="">All Tiers</option>
+      <option value="Red" {{ 'selected' if tier == 'Red' }}>Red (&gt;0.60)</option>
+      <option value="Amber" {{ 'selected' if tier == 'Amber' }}>Amber (0.30–0.60)</option>
+    </select>
+    <select name="view">
+      <option value="open" {{ 'selected' if view == 'open' }}>Open</option>
+      <option value="all" {{ 'selected' if view == 'all' }}>All</option>
+      <option value="approved" {{ 'selected' if view == 'approved' }}>Approved</option>
+      <option value="snoozed" {{ 'selected' if view == 'snoozed' }}>Snoozed</option>
+    </select>
+    <button class="btn sm" type="submit">Apply Filters</button>
+  </form>
+  <div class="vsep"></div>
+  <span class="filter-meta">Showing <b>{{ alerts|length }}</b> of <b>{{ alerts|length }}</b> · Red: Immediate Restructuring · Amber: Digital Nudge / Monitor</span>
+</div>
+
+<!-- QUEUE TABLE -->
+<div class="table-container">
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer Ref</th>
+          <th>Score</th>
+          <th>Risk Tier</th>
+          <th>Top SHAP Explanation</th>
+          <th>Stress Indicators</th>
+          <th>Policy Decision</th>
+          <th>EMI</th>
+          <th>Exp. Loss</th>
+          <th>Analyst Status</th>
+          <th style="text-align:right">Action Trigger</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for r in alerts %}
+        <tr>
+          <td>
+            <div class="strong"><a href="/bank/customer/{{ r.customer_id }}" style="color:var(--text-primary)">{{ r.customer_id }}</a></div>
+            <div class="muted mono" style="font-size:10.5px">{{ r.model_version or '—' }}</div>
+          </td>
+          <td>
+            <span class="num" style="font-size:15px;font-weight:700;color:{{ 'var(--red)' if r.tier=='Red' else 'var(--amber)' }}">{{ '%.3f' % r.score }}</span>
+            <div class="bar" style="width:86px;margin-top:5px">
+              <div class="bar-fill {{ 'error' if r.tier=='Red' else 'amber' }}" style="width:{{ '%.0f' % (100*r.score) }}%"></div>
+            </div>
+          </td>
+          <td>
+            <span class="tier-{{ r.tier }}">{{ r.tier }}</span>
+            {% if r.get('escalated') %}<div class="muted mono" style="font-size:10px;margin-top:4px">Auto-Escalated</div>{% endif %}
+          </td>
+          <td style="max-width:300px;font-size:12px;color:var(--text-secondary);line-height:1.5">{{ r.top_reason }}</td>
+          <td>
+            <div style="display:flex;flex-wrap:wrap;gap:4px;max-width:210px">
+            {% for g in (r.signal_groups or '').split('+') if g %}
+              <span class="chip {{ 'error' if r.tier=='Red' else 'amber' }}">{{ g }}</span>
+            {% endfor %}
+            </div>
+          </td>
+          <td>
+            {% if r.action == 'auto_nudge' %}
+              <span class="chip amber">MONITORED · Auto nudge</span>
+            {% elif r.action == 'human_offer' %}
+              <span class="chip green">APPROVED · Human offer</span>
+            {% else %}<span class="chip">{{ r.action or '—' }}</span>{% endif %}
+          </td>
+          <td class="num">₹{{ '{:,.0f}'.format(r.emi_amount) }}</td>
+          <td class="num">₹{{ '{:,.0f}'.format(r.expected_loss) }}</td>
+          <td>
+            {% if r.analyst_action %}
+              <span class="chip {{ 'green' if r.analyst_action == 'approved' else 'amber' if r.analyst_action == 'snoozed' else '' }}">{{ r.analyst_action }}</span>
+            {% else %}<span class="muted mono" style="font-size:10.5px">—</span>{% endif %}
+            {% if r.intervention_status %}<div class="muted mono" style="font-size:10px;margin-top:3px">{{ r.intervention_status }}</div>{% endif %}
+          </td>
+          <td style="text-align:right;white-space:nowrap">
+            <a href="/bank/customer/{{ r.customer_id }}" class="btn ghost sm">Inspect</a>
+            <form method="post" style="display:inline">
+              <input type="hidden" name="customer_id" value="{{ r.customer_id }}">
+              <button class="btn sm" name="action" value="approved" style="background:var(--green);border-color:var(--green);color:var(--on-green)">Approve</button>
+              <button class="btn ghost sm" name="action" value="snoozed">Snooze</button>
+            </form>
+          </td>
+        </tr>
+      {% else %}
+        <tr><td colspan="10"><div class="empty">No records match — run the pipeline or adjust filters.</div></td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="pagination">
+  <span>Showing entries 1–{{ alerts|length }} of {{ alerts|length }} high-priority subjects</span>
+  <div class="pg">
+    <a class="off">PREV</a>
+    <a class="on">1</a>
+    <a class="off">2</a>
+    <a class="off">3</a>
+    <span class="muted">…</span>
+    <a class="off">NEXT</a>
+  </div>
+</div>
 {% endblock %}
