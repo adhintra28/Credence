@@ -25,14 +25,14 @@
   <div class="kpi tone-red">
     <div class="kpi-label"><span>Active Red Queue</span><span class="kpi-badge red">14D CRITICAL</span></div>
     <div>
-      <div class="kpi-value" style="color:var(--red)">{{ summary.get('red', summary.get('mix',{}).get('Red',0)) }}<span class="unit">({{ '%.1f' % (100*summary.get('flagged_rate',0)) }}%)</span></div>
+      <div class="kpi-value" style="color:var(--red)">{{ summary.get('red', summary.get('mix',{}).get('Red',0)) }}<span class="unit">({{ '%.1f' % (100*summary.get('red',0)/max(summary.get('n',1),1)) }}%)</span></div>
       <div class="kpi-sub" style="color:#fca5a5">Immediate action window</div>
     </div>
   </div>
   <div class="kpi tone-amber">
     <div class="kpi-label"><span>Amber Watchlist</span><span class="kpi-badge amber">MONITORING</span></div>
     <div>
-      <div class="kpi-value" style="color:var(--amber)">{{ summary.get('amber', summary.get('mix',{}).get('Amber',0)) }}<span class="unit">({{ '%.1f' % (100*summary.get('flagged_rate',0)) }}%)</span></div>
+      <div class="kpi-value" style="color:var(--amber)">{{ summary.get('amber', summary.get('mix',{}).get('Amber',0)) }}<span class="unit">({{ '%.1f' % (100*summary.get('amber',0)/max(summary.get('n',1),1)) }}%)</span></div>
       <div class="kpi-sub">Emerging streak signals</div>
     </div>
   </div>

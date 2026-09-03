@@ -454,7 +454,7 @@
   </header>
 {% endif %}
 {% if session.get('role') in ('bank', 'risk', 'customer') %}
-  <main class="content{% if session.get('role') == 'customer' %}" style="max-width:1100px"{% endif %}>
+  <main class="content{% if session.get('role') == 'customer' %} style="max-width:1100px"{% endif %}">
 {% endif %}
 {% block body %}{% endblock %}
 {% if session.get('role') in ('bank', 'risk', 'customer') %}</main>{% endif %}

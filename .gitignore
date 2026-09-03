@@ -9,3 +9,8 @@ models/mlruns/
 .env
 venv/
 .venv/
+
+# local QA artifacts
+.pw-browsers/
+shots/
+shoot.py
