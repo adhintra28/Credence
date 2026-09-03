@@ -10,6 +10,7 @@ ALB -> ECS Fargate / FastAPI -> RDS PostgreSQL
                   |-> CloudWatch Logs
 ```
 
-There is deliberately no Lambda, DynamoDB, Kinesis, SageMaker, Redshift, or SNS
-implementation in this repository. See [terraform/README.md](../terraform/README.md)
+The earlier hackathon Lambda/DynamoDB/SNS files remain in this folder as an
+optional, separate demo path; see [DEPLOYMENT.md](DEPLOYMENT.md). They are not
+part of the ECS production deployment. See [terraform/README.md](../terraform/README.md)
 for deployment steps.
