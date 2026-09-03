@@ -10,6 +10,7 @@ import pandas as pd
 import yaml
 
 from src.features.build import build_snapshot, FEATURE_COLS
+from src.presentation import recommended_action, stress_velocity
 
 REASON_TEMPLATES = {
     "salary_delay_vs_median": "Salary {v:.0f} days late vs usual",
@@ -65,9 +66,13 @@ def main():
         print(f"shap per-row skipped: {e}")
     red, amber = cfg["tiers"]["red_min"], cfg["tiers"]["amber_min"]
     tiers = np.where(scores >= red, "Red", np.where(scores >= amber, "Amber", "Green"))
+    velocities = [stress_velocity(row) for row in feats[FEATURE_COLS].to_dict("records")]
+    primary_reasons = [items[0] if items else "Cash-flow pressure" for items in top3]
     out = pd.DataFrame({"customer_id": feats["customer_id"], "scoring_date": a.scoring_date,
                         "score": np.round(scores, 4), "tier": tiers,
                         "reasons": [json.dumps(r) for r in top3],
+                        "top_reason": primary_reasons, "stress_velocity": velocities,
+                        "recommended_action": [recommended_action(tier) for tier in tiers],
                         "model": bundle.get("name", "?")})
     od = cfg["paths"]["outputs_dir"]
     os.makedirs(od, exist_ok=True)

@@ -89,6 +89,15 @@ def score_single(req: ScoreReq):
     return out
 
 
+@app.get("/api/customers/{customer_id}/risk-payload")
+def customer_risk_payload(customer_id: str, scoring_date: Optional[str] = None):
+    """Presentation-ready risk contract for the frontend integration."""
+    out = risk_service.presentation_payload(customer_id, scoring_date)
+    if "error" in out:
+        raise HTTPException(404, out["error"])
+    return _clean(out)
+
+
 @app.get("/api/scores")
 def list_scores(scoring_date: Optional[str] = None, tier: Optional[str] = None, limit: int = 200):
     df, sd = store.get_scores(scoring_date)
