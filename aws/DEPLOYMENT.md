@@ -4,6 +4,10 @@ The local engine remains the MVP source of truth. AWS receives the already-score
 `risk_scores_YYYY-MM-DD.csv` output and policy-approved `alerts_YYYY-MM-DD.csv`;
 it must not score or notify from raw transactions.
 
+The frontend/API payload is available locally at
+`GET /api/customers/{customer_id}/risk-payload`. It includes `risk_score`,
+`risk_level`, `stress_velocity`, `top_reason`, and `recommended_action`.
+
 ## Required resources
 
 - S3 bucket: upload batch outputs at `outputs/risk_scores_YYYY-MM-DD.csv` and

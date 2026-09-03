@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 
 from src.features.build import FEATURE_COLS, build_snapshot
+from src.presentation import risk_payload
 from src.services import store
 
 
@@ -154,3 +155,22 @@ def score_single_customer(customer_id, scoring_date=None):
     tier = "Red" if score >= th.get("red_min", 0.6) else ("Amber" if score >= th.get("amber_min", 0.3) else "Green")
     return {"customer_id": customer_id, "scoring_date": sd, "score": round(score, 4),
             "tier": tier, "model": bundle.get("name")}
+
+
+def presentation_payload(customer_id, scoring_date=None):
+    """Return the compact Phase-10 payload used by non-Python frontends."""
+    scores, sd = store.get_scores(scoring_date)
+    row = scores[scores["customer_id"] == customer_id] if len(scores) else pd.DataFrame()
+    feats, _ = store.get_features(sd)
+    feat = feats[feats["customer_id"] == customer_id] if len(feats) else pd.DataFrame()
+    if len(row):
+        item = row.iloc[0]
+        reasons = item.get("_reasons_list", [])
+        return risk_payload(customer_id, item["score"], item["tier"],
+                            item.get("top_reason") or (reasons[0] if reasons else ""),
+                            feat.iloc[0].to_dict() if len(feat) else {})
+    scored = score_single_customer(customer_id, sd)
+    if "error" in scored:
+        return scored
+    return risk_payload(customer_id, scored["score"], scored["tier"], "Cash-flow pressure",
+                        feat.iloc[0].to_dict() if len(feat) else {})
