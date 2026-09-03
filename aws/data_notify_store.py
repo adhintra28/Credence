@@ -1,18 +1,22 @@
-"""AWS: SageMaker Feature Store + Redshift + DynamoDB + SNS. UNCOMMENT after backend configured.
-TODO: set FEATURE_GROUP, REDSHIFT cluster/db, DYNAMO_TABLE, SNS_TOPIC_ARN from backend.
+"""Read one customer risk record from DynamoDB.
+
+Set AWS_REGION and DYNAMODB_RISK_SCORES_TABLE, then run this script with an
+optional customer ID. Credentials use the standard boto3 chain.
 """
-# import boto3
-# REGION = "TODO-backend-region"
-# FEATURE_GROUP = "TODO-predelinq-features"   # SageMaker Feature Store: offline (S3) + online
-# DYNAMO_TABLE = "TODO-risk_scores"           # DynamoDB: PK=customer_id, SK=scoring_date
-# SNS_TOPIC_ARN = "TODO-arn:aws:sns:...:risk-alerts"  # SNS: fan-out per tier
-# REDSHIFT = {"cluster": "TODO-rs-predelinq", "db": "TODO-predelinq", "table": "features"}
-#
-# def save_score(customer_id, scoring_date, score, tier, reasons):
-#     boto3.resource("dynamodb", region_name=REGION).Table(DYNAMO_TABLE).put_item(
-#         Item={"customer_id": customer_id, "scoring_date": scoring_date,
-#               "score": str(score), "tier": tier, "reasons": reasons})
-#
-# def notify(phone_or_email, message):
-#     boto3.client("sns", region_name=REGION).publish(TopicArn=SNS_TOPIC_ARN, Message=message)
-#     # Redshift historical analysis: COPY processed parquet -> staging, then model SQL there.
+import os
+import sys
+
+import boto3
+
+
+def get_risk_score(customer_id: str) -> dict | None:
+    table_name = os.environ["DYNAMODB_RISK_SCORES_TABLE"]
+    region = os.getenv("AWS_REGION", "ap-south-1")
+    table = boto3.resource("dynamodb", region_name=region).Table(table_name)
+    return table.get_item(Key={"customer_id": customer_id}).get("Item")
+
+
+if __name__ == "__main__":
+    customer_id = sys.argv[1] if len(sys.argv) > 1 else "CUST001"
+    item = get_risk_score(customer_id)
+    print(item if item else f"No risk score found for {customer_id}")
