@@ -172,6 +172,21 @@ def google_auth():
     return google.authorize_redirect(google_redirect_uri())
 
 
+@app.route("/ssostatus")
+def ssostatus():
+    """Diagnostics while wiring Google SSO — no secrets, just fingerprints."""
+    cid = os.environ.get("GOOGLE_CLIENT_ID", "")
+    uri = google_redirect_uri()
+    return {
+        "configured": bool(cid and os.environ.get("GOOGLE_CLIENT_SECRET")),
+        "client_id": f"{cid[:8]}…{cid[-4:]}" if cid else "(empty)",
+        "client_secret_set": bool(os.environ.get("GOOGLE_CLIENT_SECRET")),
+        "redirect_uri": uri,
+        "note": "Register EXACTLY this redirect_uri in Google Console -> Clients -> "
+                "Nandu -> Authorized redirect URIs (byte-for-byte, incl. scheme).",
+    }
+
+
 @app.route("/auth/callback")
 def auth_callback():
     try:

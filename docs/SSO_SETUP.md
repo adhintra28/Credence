@@ -1,77 +1,77 @@
 # Google SSO Setup — Bank Portal & Customer Connect
 
 The portal ships with full Google OAuth 2.0 flows (authlib) plus strict bank
-domain validation. The code is ready; you must create the credentials in
-Google Cloud Console — no code changes needed.
+domain validation. Password logins (`bank@bank.com/bank123`) always work —
+SSO is optional and additive.
 
-## Flow recap
+## Fast-check your config
 
-| Route | Who | What happens |
-|---|---|---|
-| `/login/bank` | Bank employee | picks institution → Google login → email must match `<bank>.domain` in `frontend/banks.yaml` |
-| `/login/customer` | Customer | picks bank (any metadata) → Google login (any email) → lands on `/customer` |
-| `/auth/callback` | both | validates state/domain, opens the session |
+Start the portal and open **http://127.0.0.1:5000/ssostatus** — it shows the
+fingerprinted client id, whether the secret is set, and the **exact redirect
+URI you must register**. Local dev default:
+`http://127.0.0.1:5000/auth/callback`.
 
-## Step 1 — Create the OAuth client (5 min)
+## Step 1 — Google Cloud Console (you already created client `Nandu`; finish it)
 
-1. Open <https://console.cloud.google.com> → create a **new project**
-   (e.g. `Credence-Portal`) — or reuse one.
-2. **APIs & Services → OAuth consent screen**
-   - User type: **External**.
-   - App name: `Credence Pre-Delinquency Portal`, email, logo optional.
-   - **Publishing status = Testing** → under **Test users** add the Google
-     accounts that will log in (yours + demo users). A "Testing" app only
-     lets whitelisted accounts in — perfect for the hackathon demo. To allow
-     any Google account, click **Publish** (unverified banner warning is fine
-     for <100 users).
-3. **APIs & Services → Credentials → Create Credentials → OAuth client ID**
-   - Application type: **Web application**.
-   - *Authorized JavaScript origins*: `http://127.0.0.1:5000` and your
-     deployed origin (`https://credence-predelinquency.onrender.com`).
-   - **Authorized redirect URIs** (must be exact, one per line):
+1. `console.cloud.google.com` → project **Credence** → **APIs & Services →
+   OAuth consent screen**
+   - User type: **External**. App name: anything (e.g. `Nandu`).
+   - **Publishing status: Testing** → **Test users** → **Add users** → add
+     **your own Google email** (and each demo account). A Testing app ONLY
+     lets whitelisted accounts in — until you add yourself, Google shows
+     “Access blocked … has not completed verification”.
+2. **APIs & Services → Credentials → Clients → `Nandu` (Web application) →
+   ✏️ Edit**
+   - **Authorized redirect URIs** — add BOTH, exactly as written:
      ```
      http://127.0.0.1:5000/auth/callback
      https://credence-predelinquency.onrender.com/auth/callback
      ```
-4. Copy the **Client ID** and **Client secret**.
+     (Replace the second with your real deployed host if different. No
+     trailing slashes, http vs https matters.)
+   - **Authorized JavaScript origins**: `http://127.0.0.1:5000` and
+     `https://credence-predelinquency.onrender.com` (optional; not required
+     for the server flow but harmless).
+   - Save.
+3. **Client secret** — if you still have the value/JSON from creation:
+   great. If you closed the popup without saving it, it cannot be re-shown —
+   create a **new** client (Credentials → Create client → Web application →
+   paste the same redirect URIs → Save) and copy the secret this time, then
+   delete `Nandu`.
 
 ## Step 2 — Wire it up
 
-Local dev — create `.env` from `.env.example`:
+Local — edit `.env` (already exists in the repo, git-ignored):
 
-```bash
-cp .env.example .env   # fill in the values from Step 1
-python frontend/app.py
+```
+GOOGLE_CLIENT_ID=989893764352-xxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=GOCSPX-xxxxxxxxxxxxxxxx
+OAUTH_REDIRECT_URI=http://127.0.0.1:5000/auth/callback
 ```
 
-Deployed (Render): Service → Environment → add
-`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `OAUTH_REDIRECT_URI` (use the
-https URI), then redeploy. `render.yaml` declares them as `sync: false`
-placeholders. (Railway: same variables in the service settings.)
+then **restart** the portal (`Ctrl-C`, then `make portal`) — `.env` is read
+at startup.
+
+Deployed (Render): service → **Environment** → add
+`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`,
+`OAUTH_REDIRECT_URI=https://credence-predelinquency.onrender.com/auth/callback`
+→ redeploy. (`render.yaml` declares these as `sync: false` placeholders.)
 
 ## Step 3 — Test
 
-1. `http://127.0.0.1:5000/login/bank` → pick a bank → Google page → consent.
-2. Bank-domain check: log in with an email that does NOT end in the selected
-   bank's domain (e.g. any `@gmail.com` for HDFC) → you must see the
-   "Unauthorized" red page; a matching domain succeeds.
-3. `/login/customer` → any Google account → `/customer` (demo customer
-   C000000).
-4. Deployed: repeat on the https URL.
+1. `http://127.0.0.1:5000/ssostatus` → `configured: true`.
+2. `http://127.0.0.1:5000/login/bank` → pick a bank → Google page → consent.
+3. Bank-domain check: an email that does NOT end in the selected bank's
+   domain (see `frontend/banks.yaml`) gets the red **Unauthorized** page;
+   a matching domain lands in the portal.
+4. `/login/customer` → any Google account → `/customer` (C000000).
 
 ## Troubleshooting
 
 | Symptom | Cause / fix |
 |---|---|
-| `redirect_uri_mismatch` | The URI in the console differs from `OAUTH_REDIRECT_URI` (lowercase, trailing slash, `http` vs `https`). Make them byte-identical; behind Render/`ProxyFix` must be `https`. |
-| `Access blocked: ... has not completed the Google verification process` | Consent screen is Testing and the account isn't a Test user — add it, or Publish the app. |
-| `invalid_grant` | Stale state — restart the flow from `/login/bank`; sometimes clear browser cookies for localhost. |
-| Loops back to login forever | Old bug (fixed): Google returns no `userinfo` in the token; the app now fetches it explicitly. `git pull` / redeploy. |
-| `GOOGLE_CLIENT_ID not set` page | Env vars missing — see Step 2. Password logins (`bank@bank.com/bank123`) keep working without SSO. |
-
-## Security notes
-
-- Bank emails are validated against their corporate domain from
-  `frontend/banks.yaml` — add your bank's real domain there.
-- Sessions are cookie-signed with `PREDELINQ_SECRET` — set a long random value.
-- No tokens are persisted; the access token lives only inside the callback.
+| `redirect_uri_mismatch` | The console URI differs from `OAUTH_REDIRECT_URI` (case, trailing slash, `http` vs `https`). Compare with `/ssostatus`. On Render it must be `https://…onrender.com/auth/callback`. |
+| `Access blocked: … has not completed the Google verification process` | Consent screen is Testing and your account isn't a Test user — add it, or Publish the app. |
+| `invalid_grant` | Stale authorization — retry from `/login/bank`; clear localhost cookies if it persists. |
+| SSO loops back to login | Fixed in code (userinfo is fetched explicitly). Make sure you have the latest `main`. |
+| `Google SSO is not configured` page | Env vars missing/empty — `/ssostatus` shows exactly what's loaded. |
