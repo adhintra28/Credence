@@ -1,0 +1,5 @@
+customer_id,scoring_date,action,action_by,action_at,note
+C000852,2024-11-01,approved,bank@bank.com,2026-09-03T18:29:10.241552+00:00,demo approve
+C000537,2024-11-01,snoozed,bank@bank.com,2026-09-03T18:29:10.255877+00:00,demo snooze
+C000000,2024-11-01,snoozed,pytest,2026-09-03T18:47:08.155628+00:00,test
+C000000,2024-11-01,snoozed,pytest,2026-09-03T18:47:19.706987+00:00,test

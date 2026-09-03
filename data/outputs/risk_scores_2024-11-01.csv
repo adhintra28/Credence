@@ -1,0 +1,2001 @@
+customer_id,scoring_date,score,tier,reasons,model
+C000000,2024-11-01,0.0667,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",sklearn_hgb
+C000001,2024-11-01,0.0202,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=588935.60"", ""Low 14d balance Rs.577139""]",sklearn_hgb
+C000002,2024-11-01,0.9583,Red,"[""avg_balance_28d=43144.42"", ""Low 14d balance Rs.34663"", ""emi_to_income=0.60""]",sklearn_hgb
+C000003,2024-11-01,1.0,Red,"[""avg_balance_28d=-9562.63"", ""Low 14d balance Rs.-13525"", ""emi_to_income=0.64""]",sklearn_hgb
+C000004,2024-11-01,0.0217,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=796767.27"", ""Low 14d balance Rs.792562""]",sklearn_hgb
+C000005,2024-11-01,0.0852,Green,"[""avg_balance_28d=603031.53"", ""balance_slope_28d=2771.38"", ""Low 14d balance Rs.591465""]",sklearn_hgb
+C000006,2024-11-01,0.1239,Green,"[""avg_balance_28d=441490.84"", ""Low 14d balance Rs.429150"", ""salary_cv_3m=0.20""]",sklearn_hgb
+C000007,2024-11-01,0.0667,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=159193.02"", ""salary_cv_3m=0.19""]",sklearn_hgb
+C000008,2024-11-01,0.0667,Green,"[""avg_balance_28d=455332.68"", ""Low 14d balance Rs.438594"", ""emi_to_income=0.42""]",sklearn_hgb
+C000009,2024-11-01,0.0202,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=116090.01"", ""Low 14d balance Rs.98060""]",sklearn_hgb
+C000010,2024-11-01,0.7342,Red,"[""avg_balance_28d=46474.10"", ""Low 14d balance Rs.32729"", ""emi_to_income=0.59""]",sklearn_hgb
+C000011,2024-11-01,0.041,Green,"[""emi_to_income=0.23"", ""avg_balance_28d=573921.92"", ""Low 14d balance Rs.568273""]",sklearn_hgb
+C000012,2024-11-01,0.0417,Green,"[""avg_balance_28d=659670.72"", ""emi_to_income=0.27"", ""Low 14d balance Rs.646052""]",sklearn_hgb
+C000013,2024-11-01,0.0667,Green,"[""avg_balance_28d=670671.90"", ""Low 14d balance Rs.663437"", ""discretionary_ratio_28d=0.03""]",sklearn_hgb
+C000014,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=1062265.32"", ""salary_cv_3m=0.08""]",sklearn_hgb
+C000015,2024-11-01,0.0389,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=1041966.87"", ""Low 14d balance Rs.1031831""]",sklearn_hgb
+C000016,2024-11-01,0.1239,Green,"[""avg_balance_28d=279388.34"", ""atm_amt_avg=6391.50"", ""Low 14d balance Rs.266908""]",sklearn_hgb
+C000017,2024-11-01,0.0417,Green,"[""avg_balance_28d=847647.78"", ""Low 14d balance Rs.841974"", ""atm_amt_avg=4342.00""]",sklearn_hgb
+C000018,2024-11-01,0.9286,Red,"[""avg_balance_28d=28933.58"", ""Low 14d balance Rs.23737"", ""emi_to_income=0.81""]",sklearn_hgb
+C000019,2024-11-01,0.0417,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=1051863.34"", ""Low 14d balance Rs.1043758""]",sklearn_hgb
+C000020,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=347147.23"", ""Low 14d balance Rs.317538""]",sklearn_hgb
+C000021,2024-11-01,0.0667,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=1007992.52"", ""Low 14d balance Rs.994156""]",sklearn_hgb
+C000022,2024-11-01,0.0389,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=1148964.39"", ""2 ATM withdrawals this week""]",sklearn_hgb
+C000023,2024-11-01,0.0417,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=828425.85"", ""Low 14d balance Rs.815198""]",sklearn_hgb
+C000024,2024-11-01,0.0667,Green,"[""emi_to_income=0.05"", ""avg_balance_28d=1174306.40"", ""Low 14d balance Rs.1172233""]",sklearn_hgb
+C000025,2024-11-01,0.9286,Red,"[""avg_balance_28d=22705.58"", ""Low 14d balance Rs.10887"", ""Savings 33% WoW""]",sklearn_hgb
+C000026,2024-11-01,0.7342,Red,"[""Low 14d balance Rs.42328"", ""emi_to_income=0.77"", ""avg_balance_28d=60547.44""]",sklearn_hgb
+C000027,2024-11-01,0.0667,Green,"[""avg_balance_28d=678009.43"", ""Low 14d balance Rs.663200"", ""emi_to_income=0.29""]",sklearn_hgb
+C000028,2024-11-01,0.0852,Green,"[""avg_balance_28d=559794.63"", ""Low 14d balance Rs.562931"", ""discretionary_ratio_28d=0.04""]",sklearn_hgb
+C000029,2024-11-01,0.0417,Green,"[""avg_balance_28d=106136.46"", ""emi_to_income=0.27"", ""Low 14d balance Rs.96287""]",sklearn_hgb
+C000030,2024-11-01,0.0667,Green,"[""emi_to_income=0.06"", ""avg_balance_28d=888003.46"", ""Low 14d balance Rs.880243""]",sklearn_hgb
+C000031,2024-11-01,0.619,Red,"[""avg_balance_28d=32390.82"", ""Low 14d balance Rs.24394"", ""emi_to_income=0.41""]",sklearn_hgb
+C000032,2024-11-01,0.0389,Green,"[""emi_to_income=0.24"", ""avg_balance_28d=1160410.26"", ""Low 14d balance Rs.1171997""]",sklearn_hgb
+C000033,2024-11-01,0.178,Green,"[""Low 14d balance Rs.61413"", ""avg_balance_28d=63133.62"", ""emi_to_income=0.47""]",sklearn_hgb
+C000034,2024-11-01,0.0852,Green,"[""avg_balance_28d=317025.45"", ""discretionary_ratio_28d=0.03"", ""Low 14d balance Rs.318644""]",sklearn_hgb
+C000035,2024-11-01,0.0202,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=1013838.25"", ""atm_amt_avg=3781.50""]",sklearn_hgb
+C000036,2024-11-01,0.0417,Green,"[""avg_balance_28d=613745.81"", ""Low 14d balance Rs.614698"", ""emi_to_income=0.24""]",sklearn_hgb
+C000037,2024-11-01,0.0417,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=907177.53"", ""Low 14d balance Rs.895162""]",sklearn_hgb
+C000038,2024-11-01,0.0202,Green,"[""avg_balance_28d=681395.40"", ""Low 14d balance Rs.670748"", ""Discretionary spend down 43%""]",sklearn_hgb
+C000039,2024-11-01,0.0202,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=1205792.31"", ""Low 14d balance Rs.1195786""]",sklearn_hgb
+C000040,2024-11-01,0.0389,Green,"[""avg_balance_28d=489963.20"", ""emi_to_income=0.30"", ""Low 14d balance Rs.484577""]",sklearn_hgb
+C000041,2024-11-01,0.0667,Green,"[""avg_balance_28d=1090789.17"", ""Low 14d balance Rs.1080059"", ""emi_to_income=0.25""]",sklearn_hgb
+C000042,2024-11-01,0.0202,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=578197.61"", ""Low 14d balance Rs.580876""]",sklearn_hgb
+C000043,2024-11-01,0.0852,Green,"[""avg_balance_28d=980148.90"", ""Low 14d balance Rs.966658"", ""discretionary_ratio_28d=0.04""]",sklearn_hgb
+C000044,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=835320.62"", ""Low 14d balance Rs.825311""]",sklearn_hgb
+C000045,2024-11-01,1.0,Red,"[""avg_balance_28d=-14018.33"", ""Low 14d balance Rs.-40517"", ""emi_to_income=0.78""]",sklearn_hgb
+C000046,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=741467.40"", ""Low 14d balance Rs.740421""]",sklearn_hgb
+C000047,2024-11-01,0.0217,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=1032283.71"", ""Low 14d balance Rs.1026057""]",sklearn_hgb
+C000048,2024-11-01,0.0429,Green,"[""avg_balance_28d=103550.87"", ""Low 14d balance Rs.94604"", ""atm_amt_avg=5627.67""]",sklearn_hgb
+C000049,2024-11-01,0.178,Green,"[""cash_to_spend_ratio=0.03"", ""emi_to_income=0.21"", ""avg_balance_28d=962528.45""]",sklearn_hgb
+C000050,2024-11-01,0.178,Green,"[""Low 14d balance Rs.73175"", ""emi_to_income=0.38"", ""avg_balance_28d=68404.37""]",sklearn_hgb
+C000051,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=1043456.97"", ""Low 14d balance Rs.1046950""]",sklearn_hgb
+C000052,2024-11-01,0.0417,Green,"[""avg_balance_28d=673002.63"", ""Low 14d balance Rs.674981"", ""emi_to_income=0.26""]",sklearn_hgb
+C000053,2024-11-01,0.1239,Green,"[""discretionary_ratio_28d=0.29"", ""avg_balance_28d=98655.62"", ""Low 14d balance Rs.98692""]",sklearn_hgb
+C000054,2024-11-01,0.0417,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=854600.19"", ""Low 14d balance Rs.838971""]",sklearn_hgb
+C000055,2024-11-01,0.2973,Green,"[""avg_balance_28d=44657.94"", ""Low 14d balance Rs.33425"", ""emi_to_income=0.37""]",sklearn_hgb
+C000056,2024-11-01,0.0417,Green,"[""avg_balance_28d=603592.44"", ""Low 14d balance Rs.592827"", ""atm_amt_avg=3223.67""]",sklearn_hgb
+C000057,2024-11-01,0.0202,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=1140804.34"", ""Low 14d balance Rs.1138889""]",sklearn_hgb
+C000058,2024-11-01,0.0417,Green,"[""avg_balance_28d=171540.84"", ""Low 14d balance Rs.167693"", ""discretionary_ratio_28d=0.06""]",sklearn_hgb
+C000059,2024-11-01,0.0389,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=264551.43"", ""Low 14d balance Rs.246310""]",sklearn_hgb
+C000060,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""discretionary_ratio_28d=0.30"", ""avg_balance_28d=569054.27""]",sklearn_hgb
+C000061,2024-11-01,0.0389,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=549003.06"", ""Low 14d balance Rs.531922""]",sklearn_hgb
+C000062,2024-11-01,0.619,Red,"[""emi_to_income=0.97"", ""Low 14d balance Rs.31441"", ""avg_balance_28d=44529.41""]",sklearn_hgb
+C000063,2024-11-01,0.0417,Green,"[""avg_balance_28d=268384.19"", ""Low 14d balance Rs.254762"", ""Discretionary spend down -50%""]",sklearn_hgb
+C000064,2024-11-01,0.0429,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=381752.92"", ""Low 14d balance Rs.369311""]",sklearn_hgb
+C000065,2024-11-01,0.178,Green,"[""Low 14d balance Rs.51724"", ""emi_to_income=0.15"", ""avg_balance_28d=77077.12""]",sklearn_hgb
+C000066,2024-11-01,0.178,Green,"[""Low 14d balance Rs.68070"", ""avg_balance_28d=89974.84"", ""discretionary_ratio_28d=0.02""]",sklearn_hgb
+C000067,2024-11-01,0.9583,Red,"[""avg_balance_28d=20414.93"", ""Low 14d balance Rs.9186"", ""emi_to_income=0.72""]",sklearn_hgb
+C000068,2024-11-01,0.0667,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=1209384.66"", ""balance_slope_28d=2571.13""]",sklearn_hgb
+C000069,2024-11-01,0.0417,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=1217656.95"", ""Low 14d balance Rs.1215848""]",sklearn_hgb
+C000070,2024-11-01,0.0417,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=442395.00"", ""balance_slope_28d=3417.40""]",sklearn_hgb
+C000071,2024-11-01,0.0417,Green,"[""emi_to_income=0.09"", ""avg_balance_28d=1177530.55"", ""Low 14d balance Rs.1156192""]",sklearn_hgb
+C000072,2024-11-01,0.0852,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=430464.53"", ""discretionary_ratio_28d=0.03""]",sklearn_hgb
+C000073,2024-11-01,0.0417,Green,"[""avg_balance_28d=1028949.94"", ""Low 14d balance Rs.1029666"", ""emi_to_income=0.26""]",sklearn_hgb
+C000074,2024-11-01,0.2353,Green,"[""avg_balance_28d=59787.69"", ""Low 14d balance Rs.69163"", ""emi_to_income=0.63""]",sklearn_hgb
+C000075,2024-11-01,0.0389,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=357654.26"", ""Low 14d balance Rs.359487""]",sklearn_hgb
+C000076,2024-11-01,0.0417,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=832377.85"", ""Low 14d balance Rs.794841""]",sklearn_hgb
+C000077,2024-11-01,1.0,Red,"[""avg_balance_28d=9452.02"", ""Low 14d balance Rs.-368"", ""emi_to_income=0.64""]",sklearn_hgb
+C000078,2024-11-01,0.0667,Green,"[""avg_balance_28d=860675.09"", ""atm_amt_avg=4616.00"", ""Low 14d balance Rs.870872""]",sklearn_hgb
+C000079,2024-11-01,0.0852,Green,"[""avg_balance_28d=354102.13"", ""Low 14d balance Rs.355878"", ""salary_cv_3m=0.03""]",sklearn_hgb
+C000080,2024-11-01,0.0417,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=478022.71"", ""discretionary_ratio_28d=0.03""]",sklearn_hgb
+C000081,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=624163.77"", ""Low 14d balance Rs.608907""]",sklearn_hgb
+C000082,2024-11-01,0.0852,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=833533.08"", ""2 ATM withdrawals this week""]",sklearn_hgb
+C000083,2024-11-01,0.619,Red,"[""avg_balance_28d=20063.90"", ""Low 14d balance Rs.17755"", ""emi_to_income=0.34""]",sklearn_hgb
+C000084,2024-11-01,0.0417,Green,"[""emi_to_income=0.09"", ""avg_balance_28d=988184.29"", ""Low 14d balance Rs.970614""]",sklearn_hgb
+C000085,2024-11-01,0.0667,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=988796.17"", ""Low 14d balance Rs.967203""]",sklearn_hgb
+C000086,2024-11-01,0.0417,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=849261.46"", ""Low 14d balance Rs.855429""]",sklearn_hgb
+C000087,2024-11-01,0.0417,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=1280253.11"", ""Low 14d balance Rs.1285184""]",sklearn_hgb
+C000088,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=961958.11"", ""Low 14d balance Rs.956714""]",sklearn_hgb
+C000089,2024-11-01,0.0417,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=589900.54"", ""discretionary_ratio_28d=0.05""]",sklearn_hgb
+C000090,2024-11-01,0.0417,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=641451.01"", ""Low 14d balance Rs.622987""]",sklearn_hgb
+C000091,2024-11-01,0.178,Green,"[""avg_balance_28d=205392.25"", ""discretionary_ratio_28d=0.02"", ""salary_cv_3m=0.09""]",sklearn_hgb
+C000092,2024-11-01,0.0667,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=991597.57"", ""Low 14d balance Rs.988242""]",sklearn_hgb
+C000093,2024-11-01,0.0417,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=483348.06"", ""atm_amt_avg=6416.00""]",sklearn_hgb
+C000094,2024-11-01,0.0852,Green,"[""avg_balance_28d=539513.68"", ""atm_amt_avg=6385.33"", ""Low 14d balance Rs.531932""]",sklearn_hgb
+C000095,2024-11-01,0.9583,Red,"[""avg_balance_28d=42416.46"", ""emi_to_income=0.82"", ""Low 14d balance Rs.35793""]",sklearn_hgb
+C000096,2024-11-01,0.0417,Green,"[""avg_balance_28d=184881.96"", ""Low 14d balance Rs.189268"", ""balance_slope_28d=2130.53""]",sklearn_hgb
+C000097,2024-11-01,0.0417,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=375745.40"", ""Low 14d balance Rs.363843""]",sklearn_hgb
+C000098,2024-11-01,0.0667,Green,"[""avg_balance_28d=437898.49"", ""Low 14d balance Rs.434982"", ""Discretionary spend down -160%""]",sklearn_hgb
+C000099,2024-11-01,0.0667,Green,"[""avg_balance_28d=397921.99"", ""Low 14d balance Rs.385886"", ""tenure_months=10.00""]",sklearn_hgb
+C000100,2024-11-01,0.0417,Green,"[""avg_balance_28d=779453.94"", ""Low 14d balance Rs.764703"", ""2 ATM withdrawals this week""]",sklearn_hgb
+C000101,2024-11-01,0.0217,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=421802.76"", ""Low 14d balance Rs.413859""]",sklearn_hgb
+C000102,2024-11-01,0.7342,Red,"[""Low 14d balance Rs.55577"", ""emi_to_income=0.75"", ""avg_balance_28d=60711.76""]",sklearn_hgb
+C000103,2024-11-01,0.0417,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=641364.37"", ""Low 14d balance Rs.647687""]",sklearn_hgb
+C000104,2024-11-01,1.0,Red,"[""avg_balance_28d=15401.06"", ""Low 14d balance Rs.14249"", ""emi_to_income=0.60""]",sklearn_hgb
+C000105,2024-11-01,0.0667,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=814850.52"", ""discretionary_ratio_28d=0.03""]",sklearn_hgb
+C000106,2024-11-01,0.0417,Green,"[""avg_balance_28d=850122.38"", ""Low 14d balance Rs.837060"", ""emi_to_income=0.26""]",sklearn_hgb
+C000107,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=312494.16"", ""Low 14d balance Rs.306045""]",sklearn_hgb
+C000108,2024-11-01,0.0667,Green,"[""avg_balance_28d=240569.08"", ""Low 14d balance Rs.222628"", ""atm_amt_avg=5113.67""]",sklearn_hgb
+C000109,2024-11-01,0.9688,Red,"[""emi_to_income=1.01"", ""Low 14d balance Rs.52759"", ""avg_balance_28d=53633.01""]",sklearn_hgb
+C000110,2024-11-01,0.0852,Green,"[""avg_balance_28d=361545.73"", ""Low 14d balance Rs.339015"", ""Discretionary spend down -169%""]",sklearn_hgb
+C000111,2024-11-01,0.8511,Red,"[""avg_balance_28d=25227.35"", ""Low 14d balance Rs.13071"", ""discretionary_ratio_28d=0.24""]",sklearn_hgb
+C000112,2024-11-01,0.0417,Green,"[""emi_to_income=0.05"", ""avg_balance_28d=1301994.03"", ""Low 14d balance Rs.1304116""]",sklearn_hgb
+C000113,2024-11-01,0.2973,Green,"[""Low 14d balance Rs.36957"", ""avg_balance_28d=53157.27"", ""emi_to_income=0.53""]",sklearn_hgb
+C000114,2024-11-01,0.1239,Green,"[""cash_to_spend_ratio=0.02"", ""avg_balance_28d=736765.35"", ""Low 14d balance Rs.737890""]",sklearn_hgb
+C000115,2024-11-01,0.0667,Green,"[""avg_balance_28d=650809.08"", ""balance_slope_28d=2674.76"", ""Low 14d balance Rs.629027""]",sklearn_hgb
+C000116,2024-11-01,0.2973,Green,"[""Low 14d balance Rs.28367"", ""avg_balance_28d=49461.71"", ""1 failed auto-debit(s)""]",sklearn_hgb
+C000117,2024-11-01,0.0417,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=717930.57"", ""salary_cv_3m=0.17""]",sklearn_hgb
+C000118,2024-11-01,0.2973,Green,"[""Low 14d balance Rs.48803"", ""avg_balance_28d=53609.55"", ""emi_to_income=0.53""]",sklearn_hgb
+C000119,2024-11-01,0.0417,Green,"[""emi_to_income=0.05"", ""avg_balance_28d=1217060.05"", ""Low 14d balance Rs.1201747""]",sklearn_hgb
+C000120,2024-11-01,0.0417,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=829245.35"", ""Low 14d balance Rs.819870""]",sklearn_hgb
+C000121,2024-11-01,0.0417,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=854829.15"", ""Low 14d balance Rs.856186""]",sklearn_hgb
+C000122,2024-11-01,0.0417,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=1003907.08"", ""Low 14d balance Rs.1010532""]",sklearn_hgb
+C000123,2024-11-01,0.0389,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=525673.15"", ""Low 14d balance Rs.514360""]",sklearn_hgb
+C000124,2024-11-01,0.0667,Green,"[""avg_balance_28d=111245.73"", ""discretionary_ratio_28d=0.06"", ""Low 14d balance Rs.104803""]",sklearn_hgb
+C000125,2024-11-01,0.0852,Green,"[""avg_balance_28d=140573.25"", ""Low 14d balance Rs.144329"", ""Discretionary spend down 16%""]",sklearn_hgb
+C000126,2024-11-01,0.0417,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=1170078.45"", ""Low 14d balance Rs.1150975""]",sklearn_hgb
+C000127,2024-11-01,0.0667,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=566892.98"", ""Low 14d balance Rs.560736""]",sklearn_hgb
+C000128,2024-11-01,0.0667,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=1063724.75"", ""atm_amt_avg=6505.00""]",sklearn_hgb
+C000129,2024-11-01,0.0667,Green,"[""avg_balance_28d=196768.48"", ""balance_slope_28d=2954.68"", ""Low 14d balance Rs.200904""]",sklearn_hgb
+C000130,2024-11-01,0.0417,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=1273924.67"", ""Low 14d balance Rs.1254300""]",sklearn_hgb
+C000131,2024-11-01,0.0852,Green,"[""emi_to_income=0.17"", ""atm_amt_avg=6577.50"", ""avg_balance_28d=1074901.01""]",sklearn_hgb
+C000132,2024-11-01,0.1239,Green,"[""emi_to_income=0.59"", ""avg_balance_28d=122355.92"", ""Low 14d balance Rs.127523""]",sklearn_hgb
+C000133,2024-11-01,0.0667,Green,"[""avg_balance_28d=456816.65"", ""Low 14d balance Rs.439444"", ""emi_to_income=0.30""]",sklearn_hgb
+C000134,2024-11-01,0.1239,Green,"[""emi_to_income=0.05"", ""3 ATM withdrawals this week"", ""avg_balance_28d=1000109.11""]",sklearn_hgb
+C000135,2024-11-01,0.1239,Green,"[""avg_balance_28d=228352.91"", ""balance_slope_28d=2723.30"", ""Low 14d balance Rs.219736""]",sklearn_hgb
+C000136,2024-11-01,0.7342,Red,"[""avg_balance_28d=24044.41"", ""Low 14d balance Rs.13278"", ""Savings -1% WoW""]",sklearn_hgb
+C000137,2024-11-01,0.0417,Green,"[""emi_to_income=0.23"", ""avg_balance_28d=311999.56"", ""2 ATM withdrawals this week""]",sklearn_hgb
+C000138,2024-11-01,0.0417,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=723545.17"", ""salary_cv_3m=0.19""]",sklearn_hgb
+C000139,2024-11-01,0.2353,Green,"[""Low 14d balance Rs.44210"", ""avg_balance_28d=58389.53"", ""emi_to_income=0.49""]",sklearn_hgb
+C000140,2024-11-01,0.1239,Green,"[""avg_balance_28d=365223.55"", ""Low 14d balance Rs.373513"", ""Discretionary spend down 33%""]",sklearn_hgb
+C000141,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=1213898.27"", ""Low 14d balance Rs.1207541""]",sklearn_hgb
+C000142,2024-11-01,0.7342,Red,"[""avg_balance_28d=36942.23"", ""Low 14d balance Rs.25820"", ""0 failed auto-debit(s)""]",sklearn_hgb
+C000143,2024-11-01,0.7342,Red,"[""avg_balance_28d=23789.60"", ""Low 14d balance Rs.24151"", ""1 failed auto-debit(s)""]",sklearn_hgb
+C000144,2024-11-01,0.0217,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=518253.41"", ""Low 14d balance Rs.513859""]",sklearn_hgb
+C000145,2024-11-01,0.7342,Red,"[""avg_balance_28d=30654.14"", ""Low 14d balance Rs.28664"", ""emi_to_income=0.66""]",sklearn_hgb
+C000146,2024-11-01,1.0,Red,"[""avg_balance_28d=29452.54"", ""emi_to_income=1.14"", ""Low 14d balance Rs.13719""]",sklearn_hgb
+C000147,2024-11-01,0.3,Amber,"[""avg_balance_28d=40840.45"", ""Low 14d balance Rs.16330"", ""2 failed auto-debit(s)""]",sklearn_hgb
+C000148,2024-11-01,0.7342,Red,"[""avg_balance_28d=44073.14"", ""Low 14d balance Rs.41245"", ""emi_to_income=0.61""]",sklearn_hgb
+C000149,2024-11-01,0.0667,Green,"[""avg_balance_28d=828501.80"", ""Low 14d balance Rs.823213"", ""salary_cv_3m=0.03""]",sklearn_hgb
+C000150,2024-11-01,0.7342,Red,"[""avg_balance_28d=46155.11"", ""Low 14d balance Rs.51149"", ""emi_to_income=0.59""]",sklearn_hgb
+C000151,2024-11-01,0.0667,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=647692.33"", ""atm_amt_avg=6457.00""]",sklearn_hgb
+C000152,2024-11-01,0.0417,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=915095.81"", ""Low 14d balance Rs.901889""]",sklearn_hgb
+C000153,2024-11-01,0.0667,Green,"[""emi_to_income=0.21"", ""discretionary_ratio_28d=0.28"", ""avg_balance_28d=746202.98""]",sklearn_hgb
+C000154,2024-11-01,0.0667,Green,"[""emi_to_income=0.20"", ""atm_amt_avg=6560.50"", ""avg_balance_28d=789150.18""]",sklearn_hgb
+C000155,2024-11-01,0.0417,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=459622.02"", ""atm_amt_avg=3420.00""]",sklearn_hgb
+C000156,2024-11-01,0.0417,Green,"[""emi_to_income=0.06"", ""avg_balance_28d=1238312.25"", ""Low 14d balance Rs.1220640""]",sklearn_hgb
+C000157,2024-11-01,0.9286,Red,"[""avg_balance_28d=-44250.91"", ""Low 14d balance Rs.-72628"", ""emi_to_income=0.45""]",sklearn_hgb
+C000158,2024-11-01,0.2973,Green,"[""emi_to_income=0.86"", ""Low 14d balance Rs.58503"", ""1 failed auto-debit(s)""]",sklearn_hgb
+C000159,2024-11-01,0.0389,Green,"[""emi_to_income=0.23"", ""avg_balance_28d=785879.44"", ""Low 14d balance Rs.776014""]",sklearn_hgb
+C000160,2024-11-01,0.619,Red,"[""emi_to_income=0.90"", ""Low 14d balance Rs.19997"", ""avg_balance_28d=44030.37""]",sklearn_hgb
+C000161,2024-11-01,0.0667,Green,"[""emi_to_income=0.21"", ""discretionary_ratio_28d=0.30"", ""avg_balance_28d=251509.81""]",sklearn_hgb
+C000162,2024-11-01,0.1239,Green,"[""avg_balance_28d=116370.49"", ""atm_amt_avg=6417.00"", ""Low 14d balance Rs.100283""]",sklearn_hgb
+C000163,2024-11-01,0.7342,Red,"[""avg_balance_28d=31490.93"", ""Low 14d balance Rs.31030"", ""emi_to_income=0.75""]",sklearn_hgb
+C000164,2024-11-01,0.178,Green,"[""Low 14d balance Rs.62907"", ""avg_balance_28d=83925.60"", ""atm_amt_avg=8482.00""]",sklearn_hgb
+C000165,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=726091.54"", ""Low 14d balance Rs.726282""]",sklearn_hgb
+C000166,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=830613.79"", ""Low 14d balance Rs.827898""]",sklearn_hgb
+C000167,2024-11-01,0.0667,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=91518.75"", ""atm_amt_avg=6527.00""]",sklearn_hgb
+C000168,2024-11-01,0.0417,Green,"[""avg_balance_28d=1023527.85"", ""Low 14d balance Rs.1009306"", ""emi_to_income=0.24""]",sklearn_hgb
+C000169,2024-11-01,1.0,Red,"[""emi_to_income=0.91"", ""Low 14d balance Rs.45542"", ""avg_balance_28d=56189.36""]",sklearn_hgb
+C000170,2024-11-01,0.0417,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=967771.82"", ""Low 14d balance Rs.955203""]",sklearn_hgb
+C000171,2024-11-01,0.0667,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=986597.17"", ""Low 14d balance Rs.982521""]",sklearn_hgb
+C000172,2024-11-01,0.0667,Green,"[""avg_balance_28d=593785.66"", ""Low 14d balance Rs.577912"", ""emi_to_income=0.25""]",sklearn_hgb
+C000173,2024-11-01,0.0417,Green,"[""avg_balance_28d=486175.06"", ""Low 14d balance Rs.487314"", ""Discretionary spend down -39%""]",sklearn_hgb
+C000174,2024-11-01,0.9688,Red,"[""emi_to_income=0.92"", ""Low 14d balance Rs.42450"", ""avg_balance_28d=51420.92""]",sklearn_hgb
+C000175,2024-11-01,0.0667,Green,"[""avg_balance_28d=199660.54"", ""Low 14d balance Rs.200681"", ""Discretionary spend down 22%""]",sklearn_hgb
+C000176,2024-11-01,0.0417,Green,"[""emi_to_income=0.24"", ""avg_balance_28d=979724.68"", ""Low 14d balance Rs.970316""]",sklearn_hgb
+C000177,2024-11-01,0.0852,Green,"[""avg_balance_28d=179484.38"", ""Low 14d balance Rs.187112"", ""discretionary_ratio_28d=0.03""]",sklearn_hgb
+C000178,2024-11-01,0.7342,Red,"[""emi_to_income=1.00"", ""Low 14d balance Rs.46278"", ""avg_balance_28d=42687.03""]",sklearn_hgb
+C000179,2024-11-01,0.0667,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=894878.58"", ""discretionary_ratio_28d=0.04""]",sklearn_hgb
+C000180,2024-11-01,0.0667,Green,"[""avg_balance_28d=672023.82"", ""Low 14d balance Rs.663565"", ""Discretionary spend down 28%""]",sklearn_hgb
+C000181,2024-11-01,0.8511,Red,"[""avg_balance_28d=32491.90"", ""Low 14d balance Rs.35369"", ""discretionary_ratio_28d=0.25""]",sklearn_hgb
+C000182,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=85225.43"", ""Low 14d balance Rs.86982""]",sklearn_hgb
+C000183,2024-11-01,0.4444,Amber,"[""Low 14d balance Rs.51694"", ""avg_balance_28d=57104.07"", ""emi_to_income=0.72""]",sklearn_hgb
+C000184,2024-11-01,1.0,Red,"[""emi_to_income=0.95"", ""Low 14d balance Rs.44971"", ""avg_balance_28d=55972.60""]",sklearn_hgb
+C000185,2024-11-01,0.0202,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=784817.50"", ""Low 14d balance Rs.760074""]",sklearn_hgb
+C000186,2024-11-01,0.178,Green,"[""Low 14d balance Rs.69932"", ""avg_balance_28d=79550.87"", ""discretionary_ratio_28d=0.29""]",sklearn_hgb
+C000187,2024-11-01,0.0202,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=739199.50"", ""Low 14d balance Rs.738961""]",sklearn_hgb
+C000188,2024-11-01,0.0417,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=163115.62"", ""Low 14d balance Rs.163787""]",sklearn_hgb
+C000189,2024-11-01,0.1239,Green,"[""balance_slope_28d=2787.15"", ""avg_balance_28d=1061197.84"", ""Low 14d balance Rs.1071064""]",sklearn_hgb
+C000190,2024-11-01,0.0417,Green,"[""emi_to_income=0.05"", ""avg_balance_28d=1008572.92"", ""balance_slope_28d=3461.12""]",sklearn_hgb
+C000191,2024-11-01,0.0417,Green,"[""avg_balance_28d=379820.16"", ""Low 14d balance Rs.366968"", ""salary_cv_3m=0.00""]",sklearn_hgb
+C000192,2024-11-01,0.0389,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=617720.22"", ""Low 14d balance Rs.615370""]",sklearn_hgb
+C000193,2024-11-01,0.8511,Red,"[""avg_balance_28d=28058.21"", ""Low 14d balance Rs.24242"", ""emi_to_income=0.77""]",sklearn_hgb
+C000194,2024-11-01,0.3571,Amber,"[""emi_to_income=1.00"", ""Low 14d balance Rs.40647"", ""avg_balance_28d=51738.67""]",sklearn_hgb
+C000195,2024-11-01,0.1239,Green,"[""avg_balance_28d=554915.62"", ""balance_slope_28d=3425.62"", ""Low 14d balance Rs.561124""]",sklearn_hgb
+C000196,2024-11-01,0.9583,Red,"[""avg_balance_28d=26254.87"", ""Low 14d balance Rs.28395"", ""emi_to_income=0.80""]",sklearn_hgb
+C000197,2024-11-01,0.0852,Green,"[""avg_balance_28d=519483.50"", ""Low 14d balance Rs.471038"", ""discretionary_ratio_28d=0.02""]",sklearn_hgb
+C000198,2024-11-01,0.0852,Green,"[""avg_balance_28d=237689.18"", ""Low 14d balance Rs.243095"", ""cash_to_spend_ratio=0.31""]",sklearn_hgb
+C000199,2024-11-01,0.2973,Green,"[""Low 14d balance Rs.41713"", ""avg_balance_28d=48540.82"", ""emi_to_income=0.75""]",sklearn_hgb
+C000200,2024-11-01,0.1239,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=588341.94"", ""discretionary_ratio_28d=0.04""]",sklearn_hgb
+C000201,2024-11-01,0.0667,Green,"[""avg_balance_28d=637380.37"", ""Low 14d balance Rs.625428"", ""emi_to_income=0.26""]",sklearn_hgb
+C000202,2024-11-01,0.0852,Green,"[""avg_balance_28d=781320.72"", ""Low 14d balance Rs.756601"", ""emi_to_income=0.28""]",sklearn_hgb
+C000203,2024-11-01,0.0667,Green,"[""avg_balance_28d=212185.58"", ""Low 14d balance Rs.208624"", ""emi_to_income=0.28""]",sklearn_hgb
+C000204,2024-11-01,0.1239,Green,"[""avg_balance_28d=560907.77"", ""balance_slope_28d=2554.14"", ""Low 14d balance Rs.556312""]",sklearn_hgb
+C000205,2024-11-01,0.0852,Green,"[""emi_to_income=0.04"", ""avg_balance_28d=1166545.17"", ""balance_slope_28d=2710.94""]",sklearn_hgb
+C000206,2024-11-01,0.0667,Green,"[""avg_balance_28d=124149.75"", ""Low 14d balance Rs.120754"", ""emi_to_income=0.57""]",sklearn_hgb
+C000207,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=971050.90"", ""Low 14d balance Rs.955596""]",sklearn_hgb
+C000208,2024-11-01,0.0417,Green,"[""avg_balance_28d=840551.29"", ""Low 14d balance Rs.843007"", ""emi_to_income=0.27""]",sklearn_hgb
+C000209,2024-11-01,0.1239,Green,"[""avg_balance_28d=362682.94"", ""2 ATM withdrawals this week"", ""Low 14d balance Rs.345386""]",sklearn_hgb
+C000210,2024-11-01,0.0417,Green,"[""emi_to_income=0.09"", ""avg_balance_28d=1193260.97"", ""Low 14d balance Rs.1179443""]",sklearn_hgb
+C000211,2024-11-01,0.0417,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=1212241.52"", ""Low 14d balance Rs.1184596""]",sklearn_hgb
+C000212,2024-11-01,0.619,Red,"[""avg_balance_28d=46995.40"", ""Low 14d balance Rs.48274"", ""emi_to_income=0.60""]",sklearn_hgb
+C000213,2024-11-01,0.0667,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=1128275.94"", ""Low 14d balance Rs.1124035""]",sklearn_hgb
+C000214,2024-11-01,1.0,Red,"[""avg_balance_28d=34686.90"", ""emi_to_income=1.12"", ""Low 14d balance Rs.28282""]",sklearn_hgb
+C000215,2024-11-01,0.9688,Red,"[""avg_balance_28d=17021.25"", ""Low 14d balance Rs.-12491"", ""emi_to_income=0.33""]",sklearn_hgb
+C000216,2024-11-01,0.619,Red,"[""avg_balance_28d=35390.11"", ""Low 14d balance Rs.31444"", ""emi_to_income=0.71""]",sklearn_hgb
+C000217,2024-11-01,0.0417,Green,"[""avg_balance_28d=375751.76"", ""Low 14d balance Rs.361462"", ""emi_to_income=0.31""]",sklearn_hgb
+C000218,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=1084051.40"", ""Low 14d balance Rs.1083985""]",sklearn_hgb
+C000219,2024-11-01,0.178,Green,"[""cash_to_spend_ratio=0.00"", ""avg_balance_28d=611493.83"", ""Low 14d balance Rs.620121""]",sklearn_hgb
+C000220,2024-11-01,0.0417,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=767424.56"", ""Low 14d balance Rs.767942""]",sklearn_hgb
+C000221,2024-11-01,0.0667,Green,"[""avg_balance_28d=87525.85"", ""Low 14d balance Rs.83748"", ""emi_to_income=0.27""]",sklearn_hgb
+C000222,2024-11-01,0.0,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=617374.14"", ""Low 14d balance Rs.609850""]",sklearn_hgb
+C000223,2024-11-01,0.0417,Green,"[""avg_balance_28d=350287.55"", ""Low 14d balance Rs.337100"", ""emi_to_income=0.35""]",sklearn_hgb
+C000224,2024-11-01,0.0667,Green,"[""avg_balance_28d=452747.15"", ""Low 14d balance Rs.441118"", ""atm_amt_avg=4683.00""]",sklearn_hgb
+C000225,2024-11-01,0.1239,Green,"[""avg_balance_28d=140802.77"", ""balance_slope_28d=2859.74"", ""Low 14d balance Rs.145513""]",sklearn_hgb
+C000226,2024-11-01,0.0667,Green,"[""avg_balance_28d=196354.61"", ""Low 14d balance Rs.194045"", ""atm_amt_avg=4146.00""]",sklearn_hgb
+C000227,2024-11-01,0.0852,Green,"[""avg_balance_28d=952935.93"", ""balance_slope_28d=2887.52"", ""Low 14d balance Rs.933226""]",sklearn_hgb
+C000228,2024-11-01,0.0667,Green,"[""emi_to_income=0.08"", ""discretionary_ratio_28d=0.29"", ""avg_balance_28d=761355.36""]",sklearn_hgb
+C000229,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=547712.55"", ""Low 14d balance Rs.539400""]",sklearn_hgb
+C000230,2024-11-01,0.0417,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=127195.76"", ""Low 14d balance Rs.116004""]",sklearn_hgb
+C000231,2024-11-01,0.0417,Green,"[""avg_balance_28d=839745.27"", ""Low 14d balance Rs.824522"", ""emi_to_income=0.31""]",sklearn_hgb
+C000232,2024-11-01,0.0417,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=610208.68"", ""atm_amt_avg=6347.00""]",sklearn_hgb
+C000233,2024-11-01,0.0667,Green,"[""avg_balance_28d=369231.59"", ""Low 14d balance Rs.360205"", ""salary_cv_3m=0.03""]",sklearn_hgb
+C000234,2024-11-01,0.0667,Green,"[""avg_balance_28d=667771.38"", ""Low 14d balance Rs.661965"", ""emi_to_income=0.30""]",sklearn_hgb
+C000235,2024-11-01,1.0,Red,"[""avg_balance_28d=-46939.73"", ""Low 14d balance Rs.-89698"", ""emi_to_income=0.69""]",sklearn_hgb
+C000236,2024-11-01,0.0417,Green,"[""avg_balance_28d=486295.22"", ""Low 14d balance Rs.483827"", ""Discretionary spend down 5%""]",sklearn_hgb
+C000237,2024-11-01,0.0417,Green,"[""emi_to_income=0.05"", ""avg_balance_28d=1123341.10"", ""Low 14d balance Rs.1107230""]",sklearn_hgb
+C000238,2024-11-01,0.0852,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=548879.68"", ""atm_amt_avg=6607.00""]",sklearn_hgb
+C000239,2024-11-01,0.9583,Red,"[""avg_balance_28d=18767.09"", ""Low 14d balance Rs.27130"", ""emi_to_income=0.76""]",sklearn_hgb
+C000240,2024-11-01,0.619,Red,"[""avg_balance_28d=37796.46"", ""Low 14d balance Rs.-4137"", ""1 failed auto-debit(s)""]",sklearn_hgb
+C000241,2024-11-01,1.0,Red,"[""avg_balance_28d=15756.54"", ""Low 14d balance Rs.-6195"", ""emi_to_income=0.73""]",sklearn_hgb
+C000242,2024-11-01,0.0667,Green,"[""avg_balance_28d=499903.24"", ""Low 14d balance Rs.502595"", ""emi_to_income=0.27""]",sklearn_hgb
+C000243,2024-11-01,0.0417,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=406898.73"", ""Low 14d balance Rs.407275""]",sklearn_hgb
+C000244,2024-11-01,0.0852,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=198982.28"", ""Low 14d balance Rs.184309""]",sklearn_hgb
+C000245,2024-11-01,0.0417,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=756767.90"", ""discretionary_ratio_28d=0.04""]",sklearn_hgb
+C000246,2024-11-01,0.0852,Green,"[""avg_balance_28d=143079.97"", ""discretionary_ratio_28d=0.04"", ""Low 14d balance Rs.125054""]",sklearn_hgb
+C000247,2024-11-01,0.0667,Green,"[""avg_balance_28d=324240.26"", ""Low 14d balance Rs.324918"", ""atm_amt_avg=4952.50""]",sklearn_hgb
+C000248,2024-11-01,0.0667,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=1131257.95"", ""Low 14d balance Rs.1110283""]",sklearn_hgb
+C000249,2024-11-01,0.7342,Red,"[""avg_balance_28d=25256.67"", ""Low 14d balance Rs.31318"", ""emi_to_income=0.64""]",sklearn_hgb
+C000250,2024-11-01,0.0417,Green,"[""avg_balance_28d=210882.69"", ""Low 14d balance Rs.209584"", ""emi_to_income=0.43""]",sklearn_hgb
+C000251,2024-11-01,0.0417,Green,"[""emi_to_income=0.09"", ""avg_balance_28d=383976.01"", ""atm_amt_avg=3117.50""]",sklearn_hgb
+C000252,2024-11-01,0.0852,Green,"[""avg_balance_28d=539834.29"", ""Low 14d balance Rs.528104"", ""discretionary_ratio_28d=0.05""]",sklearn_hgb
+C000253,2024-11-01,0.0667,Green,"[""avg_balance_28d=239466.46"", ""discretionary_ratio_28d=0.28"", ""Low 14d balance Rs.244278""]",sklearn_hgb
+C000254,2024-11-01,0.0417,Green,"[""emi_to_income=0.06"", ""avg_balance_28d=1292013.05"", ""Low 14d balance Rs.1270325""]",sklearn_hgb
+C000255,2024-11-01,0.7342,Red,"[""avg_balance_28d=-72893.61"", ""Low 14d balance Rs.-66355"", ""emi_to_income=0.41""]",sklearn_hgb
+C000256,2024-11-01,0.0417,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=961845.27"", ""Low 14d balance Rs.949378""]",sklearn_hgb
+C000257,2024-11-01,0.0852,Green,"[""avg_balance_28d=466571.43"", ""atm_amt_avg=2447.00"", ""Low 14d balance Rs.462570""]",sklearn_hgb
+C000258,2024-11-01,0.619,Red,"[""avg_balance_28d=38238.29"", ""Low 14d balance Rs.26356"", ""emi_to_income=0.66""]",sklearn_hgb
+C000259,2024-11-01,0.7342,Red,"[""emi_to_income=0.89"", ""Low 14d balance Rs.62559"", ""avg_balance_28d=57945.46""]",sklearn_hgb
+C000260,2024-11-01,0.0667,Green,"[""avg_balance_28d=105370.87"", ""Low 14d balance Rs.95991"", ""Discretionary spend down -406%""]",sklearn_hgb
+C000261,2024-11-01,0.0667,Green,"[""avg_balance_28d=255215.49"", ""discretionary_ratio_28d=0.03"", ""Low 14d balance Rs.222249""]",sklearn_hgb
+C000262,2024-11-01,0.0417,Green,"[""avg_balance_28d=205593.77"", ""Low 14d balance Rs.214041"", ""emi_to_income=0.54""]",sklearn_hgb
+C000263,2024-11-01,0.0202,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=827709.59"", ""Low 14d balance Rs.821305""]",sklearn_hgb
+C000264,2024-11-01,0.0417,Green,"[""avg_balance_28d=271159.97"", ""Low 14d balance Rs.276648"", ""discretionary_ratio_28d=0.07""]",sklearn_hgb
+C000265,2024-11-01,0.0667,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=1002709.93"", ""atm_amt_avg=6586.50""]",sklearn_hgb
+C000266,2024-11-01,0.0417,Green,"[""avg_balance_28d=314636.83"", ""Low 14d balance Rs.315750"", ""emi_to_income=0.25""]",sklearn_hgb
+C000267,2024-11-01,0.0417,Green,"[""avg_balance_28d=256634.69"", ""Low 14d balance Rs.249688"", ""emi_to_income=0.35""]",sklearn_hgb
+C000268,2024-11-01,0.0417,Green,"[""avg_balance_28d=268320.18"", ""Low 14d balance Rs.270381"", ""emi_to_income=0.28""]",sklearn_hgb
+C000269,2024-11-01,0.0667,Green,"[""avg_balance_28d=244811.96"", ""Low 14d balance Rs.252451"", ""atm_amt_avg=4653.67""]",sklearn_hgb
+C000270,2024-11-01,0.0429,Green,"[""avg_balance_28d=833531.65"", ""Low 14d balance Rs.823381"", ""emi_to_income=0.30""]",sklearn_hgb
+C000271,2024-11-01,0.0667,Green,"[""avg_balance_28d=190452.71"", ""balance_slope_28d=2578.50"", ""Low 14d balance Rs.186466""]",sklearn_hgb
+C000272,2024-11-01,0.0667,Green,"[""avg_balance_28d=252914.30"", ""Low 14d balance Rs.237455"", ""atm_amt_avg=5303.67""]",sklearn_hgb
+C000273,2024-11-01,0.1239,Green,"[""cash_to_spend_ratio=0.03"", ""emi_to_income=0.05"", ""avg_balance_28d=1315750.90""]",sklearn_hgb
+C000274,2024-11-01,0.0667,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=808382.40"", ""2 ATM withdrawals this week""]",sklearn_hgb
+C000275,2024-11-01,0.0417,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=302408.96"", ""Low 14d balance Rs.287582""]",sklearn_hgb
+C000276,2024-11-01,0.0417,Green,"[""avg_balance_28d=913231.81"", ""Low 14d balance Rs.918465"", ""emi_to_income=0.26""]",sklearn_hgb
+C000277,2024-11-01,0.0417,Green,"[""avg_balance_28d=180189.46"", ""Low 14d balance Rs.176877"", ""emi_to_income=0.25""]",sklearn_hgb
+C000278,2024-11-01,0.0417,Green,"[""avg_balance_28d=162160.21"", ""Low 14d balance Rs.160767"", ""emi_to_income=0.34""]",sklearn_hgb
+C000279,2024-11-01,0.0667,Green,"[""avg_balance_28d=384403.84"", ""Low 14d balance Rs.377861"", ""discretionary_ratio_28d=0.17""]",sklearn_hgb
+C000280,2024-11-01,0.0202,Green,"[""avg_balance_28d=724013.76"", ""Low 14d balance Rs.718013"", ""emi_to_income=0.27""]",sklearn_hgb
+C000281,2024-11-01,0.178,Green,"[""Low 14d balance Rs.58675"", ""avg_balance_28d=76543.71"", ""emi_to_income=0.51""]",sklearn_hgb
+C000282,2024-11-01,0.0417,Green,"[""emi_to_income=0.05"", ""avg_balance_28d=1099880.21"", ""Low 14d balance Rs.1092758""]",sklearn_hgb
+C000283,2024-11-01,0.178,Green,"[""Low 14d balance Rs.58576"", ""emi_to_income=0.51"", ""avg_balance_28d=72959.70""]",sklearn_hgb
+C000284,2024-11-01,0.0852,Green,"[""cash_to_spend_ratio=0.03"", ""emi_to_income=0.20"", ""avg_balance_28d=864305.82""]",sklearn_hgb
+C000285,2024-11-01,0.178,Green,"[""Low 14d balance Rs.73387"", ""emi_to_income=0.39"", ""avg_balance_28d=68453.52""]",sklearn_hgb
+C000286,2024-11-01,0.0417,Green,"[""avg_balance_28d=444555.30"", ""Low 14d balance Rs.429907"", ""discretionary_ratio_28d=0.18""]",sklearn_hgb
+C000287,2024-11-01,0.0667,Green,"[""avg_balance_28d=620967.84"", ""Low 14d balance Rs.621679"", ""atm_amt_avg=2600.50""]",sklearn_hgb
+C000288,2024-11-01,0.0389,Green,"[""emi_to_income=0.23"", ""avg_balance_28d=288367.38"", ""Low 14d balance Rs.289538""]",sklearn_hgb
+C000289,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=749045.55"", ""Low 14d balance Rs.742748""]",sklearn_hgb
+C000290,2024-11-01,0.0202,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=876152.90"", ""Low 14d balance Rs.870498""]",sklearn_hgb
+C000291,2024-11-01,0.0667,Green,"[""avg_balance_28d=676866.03"", ""Low 14d balance Rs.662621"", ""atm_amt_avg=4658.00""]",sklearn_hgb
+C000292,2024-11-01,0.0417,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=559635.94"", ""Low 14d balance Rs.559650""]",sklearn_hgb
+C000293,2024-11-01,0.0417,Green,"[""avg_balance_28d=739415.90"", ""discretionary_ratio_28d=0.02"", ""Low 14d balance Rs.713041""]",sklearn_hgb
+C000294,2024-11-01,0.0852,Green,"[""avg_balance_28d=761873.09"", ""atm_amt_avg=6482.00"", ""Low 14d balance Rs.742310""]",sklearn_hgb
+C000295,2024-11-01,0.0417,Green,"[""avg_balance_28d=336949.29"", ""Low 14d balance Rs.324243"", ""discretionary_ratio_28d=0.05""]",sklearn_hgb
+C000296,2024-11-01,0.0417,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=846591.66"", ""Low 14d balance Rs.828830""]",sklearn_hgb
+C000297,2024-11-01,0.0852,Green,"[""avg_balance_28d=944850.82"", ""salary_cv_3m=0.17"", ""Low 14d balance Rs.932938""]",sklearn_hgb
+C000298,2024-11-01,0.0852,Green,"[""avg_balance_28d=698498.19"", ""Low 14d balance Rs.673704"", ""discretionary_ratio_28d=0.02""]",sklearn_hgb
+C000299,2024-11-01,0.0417,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=1000359.02"", ""Low 14d balance Rs.1001333""]",sklearn_hgb
+C000300,2024-11-01,0.0852,Green,"[""emi_to_income=0.06"", ""avg_balance_28d=866663.54"", ""atm_amt_avg=6587.33""]",sklearn_hgb
+C000301,2024-11-01,0.0417,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=880362.31"", ""Low 14d balance Rs.882665""]",sklearn_hgb
+C000302,2024-11-01,0.0667,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=304426.03"", ""salary_cv_3m=0.09""]",sklearn_hgb
+C000303,2024-11-01,0.0417,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=988655.79"", ""Low 14d balance Rs.977671""]",sklearn_hgb
+C000304,2024-11-01,0.2353,Green,"[""emi_to_income=0.73"", ""balance_slope_28d=2876.96"", ""Low 14d balance Rs.91101""]",sklearn_hgb
+C000305,2024-11-01,0.0667,Green,"[""avg_balance_28d=374829.01"", ""Low 14d balance Rs.356953"", ""emi_to_income=0.30""]",sklearn_hgb
+C000306,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=1114732.02"", ""Low 14d balance Rs.1104850""]",sklearn_hgb
+C000307,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=344790.68"", ""Low 14d balance Rs.338640""]",sklearn_hgb
+C000308,2024-11-01,0.0417,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=1113519.63"", ""Low 14d balance Rs.1094546""]",sklearn_hgb
+C000309,2024-11-01,0.0217,Green,"[""emi_to_income=0.09"", ""avg_balance_28d=605525.88"", ""Low 14d balance Rs.600461""]",sklearn_hgb
+C000310,2024-11-01,0.0852,Green,"[""avg_balance_28d=198616.87"", ""Low 14d balance Rs.199791"", ""balance_slope_28d=3219.74""]",sklearn_hgb
+C000311,2024-11-01,0.0852,Green,"[""discretionary_ratio_28d=0.28"", ""emi_to_income=0.12"", ""avg_balance_28d=131857.78""]",sklearn_hgb
+C000312,2024-11-01,0.0429,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=660055.88"", ""Low 14d balance Rs.647678""]",sklearn_hgb
+C000313,2024-11-01,0.0417,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=544907.07"", ""Low 14d balance Rs.537701""]",sklearn_hgb
+C000314,2024-11-01,0.0852,Green,"[""avg_balance_28d=557720.63"", ""atm_amt_avg=6480.00"", ""Low 14d balance Rs.567607""]",sklearn_hgb
+C000315,2024-11-01,0.7342,Red,"[""avg_balance_28d=31633.66"", ""Low 14d balance Rs.31395"", ""emi_to_income=0.73""]",sklearn_hgb
+C000316,2024-11-01,0.0667,Green,"[""avg_balance_28d=310583.69"", ""Low 14d balance Rs.309496"", ""emi_to_income=0.25""]",sklearn_hgb
+C000317,2024-11-01,0.7342,Red,"[""avg_balance_28d=20704.56"", ""Low 14d balance Rs.26319"", ""emi_to_income=0.69""]",sklearn_hgb
+C000318,2024-11-01,0.0417,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=435440.23"", ""atm_amt_avg=6570.00""]",sklearn_hgb
+C000319,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=1214875.81"", ""Low 14d balance Rs.1189728""]",sklearn_hgb
+C000320,2024-11-01,1.0,Red,"[""avg_balance_28d=2603.81"", ""Low 14d balance Rs.-16447"", ""emi_to_income=0.81""]",sklearn_hgb
+C000321,2024-11-01,0.0667,Green,"[""avg_balance_28d=696798.26"", ""atm_amt_avg=6462.50"", ""Low 14d balance Rs.686046""]",sklearn_hgb
+C000322,2024-11-01,0.9286,Red,"[""avg_balance_28d=36439.10"", ""Low 14d balance Rs.37982"", ""emi_to_income=0.72""]",sklearn_hgb
+C000323,2024-11-01,0.1239,Green,"[""avg_balance_28d=527954.01"", ""balance_slope_28d=2655.72"", ""Low 14d balance Rs.531027""]",sklearn_hgb
+C000324,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=1132219.18"", ""Low 14d balance Rs.1127945""]",sklearn_hgb
+C000325,2024-11-01,0.0667,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=388223.29"", ""discretionary_ratio_28d=0.03""]",sklearn_hgb
+C000326,2024-11-01,0.178,Green,"[""Low 14d balance Rs.72762"", ""atm_amt_avg=3552.50"", ""emi_to_income=0.66""]",sklearn_hgb
+C000327,2024-11-01,0.0202,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=680621.37"", ""Low 14d balance Rs.673015""]",sklearn_hgb
+C000328,2024-11-01,0.0429,Green,"[""avg_balance_28d=208812.36"", ""Low 14d balance Rs.208161"", ""balance_slope_28d=2920.98""]",sklearn_hgb
+C000329,2024-11-01,0.0417,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=1092167.97"", ""Low 14d balance Rs.1095575""]",sklearn_hgb
+C000330,2024-11-01,0.0852,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=912305.07"", ""balance_slope_28d=3787.31""]",sklearn_hgb
+C000331,2024-11-01,0.0417,Green,"[""avg_balance_28d=691420.92"", ""Low 14d balance Rs.693221"", ""emi_to_income=0.28""]",sklearn_hgb
+C000332,2024-11-01,0.0852,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=671923.48"", ""balance_slope_28d=2932.60""]",sklearn_hgb
+C000333,2024-11-01,0.0852,Green,"[""discretionary_ratio_28d=0.29"", ""emi_to_income=0.17"", ""avg_balance_28d=756297.25""]",sklearn_hgb
+C000334,2024-11-01,0.0389,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=934683.13"", ""Low 14d balance Rs.926775""]",sklearn_hgb
+C000335,2024-11-01,0.0417,Green,"[""avg_balance_28d=423157.65"", ""Low 14d balance Rs.412454"", ""salary_cv_3m=0.00""]",sklearn_hgb
+C000336,2024-11-01,0.0667,Green,"[""emi_to_income=0.09"", ""2 ATM withdrawals this week"", ""avg_balance_28d=1278019.39""]",sklearn_hgb
+C000337,2024-11-01,0.0667,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=297059.46"", ""Low 14d balance Rs.265541""]",sklearn_hgb
+C000338,2024-11-01,1.0,Red,"[""avg_balance_28d=19124.03"", ""emi_to_income=1.15"", ""Low 14d balance Rs.24934""]",sklearn_hgb
+C000339,2024-11-01,0.0417,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=911140.68"", ""Low 14d balance Rs.894716""]",sklearn_hgb
+C000340,2024-11-01,0.1239,Green,"[""discretionary_ratio_28d=0.28"", ""avg_balance_28d=787270.91"", ""Discretionary spend down -196%""]",sklearn_hgb
+C000341,2024-11-01,0.0202,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=1153215.72"", ""Low 14d balance Rs.1136960""]",sklearn_hgb
+C000342,2024-11-01,0.0852,Green,"[""avg_balance_28d=278741.36"", ""Low 14d balance Rs.277697"", ""salary_cv_3m=0.20""]",sklearn_hgb
+C000343,2024-11-01,0.0417,Green,"[""avg_balance_28d=425477.04"", ""Low 14d balance Rs.412457"", ""emi_to_income=0.33""]",sklearn_hgb
+C000344,2024-11-01,0.0852,Green,"[""avg_balance_28d=493375.98"", ""Low 14d balance Rs.491158"", ""balance_slope_28d=2765.45""]",sklearn_hgb
+C000345,2024-11-01,0.1239,Green,"[""avg_balance_28d=257770.05"", ""salary_cv_3m=0.19"", ""Low 14d balance Rs.235622""]",sklearn_hgb
+C000346,2024-11-01,0.1239,Green,"[""avg_balance_28d=839483.84"", ""balance_slope_28d=2974.76"", ""Low 14d balance Rs.822787""]",sklearn_hgb
+C000347,2024-11-01,0.1239,Green,"[""cash_to_spend_ratio=0.00"", ""emi_to_income=0.08"", ""avg_balance_28d=594530.51""]",sklearn_hgb
+C000348,2024-11-01,0.1239,Green,"[""avg_balance_28d=847068.20"", ""discretionary_ratio_28d=0.03"", ""balance_slope_28d=-430.25""]",sklearn_hgb
+C000349,2024-11-01,0.0417,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=547492.19"", ""Low 14d balance Rs.549958""]",sklearn_hgb
+C000350,2024-11-01,0.4444,Amber,"[""Low 14d balance Rs.56250"", ""avg_balance_28d=66759.92"", ""emi_to_income=0.63""]",sklearn_hgb
+C000351,2024-11-01,0.0202,Green,"[""emi_to_income=0.04"", ""avg_balance_28d=1397969.80"", ""Low 14d balance Rs.1388037""]",sklearn_hgb
+C000352,2024-11-01,0.0417,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=666583.75"", ""2 ATM withdrawals this week""]",sklearn_hgb
+C000353,2024-11-01,0.0852,Green,"[""emi_to_income=0.10"", ""2 ATM withdrawals this week"", ""avg_balance_28d=819336.26""]",sklearn_hgb
+C000354,2024-11-01,0.0417,Green,"[""avg_balance_28d=683478.48"", ""Low 14d balance Rs.665561"", ""emi_to_income=0.26""]",sklearn_hgb
+C000355,2024-11-01,0.0667,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=521141.15"", ""atm_amt_avg=6510.67""]",sklearn_hgb
+C000356,2024-11-01,0.0417,Green,"[""emi_to_income=0.04"", ""avg_balance_28d=1212160.39"", ""salary_cv_3m=0.24""]",sklearn_hgb
+C000357,2024-11-01,0.1239,Green,"[""avg_balance_28d=248231.91"", ""salary_cv_3m=0.25"", ""discretionary_ratio_28d=0.02""]",sklearn_hgb
+C000358,2024-11-01,0.0417,Green,"[""avg_balance_28d=1058495.07"", ""Low 14d balance Rs.1042106"", ""emi_to_income=0.26""]",sklearn_hgb
+C000359,2024-11-01,0.0667,Green,"[""avg_balance_28d=355812.19"", ""discretionary_ratio_28d=0.01"", ""Low 14d balance Rs.331982""]",sklearn_hgb
+C000360,2024-11-01,0.9286,Red,"[""avg_balance_28d=22495.80"", ""Low 14d balance Rs.6832"", ""emi_to_income=0.63""]",sklearn_hgb
+C000361,2024-11-01,0.4444,Amber,"[""emi_to_income=0.81"", ""avg_balance_28d=41608.53"", ""Low 14d balance Rs.41293""]",sklearn_hgb
+C000362,2024-11-01,0.0417,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=1166077.59"", ""Low 14d balance Rs.1151930""]",sklearn_hgb
+C000363,2024-11-01,0.0667,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=632858.91"", ""Low 14d balance Rs.632113""]",sklearn_hgb
+C000364,2024-11-01,0.0667,Green,"[""avg_balance_28d=353159.71"", ""Low 14d balance Rs.334970"", ""emi_to_income=0.33""]",sklearn_hgb
+C000365,2024-11-01,0.0852,Green,"[""cash_to_spend_ratio=0.02"", ""emi_to_income=0.04"", ""avg_balance_28d=1160725.52""]",sklearn_hgb
+C000366,2024-11-01,0.0667,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=683893.85"", ""discretionary_ratio_28d=0.04""]",sklearn_hgb
+C000367,2024-11-01,0.0852,Green,"[""avg_balance_28d=701228.67"", ""Low 14d balance Rs.689105"", ""Discretionary spend down -222%""]",sklearn_hgb
+C000368,2024-11-01,0.0417,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=826710.26"", ""Low 14d balance Rs.812274""]",sklearn_hgb
+C000369,2024-11-01,0.0667,Green,"[""emi_to_income=0.13"", ""atm_amt_avg=6367.50"", ""avg_balance_28d=209723.86""]",sklearn_hgb
+C000370,2024-11-01,0.178,Green,"[""emi_to_income=0.23"", ""Low 14d balance Rs.63887"", ""avg_balance_28d=71632.80""]",sklearn_hgb
+C000371,2024-11-01,0.0417,Green,"[""avg_balance_28d=795018.86"", ""Low 14d balance Rs.793439"", ""emi_to_income=0.30""]",sklearn_hgb
+C000372,2024-11-01,0.9583,Red,"[""avg_balance_28d=18650.30"", ""Low 14d balance Rs.919"", ""balance_slope_28d=-99.35""]",sklearn_hgb
+C000373,2024-11-01,0.0202,Green,"[""emi_to_income=0.05"", ""avg_balance_28d=1040279.30"", ""Low 14d balance Rs.1026356""]",sklearn_hgb
+C000374,2024-11-01,0.2973,Green,"[""avg_balance_28d=41381.12"", ""Low 14d balance Rs.31023"", ""1 failed auto-debit(s)""]",sklearn_hgb
+C000375,2024-11-01,0.0417,Green,"[""avg_balance_28d=217985.21"", ""Low 14d balance Rs.207361"", ""Discretionary spend down -88%""]",sklearn_hgb
+C000376,2024-11-01,0.0,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=861334.83"", ""Low 14d balance Rs.852623""]",sklearn_hgb
+C000377,2024-11-01,0.0417,Green,"[""avg_balance_28d=623050.23"", ""Low 14d balance Rs.619142"", ""atm_amt_avg=4536.00""]",sklearn_hgb
+C000378,2024-11-01,0.0217,Green,"[""emi_to_income=0.13"", ""avg_balance_28d=1015065.92"", ""Low 14d balance Rs.1008814""]",sklearn_hgb
+C000379,2024-11-01,0.0667,Green,"[""avg_balance_28d=593543.46"", ""discretionary_ratio_28d=0.30"", ""Low 14d balance Rs.591584""]",sklearn_hgb
+C000380,2024-11-01,0.7342,Red,"[""avg_balance_28d=35040.99"", ""emi_to_income=0.87"", ""Low 14d balance Rs.19393""]",sklearn_hgb
+C000381,2024-11-01,0.0202,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=962634.15"", ""Low 14d balance Rs.944452""]",sklearn_hgb
+C000382,2024-11-01,0.0667,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=182310.73"", ""discretionary_ratio_28d=0.05""]",sklearn_hgb
+C000383,2024-11-01,0.3571,Amber,"[""avg_balance_28d=52983.65"", ""Low 14d balance Rs.57597"", ""emi_to_income=0.62""]",sklearn_hgb
+C000384,2024-11-01,0.0202,Green,"[""emi_to_income=0.23"", ""avg_balance_28d=996193.49"", ""Low 14d balance Rs.997154""]",sklearn_hgb
+C000385,2024-11-01,0.0667,Green,"[""emi_to_income=0.17"", ""avg_balance_28d=230818.27"", ""Low 14d balance Rs.224893""]",sklearn_hgb
+C000386,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=673727.57"", ""Low 14d balance Rs.657267""]",sklearn_hgb
+C000387,2024-11-01,0.0667,Green,"[""avg_balance_28d=518451.60"", ""Low 14d balance Rs.507071"", ""salary_cv_3m=0.00""]",sklearn_hgb
+C000388,2024-11-01,0.0417,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=1065606.69"", ""Low 14d balance Rs.1058616""]",sklearn_hgb
+C000389,2024-11-01,0.8511,Red,"[""avg_balance_28d=30753.41"", ""emi_to_income=1.01"", ""Low 14d balance Rs.16639""]",sklearn_hgb
+C000390,2024-11-01,0.0667,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=127753.20"", ""2 ATM withdrawals this week""]",sklearn_hgb
+C000391,2024-11-01,0.0417,Green,"[""avg_balance_28d=300324.64"", ""Low 14d balance Rs.289109"", ""discretionary_ratio_28d=0.06""]",sklearn_hgb
+C000392,2024-11-01,0.0667,Green,"[""avg_balance_28d=445944.77"", ""Low 14d balance Rs.430854"", ""atm_amt_avg=9241.00""]",sklearn_hgb
+C000393,2024-11-01,0.0389,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=987755.42"", ""Low 14d balance Rs.980214""]",sklearn_hgb
+C000394,2024-11-01,0.0667,Green,"[""emi_to_income=0.14"", ""discretionary_ratio_28d=0.29"", ""avg_balance_28d=749119.37""]",sklearn_hgb
+C000395,2024-11-01,0.0667,Green,"[""avg_balance_28d=107625.29"", ""Low 14d balance Rs.92445"", ""salary_cv_3m=0.04""]",sklearn_hgb
+C000396,2024-11-01,0.0667,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=1151072.39"", ""balance_slope_28d=3596.15""]",sklearn_hgb
+C000397,2024-11-01,0.0667,Green,"[""avg_balance_28d=428266.44"", ""Low 14d balance Rs.421178"", ""Discretionary spend down 77%""]",sklearn_hgb
+C000398,2024-11-01,0.1239,Green,"[""cash_to_spend_ratio=0.02"", ""emi_to_income=0.08"", ""avg_balance_28d=1295885.76""]",sklearn_hgb
+C000399,2024-11-01,0.0417,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=1219565.46"", ""Low 14d balance Rs.1219919""]",sklearn_hgb
+C000400,2024-11-01,0.8511,Red,"[""avg_balance_28d=31563.96"", ""emi_to_income=1.10"", ""Low 14d balance Rs.20978""]",sklearn_hgb
+C000401,2024-11-01,0.0417,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=628244.54"", ""Low 14d balance Rs.627711""]",sklearn_hgb
+C000402,2024-11-01,0.178,Green,"[""avg_balance_28d=349623.41"", ""atm_amt_avg=6348.50"", ""Low 14d balance Rs.335890""]",sklearn_hgb
+C000403,2024-11-01,0.0667,Green,"[""emi_to_income=0.12"", ""discretionary_ratio_28d=0.28"", ""avg_balance_28d=688301.10""]",sklearn_hgb
+C000404,2024-11-01,0.0667,Green,"[""avg_balance_28d=173206.68"", ""Low 14d balance Rs.166812"", ""emi_to_income=0.51""]",sklearn_hgb
+C000405,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=754326.84"", ""Low 14d balance Rs.737817""]",sklearn_hgb
+C000406,2024-11-01,0.0852,Green,"[""emi_to_income=0.17"", ""atm_amt_avg=6538.33"", ""avg_balance_28d=584126.30""]",sklearn_hgb
+C000407,2024-11-01,0.0667,Green,"[""avg_balance_28d=141813.45"", ""Low 14d balance Rs.140292"", ""Discretionary spend down 31%""]",sklearn_hgb
+C000408,2024-11-01,0.0417,Green,"[""avg_balance_28d=311969.28"", ""Low 14d balance Rs.310471"", ""emi_to_income=0.28""]",sklearn_hgb
+C000409,2024-11-01,0.0417,Green,"[""emi_to_income=0.23"", ""avg_balance_28d=217262.83"", ""Low 14d balance Rs.210371""]",sklearn_hgb
+C000410,2024-11-01,0.0217,Green,"[""emi_to_income=0.21"", ""avg_balance_28d=931185.79"", ""Low 14d balance Rs.916499""]",sklearn_hgb
+C000411,2024-11-01,0.0667,Green,"[""emi_to_income=0.05"", ""avg_balance_28d=956931.92"", ""Low 14d balance Rs.945293""]",sklearn_hgb
+C000412,2024-11-01,0.0417,Green,"[""avg_balance_28d=238279.71"", ""Low 14d balance Rs.227516"", ""atm_amt_avg=4843.00""]",sklearn_hgb
+C000413,2024-11-01,0.0417,Green,"[""emi_to_income=0.09"", ""avg_balance_28d=557303.57"", ""Low 14d balance Rs.538174""]",sklearn_hgb
+C000414,2024-11-01,0.178,Green,"[""Low 14d balance Rs.55053"", ""avg_balance_28d=59387.35"", ""emi_to_income=0.42""]",sklearn_hgb
+C000415,2024-11-01,0.0667,Green,"[""avg_balance_28d=119620.82"", ""Low 14d balance Rs.129346"", ""emi_to_income=0.58""]",sklearn_hgb
+C000416,2024-11-01,0.0667,Green,"[""emi_to_income=0.07"", ""avg_balance_28d=1203482.95"", ""Low 14d balance Rs.1191528""]",sklearn_hgb
+C000417,2024-11-01,0.2973,Green,"[""avg_balance_28d=37763.38"", ""emi_to_income=0.22"", ""Low 14d balance Rs.23738""]",sklearn_hgb
+C000418,2024-11-01,0.619,Red,"[""avg_balance_28d=39936.39"", ""Low 14d balance Rs.33084"", ""emi_to_income=0.65""]",sklearn_hgb
+C000419,2024-11-01,0.0417,Green,"[""emi_to_income=0.06"", ""avg_balance_28d=1188149.35"", ""Low 14d balance Rs.1179232""]",sklearn_hgb
+C000420,2024-11-01,0.1239,Green,"[""avg_balance_28d=404764.11"", ""discretionary_ratio_28d=0.05"", ""Low 14d balance Rs.368139""]",sklearn_hgb
+C000421,2024-11-01,1.0,Red,"[""avg_balance_28d=22921.61"", ""Low 14d balance Rs.4306"", ""emi_to_income=0.61""]",sklearn_hgb
+C000422,2024-11-01,0.0417,Green,"[""avg_balance_28d=429247.41"", ""Low 14d balance Rs.436845"", ""atm_amt_avg=4833.50""]",sklearn_hgb
+C000423,2024-11-01,0.0389,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=957633.24"", ""2 ATM withdrawals this week""]",sklearn_hgb
+C000424,2024-11-01,0.0417,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=463543.71"", ""Low 14d balance Rs.463908""]",sklearn_hgb
+C000425,2024-11-01,0.0852,Green,"[""avg_balance_28d=197580.76"", ""Low 14d balance Rs.187400"", ""salary_cv_3m=0.17""]",sklearn_hgb
+C000426,2024-11-01,0.0667,Green,"[""avg_balance_28d=629395.17"", ""Low 14d balance Rs.607725"", ""emi_to_income=0.30""]",sklearn_hgb
+C000427,2024-11-01,0.0852,Green,"[""avg_balance_28d=534674.23"", ""salary_cv_3m=0.09"", ""Low 14d balance Rs.516396""]",sklearn_hgb
+C000428,2024-11-01,0.0417,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=1178883.37"", ""Low 14d balance Rs.1167345""]",sklearn_hgb
+C000429,2024-11-01,0.1239,Green,"[""avg_balance_28d=170308.34"", ""salary_cv_3m=0.19"", ""Low 14d balance Rs.158928""]",sklearn_hgb
+C000430,2024-11-01,0.1239,Green,"[""avg_balance_28d=156735.05"", ""atm_amt_avg=6598.25"", ""Low 14d balance Rs.149102""]",sklearn_hgb
+C000431,2024-11-01,0.7342,Red,"[""avg_balance_28d=8646.66"", ""Low 14d balance Rs.8578"", ""emi_to_income=0.43""]",sklearn_hgb
+C000432,2024-11-01,0.0417,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=881118.30"", ""Low 14d balance Rs.871339""]",sklearn_hgb
+C000433,2024-11-01,0.0202,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=661427.07"", ""Low 14d balance Rs.663406""]",sklearn_hgb
+C000434,2024-11-01,0.0667,Green,"[""avg_balance_28d=340453.17"", ""Low 14d balance Rs.329002"", ""cash_to_spend_ratio=0.07""]",sklearn_hgb
+C000435,2024-11-01,0.0202,Green,"[""emi_to_income=0.06"", ""avg_balance_28d=984065.53"", ""Low 14d balance Rs.983300""]",sklearn_hgb
+C000436,2024-11-01,0.0417,Green,"[""emi_to_income=0.22"", ""avg_balance_28d=461781.56"", ""Low 14d balance Rs.458649""]",sklearn_hgb
+C000437,2024-11-01,0.0417,Green,"[""avg_balance_28d=201614.22"", ""Low 14d balance Rs.195362"", ""emi_to_income=0.29""]",sklearn_hgb
+C000438,2024-11-01,0.0667,Green,"[""emi_to_income=0.08"", ""avg_balance_28d=733287.44"", ""Low 14d balance Rs.712805""]",sklearn_hgb
+C000439,2024-11-01,0.0217,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=486326.38"", ""Low 14d balance Rs.446930""]",sklearn_hgb
+C000440,2024-11-01,0.0417,Green,"[""avg_balance_28d=438460.71"", ""Low 14d balance Rs.421406"", ""emi_to_income=0.28""]",sklearn_hgb
+C000441,2024-11-01,0.0667,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=610310.39"", ""balance_slope_28d=3005.58""]",sklearn_hgb
+C000442,2024-11-01,0.0667,Green,"[""emi_to_income=0.12"", ""avg_balance_28d=976620.05"", ""salary_cv_3m=0.21""]",sklearn_hgb
+C000443,2024-11-01,0.0852,Green,"[""avg_balance_28d=138626.29"", ""Low 14d balance Rs.125484"", ""emi_to_income=0.44""]",sklearn_hgb
+C000444,2024-11-01,0.1239,Green,"[""Discretionary spend down -185%"", ""avg_balance_28d=156178.28"", ""emi_to_income=0.56""]",sklearn_hgb
+C000445,2024-11-01,0.0667,Green,"[""emi_to_income=0.09"", ""avg_balance_28d=669848.35"", ""salary_cv_3m=0.09""]",sklearn_hgb
+C000446,2024-11-01,0.7342,Red,"[""avg_balance_28d=32645.64"", ""Low 14d balance Rs.15360"", ""cash_to_spend_ratio=0.23""]",sklearn_hgb
+C000447,2024-11-01,0.0667,Green,"[""emi_to_income=0.18"", ""avg_balance_28d=171692.63"", ""Low 14d balance Rs.170482""]",sklearn_hgb
+C000448,2024-11-01,0.0389,Green,"[""emi_to_income=0.20"", ""avg_balance_28d=659128.30"", ""Low 14d balance Rs.650129""]",sklearn_hgb
+C000449,2024-11-01,0.0417,Green,"[""avg_balance_28d=569910.70"", ""Low 14d balance Rs.566819"", ""discretionary_ratio_28d=0.17""]",sklearn_hgb
+C000450,2024-11-01,0.0417,Green,"[""avg_balance_28d=607072.96"", ""Low 14d balance Rs.601085"", ""emi_to_income=0.30""]",sklearn_hgb
+C000451,2024-11-01,0.9583,Red,"[""avg_balance_28d=-16236.75"", ""Low 14d balance Rs.-20658"", ""Savings -336% WoW""]",sklearn_hgb
+C000452,2024-11-01,0.0852,Green,"[""avg_balance_28d=720166.57"", ""salary_cv_3m=0.19"", ""Low 14d balance Rs.696762""]",sklearn_hgb
+C000453,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=647881.81"", ""Low 14d balance Rs.646407""]",sklearn_hgb
+C000454,2024-11-01,0.0202,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=220419.73"", ""Low 14d balance Rs.205338""]",sklearn_hgb
+C000455,2024-11-01,0.0417,Green,"[""emi_to_income=0.08"", ""avg_balance_28d=467601.45"", ""Low 14d balance Rs.450851""]",sklearn_hgb
+C000456,2024-11-01,0.0852,Green,"[""avg_balance_28d=232192.65"", ""Low 14d balance Rs.225546"", ""emi_to_income=0.31""]",sklearn_hgb
+C000457,2024-11-01,0.0417,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=617542.24"", ""Low 14d balance Rs.599148""]",sklearn_hgb
+C000458,2024-11-01,0.0852,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=531715.07"", ""balance_slope_28d=2747.01""]",sklearn_hgb
+C000459,2024-11-01,0.0667,Green,"[""emi_to_income=0.16"", ""atm_amt_avg=6385.50"", ""avg_balance_28d=565717.86""]",sklearn_hgb
+C000460,2024-11-01,0.0417,Green,"[""avg_balance_28d=323204.61"", ""Low 14d balance Rs.330169"", ""emi_to_income=0.46""]",sklearn_hgb
+C000461,2024-11-01,0.0667,Green,"[""avg_balance_28d=1000511.86"", ""Low 14d balance Rs.992512"", ""emi_to_income=0.24""]",sklearn_hgb
+C000462,2024-11-01,0.0417,Green,"[""emi_to_income=0.04"", ""avg_balance_28d=1356079.53"", ""Low 14d balance Rs.1341585""]",sklearn_hgb
+C000463,2024-11-01,0.0667,Green,"[""avg_balance_28d=404078.60"", ""Low 14d balance Rs.392363"", ""atm_amt_avg=9321.00""]",sklearn_hgb
+C000464,2024-11-01,0.0667,Green,"[""emi_to_income=0.08"", ""avg_balance_28d=1317110.48"", ""atm_amt_avg=6437.50""]",sklearn_hgb
+C000465,2024-11-01,0.0852,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=1052027.64"", ""Low 14d balance Rs.1028874""]",sklearn_hgb
+C000466,2024-11-01,0.0667,Green,"[""emi_to_income=0.13"", ""discretionary_ratio_28d=0.28"", ""avg_balance_28d=1033449.24""]",sklearn_hgb
+C000467,2024-11-01,0.0852,Green,"[""avg_balance_28d=186754.26"", ""Low 14d balance Rs.169263"", ""atm_amt_avg=6681.50""]",sklearn_hgb
+C000468,2024-11-01,0.0417,Green,"[""avg_balance_28d=369386.67"", ""Low 14d balance Rs.368286"", ""discretionary_ratio_28d=0.05""]",sklearn_hgb
+C000469,2024-11-01,0.0667,Green,"[""avg_balance_28d=321501.67"", ""Low 14d balance Rs.314325"", ""atm_amt_avg=4964.00""]",sklearn_hgb
+C000470,2024-11-01,0.6584,Red,"[""avg_balance_28d=42708.83"", ""Low 14d balance Rs.46250"", ""emi_to_income=0.62""]",sklearn_hgb
+C000471,2024-11-01,0.2973,Green,"[""avg_balance_28d=43221.26"", ""Low 14d balance Rs.20828"", ""1 failed auto-debit(s)""]",sklearn_hgb
+C000472,2024-11-01,0.0417,Green,"[""avg_balance_28d=640330.40"", ""Low 14d balance Rs.623180"", ""emi_to_income=0.29""]",sklearn_hgb
+C000473,2024-11-01,0.0852,Green,"[""emi_to_income=0.14"", ""avg_balance_28d=546119.24"", ""Low 14d balance Rs.526979""]",sklearn_hgb
+C000474,2024-11-01,0.0417,Green,"[""emi_to_income=0.15"", ""avg_balance_28d=1060816.08"", ""Low 14d balance Rs.1060580""]",sklearn_hgb
+C000475,2024-11-01,0.0417,Green,"[""emi_to_income=0.08"", ""avg_balance_28d=909513.56"", ""Low 14d balance Rs.905519""]",sklearn_hgb
+C000476,2024-11-01,0.2353,Green,"[""Low 14d balance Rs.32737"", ""avg_balance_28d=46236.38"", ""1 failed auto-debit(s)""]",sklearn_hgb
+C000477,2024-11-01,0.0202,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=1043410.15"", ""Low 14d balance Rs.1044194""]",sklearn_hgb
+C000478,2024-11-01,0.0667,Green,"[""avg_balance_28d=437559.18"", ""Low 14d balance Rs.414613"", ""discretionary_ratio_28d=0.01""]",sklearn_hgb
+C000479,2024-11-01,0.0667,Green,"[""avg_balance_28d=595232.97"", ""Low 14d balance Rs.598239"", ""atm_amt_avg=6777.00""]",sklearn_hgb
+C000480,2024-11-01,0.0667,Green,"[""emi_to_income=0.10"", ""avg_balance_28d=1177982.31"", ""discretionary_ratio_28d=0.03""]",sklearn_hgb
+C000481,2024-11-01,0.0667,Green,"[""emi_to_income=0.09"", ""discretionary_ratio_28d=0.28"", ""avg_balance_28d=876116.54""]",sklearn_hgb
+C000482,2024-11-01,0.8511,Red,"[""emi_to_income=1.20"", ""avg_balance_28d=38410.39"", ""Low 14d balance Rs.12542""]",sklearn_hgb
+C000483,2024-11-01,0.0202,Green,"[""avg_balance_28d=195866.07"", ""emi_to_income=0.30"", ""Low 14d balance Rs.193955""]",sklearn_hgb
+C000484,2024-11-01,0.0202,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=565234.26"", ""Low 14d balance Rs.550689""]",sklearn_hgb
+C000485,2024-11-01,0.9286,Red,"[""avg_balance_28d=26579.51"", ""Low 14d balance Rs.11584"", ""discretionary_ratio_28d=0.29""]",sklearn_hgb
+C000486,2024-11-01,0.7342,Red,"[""avg_balance_28d=53129.83"", ""Low 14d balance Rs.44627"", ""emi_to_income=0.73""]",sklearn_hgb
+C000487,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=1038905.42"", ""Low 14d balance Rs.1032372""]",sklearn_hgb
+C000488,2024-11-01,0.619,Red,"[""emi_to_income=0.84"", ""Low 14d balance Rs.51776"", ""avg_balance_28d=69865.74""]",sklearn_hgb
+C000489,2024-11-01,0.0852,Green,"[""avg_balance_28d=80622.50"", ""atm_amt_avg=2325.00"", ""Low 14d balance Rs.78217""]",sklearn_hgb
+C000490,2024-11-01,0.0852,Green,"[""avg_balance_28d=317713.09"", ""Low 14d balance Rs.309519"", ""discretionary_ratio_28d=0.03""]",sklearn_hgb
+C000491,2024-11-01,0.619,Red,"[""avg_balance_28d=56419.56"", ""Low 14d balance Rs.53191"", ""emi_to_income=0.68""]",sklearn_hgb
+C000492,2024-11-01,0.0417,Green,"[""emi_to_income=0.11"", ""avg_balance_28d=356348.63"", ""Low 14d balance Rs.349974""]",sklearn_hgb
+C000493,2024-11-01,0.0667,Green,"[""emi_to_income=0.16"", ""avg_balance_28d=1123212.59"", ""Low 14d balance Rs.1114809""]",sklearn_hgb
+C000494,2024-11-01,0.0417,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=756538.57"", ""Low 14d balance Rs.751628""]",sklearn_hgb
+C000495,2024-11-01,0.1239,Green,"[""cash_to_spend_ratio=0.01"", ""emi_to_income=0.08"", ""avg_balance_28d=1328187.21""]",sklearn_hgb
+C000496,2024-11-01,0.0667,Green,"[""avg_balance_28d=367510.17"", ""Low 14d balance Rs.366130"", ""salary_cv_3m=0.03""]",sklearn_hgb
+C000497,2024-11-01,0.0417,Green,"[""emi_to_income=0.08"", ""avg_balance_28d=857018.77"", ""Low 14d balance Rs.836367""]",sklearn_hgb
+C000498,2024-11-01,0.0852,Green,"[""avg_balance_28d=168178.45"", ""Low 14d balance Rs.150647"", ""emi_to_income=0.50""]",sklearn_hgb
+C000499,2024-11-01,0.0852,Green,"[""avg_balance_28d=276898.62"", ""discretionary_ratio_28d=0.04"", ""emi_to_income=0.45""]",sklearn_hgb
+C000500,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000501,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000502,2024-11-01,0.178,Green,[],sklearn_hgb
+C000503,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000504,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000505,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000506,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000507,2024-11-01,0.178,Green,[],sklearn_hgb
+C000508,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000509,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000510,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000511,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000512,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000513,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000514,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000515,2024-11-01,0.2973,Green,[],sklearn_hgb
+C000516,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000517,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000518,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000519,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000520,2024-11-01,0.8511,Red,[],sklearn_hgb
+C000521,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000522,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000523,2024-11-01,0.2353,Green,[],sklearn_hgb
+C000524,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000525,2024-11-01,0.178,Green,[],sklearn_hgb
+C000526,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000527,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000528,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000529,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000530,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000531,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000532,2024-11-01,0.178,Green,[],sklearn_hgb
+C000533,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000534,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000535,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000536,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000537,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000538,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000539,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000540,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000541,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000542,2024-11-01,0.8511,Red,[],sklearn_hgb
+C000543,2024-11-01,0.2973,Green,[],sklearn_hgb
+C000544,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000545,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000546,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000547,2024-11-01,0.9286,Red,[],sklearn_hgb
+C000548,2024-11-01,0.3,Amber,[],sklearn_hgb
+C000549,2024-11-01,0.9286,Red,[],sklearn_hgb
+C000550,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000551,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000552,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000553,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000554,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000555,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000556,2024-11-01,0.2353,Green,[],sklearn_hgb
+C000557,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000558,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000559,2024-11-01,0.2973,Green,[],sklearn_hgb
+C000560,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000561,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000562,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000563,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000564,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000565,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000566,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000567,2024-11-01,0.619,Red,[],sklearn_hgb
+C000568,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000569,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000570,2024-11-01,0.7143,Red,[],sklearn_hgb
+C000571,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000572,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000573,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000574,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000575,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000576,2024-11-01,0.2353,Green,[],sklearn_hgb
+C000577,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000578,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000579,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000580,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000581,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000582,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000583,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000584,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000585,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000586,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000587,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000588,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000589,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000590,2024-11-01,0.3571,Amber,[],sklearn_hgb
+C000591,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000592,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000593,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000594,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000595,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000596,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000597,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000598,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000599,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000600,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000601,2024-11-01,0.8511,Red,[],sklearn_hgb
+C000602,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000603,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000604,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000605,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000606,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000607,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000608,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000609,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000610,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000611,2024-11-01,0.9286,Red,[],sklearn_hgb
+C000612,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000613,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000614,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000615,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000616,2024-11-01,0.9286,Red,[],sklearn_hgb
+C000617,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000618,2024-11-01,1.0,Red,[],sklearn_hgb
+C000619,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000620,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000621,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000622,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000623,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000624,2024-11-01,0.9583,Red,[],sklearn_hgb
+C000625,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000626,2024-11-01,0.0217,Green,[],sklearn_hgb
+C000627,2024-11-01,0.178,Green,[],sklearn_hgb
+C000628,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000629,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000630,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000631,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000632,2024-11-01,1.0,Red,[],sklearn_hgb
+C000633,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000634,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000635,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000636,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000637,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000638,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000639,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000640,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000641,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000642,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000643,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000644,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000645,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000646,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000647,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000648,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000649,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000650,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000651,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000652,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000653,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000654,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000655,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000656,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000657,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000658,2024-11-01,0.0217,Green,[],sklearn_hgb
+C000659,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000660,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000661,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000662,2024-11-01,0.178,Green,[],sklearn_hgb
+C000663,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000664,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000665,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000666,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000667,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000668,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000669,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000670,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000671,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000672,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000673,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000674,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000675,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000676,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000677,2024-11-01,0.2973,Green,[],sklearn_hgb
+C000678,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000679,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000680,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000681,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000682,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000683,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000684,2024-11-01,1.0,Red,[],sklearn_hgb
+C000685,2024-11-01,0.178,Green,[],sklearn_hgb
+C000686,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000687,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000688,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000689,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000690,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000691,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000692,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000693,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000694,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000695,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000696,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000697,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000698,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000699,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000700,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000701,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000702,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000703,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000704,2024-11-01,0.7342,Red,[],sklearn_hgb
+C000705,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000706,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000707,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000708,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000709,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000710,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000711,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000712,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000713,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000714,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000715,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000716,2024-11-01,0.9688,Red,[],sklearn_hgb
+C000717,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000718,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000719,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000720,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000721,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000722,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000723,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000724,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000725,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000726,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000727,2024-11-01,0.619,Red,[],sklearn_hgb
+C000728,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000729,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000730,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000731,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000732,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000733,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000734,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000735,2024-11-01,1.0,Red,[],sklearn_hgb
+C000736,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000737,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000738,2024-11-01,0.0217,Green,[],sklearn_hgb
+C000739,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000740,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000741,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000742,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000743,2024-11-01,0.9286,Red,[],sklearn_hgb
+C000744,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000745,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000746,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000747,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000748,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000749,2024-11-01,0.178,Green,[],sklearn_hgb
+C000750,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000751,2024-11-01,0.178,Green,[],sklearn_hgb
+C000752,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000753,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000754,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000755,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000756,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000757,2024-11-01,0.0217,Green,[],sklearn_hgb
+C000758,2024-11-01,0.0429,Green,[],sklearn_hgb
+C000759,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000760,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000761,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000762,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000763,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000764,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000765,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000766,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000767,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000768,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000769,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000770,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000771,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000772,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000773,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000774,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000775,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000776,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000777,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000778,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000779,2024-11-01,0.7342,Red,[],sklearn_hgb
+C000780,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000781,2024-11-01,0.2973,Green,[],sklearn_hgb
+C000782,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000783,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000784,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000785,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000786,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000787,2024-11-01,0.178,Green,[],sklearn_hgb
+C000788,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000789,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000790,2024-11-01,0.619,Red,[],sklearn_hgb
+C000791,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000792,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000793,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000794,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000795,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000796,2024-11-01,0.9286,Red,[],sklearn_hgb
+C000797,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000798,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000799,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000800,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000801,2024-11-01,0.619,Red,[],sklearn_hgb
+C000802,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000803,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000804,2024-11-01,0.619,Red,[],sklearn_hgb
+C000805,2024-11-01,0.7342,Red,[],sklearn_hgb
+C000806,2024-11-01,1.0,Red,[],sklearn_hgb
+C000807,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000808,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000809,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000810,2024-11-01,0.2353,Green,[],sklearn_hgb
+C000811,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000812,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000813,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000814,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000815,2024-11-01,0.0,Green,[],sklearn_hgb
+C000816,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000817,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000818,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000819,2024-11-01,0.7143,Red,[],sklearn_hgb
+C000820,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000821,2024-11-01,0.9688,Red,[],sklearn_hgb
+C000822,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000823,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000824,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000825,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000826,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000827,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000828,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000829,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000830,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000831,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000832,2024-11-01,0.3,Amber,[],sklearn_hgb
+C000833,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000834,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000835,2024-11-01,0.8511,Red,[],sklearn_hgb
+C000836,2024-11-01,0.8511,Red,[],sklearn_hgb
+C000837,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000838,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000839,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000840,2024-11-01,1.0,Red,[],sklearn_hgb
+C000841,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000842,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000843,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000844,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000845,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000846,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000847,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000848,2024-11-01,0.178,Green,[],sklearn_hgb
+C000849,2024-11-01,0.7342,Red,[],sklearn_hgb
+C000850,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000851,2024-11-01,0.8511,Red,[],sklearn_hgb
+C000852,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000853,2024-11-01,0.2973,Green,[],sklearn_hgb
+C000854,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000855,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000856,2024-11-01,0.619,Red,[],sklearn_hgb
+C000857,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000858,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000859,2024-11-01,0.9688,Red,[],sklearn_hgb
+C000860,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000861,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000862,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000863,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000864,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000865,2024-11-01,0.7143,Red,[],sklearn_hgb
+C000866,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000867,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000868,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000869,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000870,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000871,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000872,2024-11-01,0.9688,Red,[],sklearn_hgb
+C000873,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000874,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000875,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000876,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000877,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000878,2024-11-01,0.178,Green,[],sklearn_hgb
+C000879,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000880,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000881,2024-11-01,0.0,Green,[],sklearn_hgb
+C000882,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000883,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000884,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000885,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000886,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000887,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000888,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000889,2024-11-01,1.0,Red,[],sklearn_hgb
+C000890,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000891,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000892,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000893,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000894,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000895,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000896,2024-11-01,1.0,Red,[],sklearn_hgb
+C000897,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000898,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000899,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000900,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000901,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000902,2024-11-01,0.178,Green,[],sklearn_hgb
+C000903,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000904,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000905,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000906,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000907,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000908,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000909,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000910,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000911,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000912,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000913,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000914,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000915,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000916,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000917,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000918,2024-11-01,0.0,Green,[],sklearn_hgb
+C000919,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000920,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000921,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000922,2024-11-01,0.9286,Red,[],sklearn_hgb
+C000923,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000924,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000925,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000926,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000927,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000928,2024-11-01,0.8511,Red,[],sklearn_hgb
+C000929,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000930,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000931,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000932,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000933,2024-11-01,0.178,Green,[],sklearn_hgb
+C000934,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000935,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000936,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000937,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000938,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000939,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000940,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000941,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000942,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C000943,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000944,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000945,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000946,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000947,2024-11-01,0.0389,Green,[],sklearn_hgb
+C000948,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000949,2024-11-01,0.7342,Red,[],sklearn_hgb
+C000950,2024-11-01,0.619,Red,[],sklearn_hgb
+C000951,2024-11-01,0.178,Green,[],sklearn_hgb
+C000952,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000953,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000954,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000955,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000956,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000957,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000958,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000959,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000960,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000961,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000962,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000963,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000964,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000965,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000966,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000967,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000968,2024-11-01,0.3571,Amber,[],sklearn_hgb
+C000969,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000970,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000971,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000972,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000973,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000974,2024-11-01,0.2973,Green,[],sklearn_hgb
+C000975,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000976,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000977,2024-11-01,0.619,Red,[],sklearn_hgb
+C000978,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000979,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000980,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000981,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000982,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000983,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000984,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000985,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000986,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000987,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000988,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000989,2024-11-01,0.0202,Green,[],sklearn_hgb
+C000990,2024-11-01,0.9688,Red,[],sklearn_hgb
+C000991,2024-11-01,0.9688,Red,[],sklearn_hgb
+C000992,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000993,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000994,2024-11-01,0.0852,Green,[],sklearn_hgb
+C000995,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000996,2024-11-01,0.0667,Green,[],sklearn_hgb
+C000997,2024-11-01,0.0417,Green,[],sklearn_hgb
+C000998,2024-11-01,0.1239,Green,[],sklearn_hgb
+C000999,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001000,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001001,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001002,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001003,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001004,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001005,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001006,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001007,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001008,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001009,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001010,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001011,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001012,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001013,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001014,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001015,2024-11-01,0.3571,Amber,[],sklearn_hgb
+C001016,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001017,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001018,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001019,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001020,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001021,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001022,2024-11-01,1.0,Red,[],sklearn_hgb
+C001023,2024-11-01,0.178,Green,[],sklearn_hgb
+C001024,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001025,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001026,2024-11-01,0.178,Green,[],sklearn_hgb
+C001027,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001028,2024-11-01,0.178,Green,[],sklearn_hgb
+C001029,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001030,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001031,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001032,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001033,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001034,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001035,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001036,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001037,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001038,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001039,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001040,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001041,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001042,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001043,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001044,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001045,2024-11-01,0.5784,Amber,[],sklearn_hgb
+C001046,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001047,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001048,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001049,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001050,2024-11-01,1.0,Red,[],sklearn_hgb
+C001051,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001052,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001053,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001054,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001055,2024-11-01,0.619,Red,[],sklearn_hgb
+C001056,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001057,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001058,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001059,2024-11-01,0.9688,Red,[],sklearn_hgb
+C001060,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001061,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001062,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001063,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001064,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001065,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001066,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001067,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001068,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001069,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001070,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001071,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001072,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001073,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001074,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001075,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001076,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001077,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001078,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001079,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001080,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001081,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001082,2024-11-01,0.178,Green,[],sklearn_hgb
+C001083,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001084,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001085,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001086,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001087,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001088,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001089,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001090,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001091,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001092,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001093,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001094,2024-11-01,1.0,Red,[],sklearn_hgb
+C001095,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001096,2024-11-01,0.9583,Red,[],sklearn_hgb
+C001097,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001098,2024-11-01,0.178,Green,[],sklearn_hgb
+C001099,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001100,2024-11-01,0.178,Green,[],sklearn_hgb
+C001101,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001102,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001103,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001104,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001105,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001106,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001107,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001108,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001109,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001110,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001111,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001112,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001113,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001114,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001115,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001116,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001117,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001118,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001119,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001120,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001121,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001122,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001123,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001124,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001125,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001126,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001127,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001128,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001129,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001130,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001131,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001132,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001133,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001134,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001135,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001136,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001137,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001138,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001139,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001140,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001141,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001142,2024-11-01,1.0,Red,[],sklearn_hgb
+C001143,2024-11-01,0.0308,Green,[],sklearn_hgb
+C001144,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001145,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001146,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001147,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001148,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001149,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001150,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001151,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001152,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001153,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001154,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001155,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001156,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001157,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001158,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001159,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001160,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001161,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001162,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001163,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001164,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001165,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001166,2024-11-01,0.3,Amber,[],sklearn_hgb
+C001167,2024-11-01,1.0,Red,[],sklearn_hgb
+C001168,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001169,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001170,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001171,2024-11-01,0.2036,Green,[],sklearn_hgb
+C001172,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001173,2024-11-01,1.0,Red,[],sklearn_hgb
+C001174,2024-11-01,0.178,Green,[],sklearn_hgb
+C001175,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001176,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001177,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001178,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001179,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001180,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001181,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001182,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001183,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001184,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001185,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001186,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001187,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001188,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001189,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001190,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001191,2024-11-01,0.178,Green,[],sklearn_hgb
+C001192,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001193,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001194,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001195,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001196,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001197,2024-11-01,1.0,Red,[],sklearn_hgb
+C001198,2024-11-01,0.619,Red,[],sklearn_hgb
+C001199,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001200,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001201,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001202,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001203,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001204,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001205,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001206,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001207,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001208,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001209,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001210,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001211,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001212,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001213,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001214,2024-11-01,0.9583,Red,[],sklearn_hgb
+C001215,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001216,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001217,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001218,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001219,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001220,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001221,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001222,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001223,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001224,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001225,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001226,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001227,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001228,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001229,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001230,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001231,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001232,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001233,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001234,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001235,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001236,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001237,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001238,2024-11-01,1.0,Red,[],sklearn_hgb
+C001239,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001240,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001241,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001242,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001243,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001244,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001245,2024-11-01,1.0,Red,[],sklearn_hgb
+C001246,2024-11-01,0.619,Red,[],sklearn_hgb
+C001247,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001248,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001249,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001250,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001251,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001252,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001253,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001254,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001255,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001256,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001257,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001258,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001259,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001260,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001261,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001262,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001263,2024-11-01,0.178,Green,[],sklearn_hgb
+C001264,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001265,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001266,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001267,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001268,2024-11-01,0.178,Green,[],sklearn_hgb
+C001269,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001270,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001271,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001272,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001273,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001274,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001275,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001276,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001277,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001278,2024-11-01,0.178,Green,[],sklearn_hgb
+C001279,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001280,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001281,2024-11-01,0.9583,Red,[],sklearn_hgb
+C001282,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001283,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001284,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001285,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001286,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001287,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001288,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001289,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001290,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001291,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001292,2024-11-01,1.0,Red,[],sklearn_hgb
+C001293,2024-11-01,0.7143,Red,[],sklearn_hgb
+C001294,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001295,2024-11-01,0.619,Red,[],sklearn_hgb
+C001296,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001297,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001298,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001299,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001300,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001301,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001302,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001303,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001304,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001305,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001306,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001307,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001308,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001309,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001310,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001311,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001312,2024-11-01,0.9782,Red,[],sklearn_hgb
+C001313,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001314,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001315,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001316,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001317,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001318,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001319,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001320,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001321,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001322,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001323,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001324,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001325,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001326,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001327,2024-11-01,0.0203,Green,[],sklearn_hgb
+C001328,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001329,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001330,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001331,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001332,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001333,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001334,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001335,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001336,2024-11-01,0.7143,Red,[],sklearn_hgb
+C001337,2024-11-01,0.178,Green,[],sklearn_hgb
+C001338,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001339,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001340,2024-11-01,1.0,Red,[],sklearn_hgb
+C001341,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001342,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001343,2024-11-01,0.178,Green,[],sklearn_hgb
+C001344,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001345,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001346,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001347,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001348,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001349,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001350,2024-11-01,1.0,Red,[],sklearn_hgb
+C001351,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001352,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001353,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001354,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001355,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001356,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001357,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001358,2024-11-01,0.178,Green,[],sklearn_hgb
+C001359,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001360,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001361,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001362,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001363,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001364,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001365,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001366,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001367,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001368,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001369,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001370,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001371,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001372,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001373,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001374,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001375,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001376,2024-11-01,0.178,Green,[],sklearn_hgb
+C001377,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001378,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001379,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001380,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001381,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001382,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001383,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001384,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001385,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001386,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001387,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001388,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001389,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001390,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001391,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001392,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001393,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001394,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001395,2024-11-01,0.619,Red,[],sklearn_hgb
+C001396,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001397,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001398,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001399,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001400,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001401,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001402,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001403,2024-11-01,0.0209,Green,[],sklearn_hgb
+C001404,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001405,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001406,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001407,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001408,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001409,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001410,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001411,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001412,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001413,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001414,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001415,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001416,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001417,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001418,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001419,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001420,2024-11-01,0.9688,Red,[],sklearn_hgb
+C001421,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001422,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001423,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001424,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001425,2024-11-01,0.178,Green,[],sklearn_hgb
+C001426,2024-11-01,0.619,Red,[],sklearn_hgb
+C001427,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001428,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001429,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001430,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001431,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001432,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001433,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001434,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001435,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001436,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001437,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001438,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001439,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001440,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001441,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001442,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001443,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001444,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001445,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001446,2024-11-01,0.9583,Red,[],sklearn_hgb
+C001447,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001448,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001449,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001450,2024-11-01,0.9583,Red,[],sklearn_hgb
+C001451,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001452,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001453,2024-11-01,0.619,Red,[],sklearn_hgb
+C001454,2024-11-01,0.178,Green,[],sklearn_hgb
+C001455,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001456,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001457,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001458,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001459,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001460,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001461,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001462,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001463,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001464,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001465,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001466,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001467,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001468,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001469,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001470,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001471,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001472,2024-11-01,0.6805,Red,[],sklearn_hgb
+C001473,2024-11-01,1.0,Red,[],sklearn_hgb
+C001474,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001475,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001476,2024-11-01,0.022,Green,[],sklearn_hgb
+C001477,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001478,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001479,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001480,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001481,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001482,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001483,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001484,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001485,2024-11-01,0.9688,Red,[],sklearn_hgb
+C001486,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001487,2024-11-01,1.0,Red,[],sklearn_hgb
+C001488,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001489,2024-11-01,0.7143,Red,[],sklearn_hgb
+C001490,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001491,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001492,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001493,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001494,2024-11-01,0.619,Red,[],sklearn_hgb
+C001495,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001496,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001497,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001498,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001499,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001500,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001501,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001502,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001503,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001504,2024-11-01,0.9688,Red,[],sklearn_hgb
+C001505,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001506,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001507,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001508,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001509,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001510,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001511,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001512,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001513,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001514,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001515,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001516,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001517,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001518,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001519,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001520,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001521,2024-11-01,0.178,Green,[],sklearn_hgb
+C001522,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001523,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001524,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001525,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001526,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001527,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001528,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001529,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001530,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001531,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001532,2024-11-01,1.0,Red,[],sklearn_hgb
+C001533,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001534,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001535,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001536,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001537,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001538,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001539,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001540,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001541,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001542,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001543,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001544,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001545,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001546,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001547,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001548,2024-11-01,0.7143,Red,[],sklearn_hgb
+C001549,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001550,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001551,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001552,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001553,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001554,2024-11-01,0.619,Red,[],sklearn_hgb
+C001555,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001556,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001557,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001558,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001559,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001560,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001561,2024-11-01,0.178,Green,[],sklearn_hgb
+C001562,2024-11-01,1.0,Red,[],sklearn_hgb
+C001563,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001564,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001565,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001566,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001567,2024-11-01,0.9583,Red,[],sklearn_hgb
+C001568,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001569,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001570,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001571,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001572,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001573,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001574,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001575,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001576,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001577,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001578,2024-11-01,0.178,Green,[],sklearn_hgb
+C001579,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001580,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001581,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001582,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001583,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001584,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001585,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001586,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001587,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001588,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001589,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001590,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001591,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001592,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001593,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001594,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001595,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001596,2024-11-01,0.619,Red,[],sklearn_hgb
+C001597,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001598,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001599,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001600,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001601,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001602,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001603,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001604,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001605,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001606,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001607,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001608,2024-11-01,1.0,Red,[],sklearn_hgb
+C001609,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001610,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001611,2024-11-01,0.178,Green,[],sklearn_hgb
+C001612,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001613,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001614,2024-11-01,1.0,Red,[],sklearn_hgb
+C001615,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001616,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001617,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001618,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001619,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001620,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001621,2024-11-01,0.178,Green,[],sklearn_hgb
+C001622,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001623,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001624,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001625,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001626,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001627,2024-11-01,0.9776,Red,[],sklearn_hgb
+C001628,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001629,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001630,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001631,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001632,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001633,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001634,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001635,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001636,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001637,2024-11-01,0.2419,Green,[],sklearn_hgb
+C001638,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001639,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001640,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001641,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001642,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001643,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001644,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001645,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001646,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001647,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001648,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001649,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001650,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001651,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001652,2024-11-01,0.0122,Green,[],sklearn_hgb
+C001653,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001654,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001655,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001656,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001657,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001658,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001659,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001660,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001661,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001662,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001663,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001664,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001665,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001666,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001667,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001668,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001669,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001670,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001671,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001672,2024-11-01,0.3571,Amber,[],sklearn_hgb
+C001673,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001674,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001675,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001676,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001677,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001678,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001679,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001680,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001681,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001682,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001683,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001684,2024-11-01,0.619,Red,[],sklearn_hgb
+C001685,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001686,2024-11-01,0.619,Red,[],sklearn_hgb
+C001687,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001688,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001689,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001690,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001691,2024-11-01,1.0,Red,[],sklearn_hgb
+C001692,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001693,2024-11-01,1.0,Red,[],sklearn_hgb
+C001694,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001695,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001696,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001697,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001698,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001699,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001700,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001701,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001702,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001703,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001704,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001705,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001706,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001707,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001708,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001709,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001710,2024-11-01,1.0,Red,[],sklearn_hgb
+C001711,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001712,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001713,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001714,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001715,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001716,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001717,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001718,2024-11-01,0.7143,Red,[],sklearn_hgb
+C001719,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001720,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001721,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001722,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001723,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001724,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001725,2024-11-01,0.619,Red,[],sklearn_hgb
+C001726,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001727,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001728,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001729,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001730,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001731,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001732,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001733,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001734,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001735,2024-11-01,1.0,Red,[],sklearn_hgb
+C001736,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001737,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001738,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001739,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001740,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001741,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001742,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001743,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001744,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001745,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001746,2024-11-01,0.2186,Green,[],sklearn_hgb
+C001747,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001748,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001749,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001750,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001751,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001752,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001753,2024-11-01,1.0,Red,[],sklearn_hgb
+C001754,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001755,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001756,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001757,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001758,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001759,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001760,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001761,2024-11-01,0.619,Red,[],sklearn_hgb
+C001762,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001763,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001764,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001765,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001766,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001767,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001768,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001769,2024-11-01,0.0415,Green,[],sklearn_hgb
+C001770,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001771,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001772,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001773,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001774,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001775,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001776,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001777,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001778,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001779,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001780,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001781,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001782,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001783,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001784,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001785,2024-11-01,0.2973,Green,[],sklearn_hgb
+C001786,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001787,2024-11-01,0.619,Red,[],sklearn_hgb
+C001788,2024-11-01,0.178,Green,[],sklearn_hgb
+C001789,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001790,2024-11-01,0.619,Red,[],sklearn_hgb
+C001791,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001792,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001793,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001794,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001795,2024-11-01,1.0,Red,[],sklearn_hgb
+C001796,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001797,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001798,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001799,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001800,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001801,2024-11-01,0.178,Green,[],sklearn_hgb
+C001802,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001803,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001804,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001805,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001806,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001807,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001808,2024-11-01,0.9583,Red,[],sklearn_hgb
+C001809,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001810,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001811,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001812,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001813,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001814,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001815,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001816,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001817,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001818,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001819,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001820,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001821,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001822,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001823,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001824,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001825,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001826,2024-11-01,0.178,Green,[],sklearn_hgb
+C001827,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001828,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001829,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001830,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001831,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001832,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001833,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001834,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001835,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001836,2024-11-01,0.619,Red,[],sklearn_hgb
+C001837,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001838,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001839,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001840,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001841,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001842,2024-11-01,0.619,Red,[],sklearn_hgb
+C001843,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001844,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001845,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001846,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001847,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001848,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001849,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001850,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001851,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001852,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001853,2024-11-01,0.9286,Red,[],sklearn_hgb
+C001854,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001855,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001856,2024-11-01,0.178,Green,[],sklearn_hgb
+C001857,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001858,2024-11-01,0.619,Red,[],sklearn_hgb
+C001859,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001860,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001861,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001862,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001863,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001864,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001865,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001866,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001867,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001868,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001869,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001870,2024-11-01,0.7143,Red,[],sklearn_hgb
+C001871,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001872,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001873,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001874,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001875,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001876,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001877,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001878,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001879,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001880,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001881,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001882,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001883,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001884,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001885,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001886,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001887,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001888,2024-11-01,0.0429,Green,[],sklearn_hgb
+C001889,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001890,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001891,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001892,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001893,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001894,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001895,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001896,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001897,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001898,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001899,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001900,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001901,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001902,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001903,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001904,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001905,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001906,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001907,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001908,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001909,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001910,2024-11-01,0.619,Red,[],sklearn_hgb
+C001911,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001912,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001913,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001914,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001915,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001916,2024-11-01,0.0734,Green,[],sklearn_hgb
+C001917,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001918,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001919,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001920,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001921,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001922,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001923,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001924,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001925,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001926,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001927,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001928,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001929,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001930,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001931,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001932,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001933,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001934,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001935,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001936,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001937,2024-11-01,0.0217,Green,[],sklearn_hgb
+C001938,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001939,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001940,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001941,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001942,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001943,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001944,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001945,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001946,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001947,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001948,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001949,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001950,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001951,2024-11-01,0.4444,Amber,[],sklearn_hgb
+C001952,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001953,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001954,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001955,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001956,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001957,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001958,2024-11-01,0.8511,Red,[],sklearn_hgb
+C001959,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001960,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001961,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001962,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001963,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001964,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001965,2024-11-01,0.178,Green,[],sklearn_hgb
+C001966,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001967,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001968,2024-11-01,0.1239,Green,[],sklearn_hgb
+C001969,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001970,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001971,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001972,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001973,2024-11-01,0.0202,Green,[],sklearn_hgb
+C001974,2024-11-01,0.0389,Green,[],sklearn_hgb
+C001975,2024-11-01,0.619,Red,[],sklearn_hgb
+C001976,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001977,2024-11-01,1.0,Red,[],sklearn_hgb
+C001978,2024-11-01,0.178,Green,[],sklearn_hgb
+C001979,2024-11-01,0.7342,Red,[],sklearn_hgb
+C001980,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001981,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001982,2024-11-01,0.2353,Green,[],sklearn_hgb
+C001983,2024-11-01,0.0852,Green,[],sklearn_hgb
+C001984,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001985,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001986,2024-11-01,0.178,Green,[],sklearn_hgb
+C001987,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001988,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001989,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001990,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001991,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001992,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001993,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001994,2024-11-01,0.178,Green,[],sklearn_hgb
+C001995,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001996,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001997,2024-11-01,0.0417,Green,[],sklearn_hgb
+C001998,2024-11-01,0.0667,Green,[],sklearn_hgb
+C001999,2024-11-01,0.0852,Green,[],sklearn_hgb

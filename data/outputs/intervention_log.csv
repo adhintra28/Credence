@@ -1,0 +1,13 @@
+customer_id,date,tier,reasons,offer,channel,status,model_version,action_by,note
+C000852,2026-09-03,Amber,[],,console,approved,sklearn_hgb,bank@bank.com,demo approve
+C000537,2026-09-03,Amber,[],,console,snoozed,sklearn_hgb,bank@bank.com,demo snooze
+C000852,2026-09-03,Amber,[],EMI split x2,sms,offered,sklearn_hgb,bank@bank.com,
+C000852,2026-09-03,Amber,[],EMI split x2,sms,accepted,sklearn_hgb,C000852,customer accepted
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,offered,sklearn_hgb,pytest,
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,accepted,sklearn_hgb,pytest,customer accepted
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",,console,snoozed,sklearn_hgb,pytest,test
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,offered,sklearn_hgb,pytest,
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,accepted,sklearn_hgb,pytest,customer accepted
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",,console,snoozed,sklearn_hgb,pytest,test
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]",EMI split x2,app,offered,sklearn_hgb,analyst,
+C000000,2026-09-04,Green,"[""emi_to_income=0.19"", ""avg_balance_28d=561505.24"", ""Low 14d balance Rs.550476""]","payment-holiday (1 EMI pause, no late fee)",call,offered,sklearn_hgb,bank@bank.com,

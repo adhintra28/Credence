@@ -1,0 +1,8 @@
+{
+  "scoring_date": "2024-11-01",
+  "run_at": "2026-09-03T18:29:00.278993+00:00",
+  "n_scores": 2000,
+  "n_alerts": 131,
+  "n_suppressed": 128,
+  "red_cap": 200
+}
