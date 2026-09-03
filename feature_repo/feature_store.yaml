@@ -1,0 +1,10 @@
+# Feature Store (Feast — Open-Source Stack). Install: pip install "feast[redis]"
+# Run: feast apply  (inside feature_repo/)
+project: predelinq
+registry: data/registry.db
+provider: local
+online_store:
+  type: redis
+  connection_string: "localhost:6379"  # TODO: start redis (docker run -p 6379:6379 redis)
+offline_store:
+  type: file

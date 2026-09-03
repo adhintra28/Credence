@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+data/raw/
+data/processed/
+data/outputs/
+models/*.pkl
+models/mlruns/
+*.parquet
+.env
+venv/

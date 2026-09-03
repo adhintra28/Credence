@@ -1,0 +1,9 @@
+<!doctype html><html><body style="font-family:Arial;max-width:900px;margin:20px auto">
+<h2>Bank Console (basic) — {{n}} scored from {{src}}</h2>
+<p>Tier mix: {{mix}}</p>
+<h3>Alerts queue (top 50)</h3>
+<table border="1" cellpadding="6"><tr><th>customer</th><th>tier</th><th>score</th><th>reason</th><th>emi</th><th>exp loss</th><th>action</th></tr>
+{% for r in alerts %}<tr><td>{{r.customer_id}}</td><td>{{r.tier}}</td><td>{{r.score}}</td><td>{{r.top_reason}}</td><td>{{r.emi_amount}}</td><td>{{r.expected_loss}}</td><td>{{r.action}}</td></tr>{% endfor %}
+</table>
+<p><a href="/">logout</a> | Full analytics: run Dash risk dashboard (src/dashboard/risk_dashboard.py)</p>
+</body></html>

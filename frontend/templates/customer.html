@@ -1,0 +1,13 @@
+<!doctype html><html><body style="font-family:Arial;max-width:560px;margin:40px auto">
+<h2>Hi {{cid}} — Account Support (basic)</h2>
+{% if row %}<p>Risk tier: <b>{{row.tier}}</b> (score {{row.score}})</p>
+<p>Why: {% for r in row.reasons %}• {{r}} {% endfor %}</p>{% else %}
+<p>No score yet for this ID — pipeline assigns C000000+. Ask bank console.</p>{% endif %}
+{% if msg %}<p style="color:green">{{msg}}</p>{% endif %}
+<form method="post"><h3>Choose support (before EMI is missed):</h3>
+<label><input type="radio" name="offer" value="payment-holiday" checked> Payment holiday (1 EMI pause)</label><br>
+<label><input type="radio" name="offer" value="split"> EMI split x2</label><br>
+<label><input type="radio" name="offer" value="restructure"> Tenure +3mo</label><br><br>
+<button>Request</button></form>
+<p><a href="/">logout</a></p>
+</body></html>
