@@ -12,6 +12,8 @@ from functools import lru_cache
 import pandas as pd
 import yaml
 
+from src.services import db
+
 CONFIG_PATH = os.environ.get("PREDELINQ_CONFIG", "config.yaml")
 
 
@@ -82,13 +84,19 @@ def latest_scoring_date(cfg=None):
 def get_scores(scoring_date=None, cfg=None):
     p, _ = paths(cfg)
     scoring_date = scoring_date or latest_scoring_date(cfg)
-    fp = f"{p['outputs_dir']}/risk_scores_{scoring_date}.csv"
-    if not os.path.exists(fp):
-        # fall back to latest available
-        fp = _latest(f"{p['outputs_dir']}/risk_scores_*.csv")
-    if not fp or not os.path.exists(fp):
-        return pd.DataFrame(), scoring_date
-    df = pd.read_csv(fp)
+    if db.enabled():
+        df = db.read("scores", scoring_date)
+        if len(df) == 0:
+            _seed_scores(scoring_date, p)
+            df = db.read("scores", scoring_date)
+    else:
+        fp = f"{p['outputs_dir']}/risk_scores_{scoring_date}.csv"
+        if not os.path.exists(fp):
+            # fall back to latest available
+            fp = _latest(f"{p['outputs_dir']}/risk_scores_*.csv")
+        if not fp or not os.path.exists(fp):
+            return pd.DataFrame(), scoring_date
+        df = pd.read_csv(fp)
     # normalise reasons column -> list
     if "reasons" in df.columns:
         def _parse(v):
@@ -102,9 +110,23 @@ def get_scores(scoring_date=None, cfg=None):
     return df, scoring_date
 
 
+def _seed_scores(scoring_date, p):
+    fp = f"{p['outputs_dir']}/risk_scores_{scoring_date}.csv"
+    if os.path.exists(fp) and len(db.read("scores", scoring_date)) == 0:
+        db.seed("scores", pd.read_csv(fp), scoring_date)
+
+
 def get_alerts(scoring_date=None, cfg=None):
     p, _ = paths(cfg)
     scoring_date = scoring_date or latest_scoring_date(cfg)
+    if db.enabled():
+        df = db.read("alerts", scoring_date)
+        if len(df) == 0:
+            fp = f"{p['outputs_dir']}/alerts_{scoring_date}.csv"
+            if os.path.exists(fp):
+                db.seed("alerts", pd.read_csv(fp), scoring_date)
+                df = db.read("alerts", scoring_date)
+        return df, scoring_date
     fp = f"{p['outputs_dir']}/alerts_{scoring_date}.csv"
     if not os.path.exists(fp):
         fp = _latest(f"{p['outputs_dir']}/alerts_*.csv")
@@ -116,6 +138,14 @@ def get_alerts(scoring_date=None, cfg=None):
 def get_features(scoring_date=None, cfg=None):
     p, _ = paths(cfg)
     scoring_date = scoring_date or latest_scoring_date(cfg)
+    if db.enabled():
+        df = db.read("features", scoring_date)
+        if len(df) == 0:
+            fp = f"{p['processed_dir']}/features_{scoring_date}.parquet"
+            if os.path.exists(fp):
+                db.seed("features", pd.read_parquet(fp), scoring_date)
+                df = db.read("features", scoring_date)
+        return df, scoring_date
     fp = f"{p['processed_dir']}/features_{scoring_date}.parquet"
     if not os.path.exists(fp):
         fp = _latest(f"{p['processed_dir']}/features_*.parquet")
@@ -149,7 +179,24 @@ INTERVENTION_COLS = ["customer_id", "date", "tier", "reasons", "offer",
                      "channel", "status", "model_version", "action_by", "note"]
 
 
+def _interventions_db(cfg=None):
+    """DB-backed intervention log: seed once from the bundled CSV, then read DB."""
+    df = db.read("interventions")
+    if len(df) == 0:
+        p, _ = paths(cfg)
+        fp = f"{p['outputs_dir']}/intervention_log.csv"
+        if os.path.exists(fp):
+            db.seed("interventions", pd.read_csv(fp))
+            df = db.read("interventions")
+    for c in INTERVENTION_COLS:
+        if c not in df.columns:
+            df[c] = ""
+    return df
+
+
 def get_interventions(cfg=None):
+    if db.enabled():
+        return _interventions_db(cfg)
     p, _ = paths(cfg)
     fp = f"{p['outputs_dir']}/intervention_log.csv"
     if not os.path.exists(fp):
@@ -167,6 +214,8 @@ def get_interventions(cfg=None):
 
 def append_intervention(row: dict, cfg=None):
     """Append one intervention row, creating header with full schema if needed."""
+    if db.enabled():
+        return db.append("interventions", {c: row.get(c, "") for c in INTERVENTION_COLS})
     p, _ = paths(cfg)
     os.makedirs(p["outputs_dir"], exist_ok=True)
     fp = f"{p['outputs_dir']}/intervention_log.csv"
@@ -194,6 +243,15 @@ ACTION_COLS = ["customer_id", "scoring_date", "action", "action_by", "action_at"
 
 
 def get_alert_actions(cfg=None):
+    if db.enabled():
+        df = db.read("alert_actions")
+        if len(df) == 0:
+            p, _ = paths(cfg)
+            fp = f"{p['outputs_dir']}/alert_actions.csv"
+            if os.path.exists(fp):
+                db.seed("alert_actions", pd.read_csv(fp))
+                df = db.read("alert_actions")
+        return df
     p, _ = paths(cfg)
     fp = f"{p['outputs_dir']}/alert_actions.csv"
     if not os.path.exists(fp):
@@ -206,11 +264,13 @@ def get_alert_actions(cfg=None):
 
 def record_alert_action(customer_id, scoring_date, action, action_by="", note="", cfg=None):
     from datetime import datetime, timezone
+    row = {"customer_id": customer_id, "scoring_date": scoring_date, "action": action,
+           "action_by": action_by, "action_at": datetime.now(timezone.utc).isoformat(), "note": note}
+    if db.enabled():
+        return db.append("alert_actions", row)
     p, _ = paths(cfg)
     os.makedirs(p["outputs_dir"], exist_ok=True)
     fp = f"{p['outputs_dir']}/alert_actions.csv"
-    row = {"customer_id": customer_id, "scoring_date": scoring_date, "action": action,
-           "action_by": action_by, "action_at": datetime.now(timezone.utc).isoformat(), "note": note}
     header = not os.path.exists(fp) or os.path.getsize(fp) == 0
     pd.DataFrame([row]).to_csv(fp, mode="a", header=header, index=False)
     return row

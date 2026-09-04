@@ -20,4 +20,8 @@ services:
         sync: false
       - key: OAUTH_REDIRECT_URI
         sync: false
+      # Database: create a free Render PostgreSQL, copy its Internal URL here.
+      # The portal auto-creates tables and seeds them from the bundled data.
+      - key: DATABASE_URL
+        sync: false
     healthCheckPath: /healthz

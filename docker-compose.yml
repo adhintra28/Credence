@@ -35,9 +35,12 @@ services:
     build: .
     depends_on:
       - app
+      - db
     environment:
       PREDELINQ_CONFIG: config.yaml
       API_BASE_URL: "http://app:8000"
+      # Portal reads/writes portal state (scores, alerts, interventions) from Postgres
+      DATABASE_URL: "postgresql+psycopg2://predelinq:predelinq@db:5432/predelinq"
     ports:
       - "5000:5000"
     volumes:
